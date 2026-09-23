@@ -1,10 +1,6 @@
 <!doctype html>
 <html lang="pt-PT">
 <head>
-<!-- SOCIAL PREVIEW:
-     URL público: https://franciscocunha99.github.io/wedding_adriana_and_francisco/
-     Imagem Open Graph: https://franciscocunha99.github.io/wedding_adriana_and_francisco/preview-social-v2.png
-     O sufixo v2 ajuda a evitar caches antigas do WhatsApp/Facebook. -->
 <meta charset="utf-8">
 <script>
 // Set the envelope layout before the browser can paint the postcard.
@@ -18,17 +14,6 @@ try {
 <meta name="theme-color" content="#102637">
 <meta name="format-detection" content="telephone=no">
 <meta name="description" content="Adriana e Francisco · 6 de maio de 2028. Há dias que queremos guardar. Este queremos vivê-lo contigo.">
-<link rel="canonical" href="https://franciscocunha99.github.io/wedding_adriana_and_francisco/">
-<meta property="og:url" content="https://franciscocunha99.github.io/wedding_adriana_and_francisco/">
-<meta property="og:image" content="https://franciscocunha99.github.io/wedding_adriana_and_francisco/preview-social-v2.png">
-<meta property="og:image:secure_url" content="https://franciscocunha99.github.io/wedding_adriana_and_francisco/preview-social-v2.png">
-<meta property="og:image:type" content="image/png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Adriana & Francisco · 6 de maio de 2028">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://franciscocunha99.github.io/wedding_adriana_and_francisco/preview-social-v2.png">
-<meta name="twitter:image:alt" content="Adriana & Francisco · 6 de maio de 2028">
 <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
 <meta name="referrer" content="no-referrer">
 <meta name="color-scheme" content="light">
@@ -36,8 +21,16 @@ try {
 <meta property="og:type" content="website">
 <meta property="og:title" content="Adriana & Francisco · Guarda este dia">
 <meta property="og:description" content="6 de maio de 2028 · Há dias que queremos guardar. Este queremos vivê-lo contigo.">
+<meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Adriana & Francisco · Guarda este dia">
 <meta name="twitter:description" content="6 de maio de 2028 · Há dias que queremos guardar. Este queremos vivê-lo contigo.">
+<meta property="og:image" content="preview-social.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Adriana & Francisco · 6 de maio de 2028">
+<meta name="twitter:image" content="preview-social.png">
+<meta name="twitter:image:alt" content="Adriana & Francisco · 6 de maio de 2028">
 <title>Adriana & Francisco · Guarda este dia</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preload" href="CormorantGaramond-Regular-400.woff" as="font" type="font/woff" crossorigin>
@@ -350,53 +343,6 @@ html.opening-locked{overscroll-behavior:none;scroll-behavior:auto!important}
 @media(prefers-reduced-motion:reduce){.snapshot,.snapshot-front,.snapshot-back,.snapshot-ghost,.album-dot::after{transition:none!important}}
 @media print{.album-editor,.album-navigation,.album-dots,.album-hint,.snapshot-back,.snapshot-ghost{display:none!important}.couple-album{break-inside:avoid}.snapshot{transform:none!important}.snapshot-front{opacity:1!important;transform:none!important}}
 
-/* A second little keepsake travels with the invitation. */
-.envelope-album{display:flex;flex-basis:100%;align-items:center;justify-content:center;gap:13px;max-width:340px;min-height:46px;color:var(--gold-light);text-decoration:none;margin:3px auto 0;padding:0 5px;opacity:0;transform:translateY(15px);transition:opacity .65s ease,transform .85s cubic-bezier(.16,1,.3,1)}
-.card-actions.is-revealed .envelope-album{opacity:1;transform:translateY(0);transition-delay:.18s}
-.envelope-miniatures{position:relative;display:block;width:74px;height:42px;flex:none}
-.envelope-photo{position:absolute;top:0;left:0;width:29px;height:36px;padding:3px 3px 7px;background:#f6f1e4;box-shadow:0 4px 9px #0004;border:1px solid #c2a46c70;transform:rotate(-10deg)}
-.envelope-photo:nth-child(2){left:22px;top:1px;transform:rotate(1deg)}
-.envelope-photo:nth-child(3){left:43px;transform:rotate(10deg)}
-.envelope-photo img{width:100%;height:100%;object-fit:cover;display:block}
-.envelope-photo .af-mark{display:block;width:100%;height:100%;filter:url(#af-navy)}
-.envelope-album-copy{display:block;text-align:left;font:italic 16px/1.2 var(--serif)}
-.envelope-album-copy small{display:block;font:400 8px/1.4 var(--sans);letter-spacing:.025em;margin-top:3px;color:#c7c9b7}
-.has-envelope-album .card-instruction{position:absolute;width:1px;height:1px;min-height:0;overflow:hidden;clip-path:inset(50%);flex-basis:auto;margin:0}
-.snapshot-stack{isolation:isolate}
-.snapshot-ghost{z-index:1}.ghost-near{z-index:2}
-.snapshot{z-index:3;transform:translateX(var(--album-drag,0px)) rotate(var(--album-lean,-2deg)) scaleX(var(--album-turn-scale,1));transform-origin:50% 50%;transition:transform .5s cubic-bezier(.18,.8,.24,1)}
-.snapshot.is-dragging,.snapshot.is-turning{transition:none}
-.snapshot.is-turning .snapshot-front,.snapshot.is-turning .snapshot-back{transition:none}
-.snapshot.is-turning .snapshot-front,.snapshot.is-turned .snapshot-back{transform:none}
-.snapshot-flight{z-index:5;pointer-events:none!important;transition:none!important;will-change:transform,opacity}
-.album-sleeve{position:absolute;left:-7%;right:-7%;top:62%;bottom:1%;z-index:0;background:linear-gradient(135deg,#244959,#143342);border:1px solid #a2865240;border-radius:2px;box-shadow:0 16px 25px #17333d1c;transform:rotate(1deg)}
-.album-sleeve::before{content:'';position:absolute;left:-1px;right:-1px;height:65px;bottom:100%;background:linear-gradient(145deg,#355766,#193e50);clip-path:polygon(0 100%,50% 0,100% 100%)}
-.album-sleeve::after{content:'';position:absolute;inset:8px;border:1px solid #c7a66c50;clip-path:polygon(0 0,50% 45%,100% 0,100% 100%,0 100%)}
-@media(max-width:600px){.envelope-album{gap:10px;margin-top:1px;min-height:44px}.envelope-album-copy{font-size:15px}.envelope-album-copy small{font-size:7px}.envelope-miniatures{height:38px;transform:scale(.9);transform-origin:center}.album-sleeve{left:-6%;right:-6%}}
-@media(prefers-reduced-motion:reduce){.envelope-album{opacity:1;transform:none;transition:none!important}.snapshot{transition:none!important}}
-@media print{.envelope-album,.album-sleeve,.snapshot-flight{display:none!important}}
-
-/* One motion rhythm: quiet entrances, paper movement, readable resting states. */
-:root{--motion-soft:cubic-bezier(.2,.72,.24,1);--motion-reveal:cubic-bezier(.16,1,.3,1)}
-.reveal-pending{transition:opacity .85s var(--motion-soft),transform 1.05s var(--motion-reveal);transition-delay:var(--reveal-delay,0ms);transform:translateY(18px)}
-.reveal-pending.is-visible{opacity:1;transform:none}
-.place-gallery .photo-button img{animation:none;transition:transform .32s var(--motion-soft),filter .8s ease}
-.place-gallery.is-visible .photo-button::after{transition-duration:1.05s;transition-timing-function:var(--motion-reveal)}
-.is-visible .gold-thread path,.is-visible .chapter-symbol path{transition-timing-function:var(--motion-soft)}
-.month.is-visible .date-ring path{transition-duration:1.65s;transition-timing-function:var(--motion-soft)}
-.calendar-save,.outline-button,.music-section-toggle,.album-arrow{transition:transform .25s var(--motion-soft),background-color .25s ease,color .25s ease,box-shadow .25s ease}
-.calendar-save:active,.outline-button:active,.music-section-toggle:active,.album-arrow:active{transform:translateY(1px) scale(.98)}
-.image-stage{position:relative;overflow:hidden;isolation:isolate}
-.image-stage>.gallery-departing{position:absolute;inset:0;z-index:2;pointer-events:none}
-.image-dialog .image-load-status{font-size:10px;text-align:center;color:#e6d7b9;min-height:0;margin:8px 0 0}
-.image-dialog .image-load-status:empty{display:none}
-.dialog[open]{animation:dialog-arrival .42s var(--motion-reveal) both}
-@keyframes dialog-arrival{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
-.hero-stage:not(.motion-in-view)::before,.hero-stage:not(.motion-in-view)::after,.hero-stage:not(.motion-in-view) .scene::after,.hero-stage:not(.motion-in-view) .seal::after,.message:not(.motion-in-view)::before,.date-section:not(.motion-in-view) .month::after,.date-section:not(.motion-in-view) .countdown-orbit::after,.venue-chapter:not(.motion-in-view)::after,.memory-section:not(.motion-in-view) .memory-emblem,.memory-section:not(.motion-in-view) .memory-emblem::after,.music-section:not(.motion-in-view)::before,.music-section:not(.motion-in-view) .music-disc,.music-section:not(.motion-in-view) .music-disc i,.route-section:not(.motion-in-view) .route-line::after,.faq-section:not(.motion-in-view)::before{animation-play-state:paused}
-.motion-paused *,.motion-paused *::before,.motion-paused *::after{animation-play-state:paused!important}
-@media(prefers-reduced-motion:reduce){.dialog[open]{animation:none!important}.reveal-pending{transition:none!important;opacity:1;transform:none}.place-gallery .photo-button img{transform:none!important;transition:none!important}.calendar-save,.outline-button,.music-section-toggle,.album-arrow{transition:none!important}.calendar-save:active,.outline-button:active,.music-section-toggle:active,.album-arrow:active{transform:none}}
-
-.keepsake.reveal-pending.is-visible{transform:rotate(1.5deg)}
 </style>
 </head>
 <body>
@@ -439,7 +385,7 @@ html.opening-locked{overscroll-behavior:none;scroll-behavior:auto!important}
    <div class="envelope-pocket" aria-hidden="true"><div class="fold fold-left"></div><div class="fold fold-right"></div><div class="fold fold-bottom"></div></div>
    <div class="envelope-light" aria-hidden="true"></div><button class="seal" type="button" aria-label="Abrir o envelope e revelar o cartão" aria-controls="convite" aria-expanded="false"><svg class="af-mark" aria-hidden="true"><use href="#af-mark"/></svg><span class="seal-word">Abrir</span></button><p class="seal-hint">Um toque no selo. Uma pequena surpresa.<span>Também podes deslizar para baixo.</span></p>
   </div>
-  <div class="card-actions"><button class="text-button" id="flip-card" type="button" aria-pressed="false" hidden>Ver o verso <span aria-hidden="true">↻</span></button><a class="text-button" href="#mensagem">Continua a descobrir <span aria-hidden="true">↓</span></a><a class="envelope-album" id="envelope-album" href="#antes-do-sim" hidden><span class="envelope-miniatures" aria-hidden="true"><span class="envelope-photo"><img alt="" draggable="false" decoding="async" hidden><svg class="af-mark" aria-hidden="true"><use href="#af-wreath"/></svg></span><span class="envelope-photo"><img alt="" draggable="false" decoding="async" hidden><svg class="af-mark" aria-hidden="true"><use href="#af-wreath"/></svg></span><span class="envelope-photo"><img alt="" draggable="false" decoding="async" hidden><svg class="af-mark" aria-hidden="true"><use href="#af-wreath"/></svg></span></span><span class="envelope-album-copy">Também vinha uma memória.<small>Descobrir as nossas fotografias ↓</small></span></a><p class="card-instruction" id="card-instruction">Arrasta para os lados com o rato ou o dedo. Ou toca em «Ver o verso».</p></div><div class="hero-scroll-progress" aria-hidden="true"></div>
+  <div class="card-actions"><button class="text-button" id="flip-card" type="button" aria-pressed="false" hidden>Ver o verso <span aria-hidden="true">↻</span></button><a class="text-button" href="#mensagem">Continua a descobrir <span aria-hidden="true">↓</span></a><p class="card-instruction" id="card-instruction">Arrasta para os lados com o rato ou o dedo. Ou toca em «Ver o verso».</p></div><div class="hero-scroll-progress" aria-hidden="true"></div>
  </div>
 </section>
 <section class="section message" id="mensagem" aria-labelledby="message-title"><div class="wrap">
@@ -450,10 +396,10 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
 </div></section>
 <section class="section couple-album" id="antes-do-sim" aria-labelledby="album-title" hidden>
  <div class="wrap">
-  <div class="album-heading" data-reveal><p class="kicker">Também vinha no envelope</p><h2 class="section-title" id="album-title">Guardámos mais<br><em>um bocadinho de nós.</em></h2><p>O grande dia ainda vem aí.<br>Entretanto, ficam estes bocadinhos de nós.</p></div>
+  <div class="album-heading" data-reveal><p class="kicker">Antes do sim</p><h2 class="section-title" id="album-title">A vida já tinha<br><em>as nossas fotografias.</em></h2><p>O grande dia ainda vem aí.<br>Entretanto, ficam estes bocadinhos de nós.</p></div>
   <div class="album-stage" data-reveal>
    <p class="album-preview-label" id="album-preview-label" hidden>Pré-visualização · as vossas fotos entram aqui</p>
-   <div class="snapshot-stack"><div class="album-sleeve" aria-hidden="true"></div>
+   <div class="snapshot-stack">
     <div class="snapshot-ghost ghost-far" aria-hidden="true"><img alt="" draggable="false" hidden></div>
     <div class="snapshot-ghost ghost-near" aria-hidden="true"><img alt="" draggable="false" hidden></div>
     <button class="snapshot" id="album-card" type="button" aria-pressed="false" aria-label="Virar esta memória para ler a legenda" aria-describedby="album-hint">
@@ -522,21 +468,27 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
      ao bloco wedding-settings para a partilha usar sempre o URL oficial.
      O favicon original permanece em favicon.svg. -->
 <!-- PRÉ-VISUALIZAÇÃO SOCIAL:
-     O ficheiro preview-social-v2.png é usado por WhatsApp, iMessage, Facebook e outras partilhas.
+     O ficheiro preview-social.png é usado por WhatsApp, iMessage, Facebook e outras partilhas.
      Para máxima compatibilidade em produção, quando souberes o URL final do GitHub Pages,
      podes trocar o content de og:image / twitter:image por um URL absoluto. -->
-<script id="wedding-settings" type="application/json">{"date":"2028-05-06","ceremony":"Igreja Nova de São José de Arcozelo","ceremonyDetail":"Rua das Calçadas · Arcozelo · Barcelos","ceremonyMapUrl":"https://www.google.com/maps/search/?api=1&query=41.54277162412671%2C-8.6127274001638","location":"Colina do Romão","locationDetail":"Rua do Moleiro, 266 · 4775-460 Nine · Vila Nova de Famalicão","title":"Casamento da Adriana e do Francisco","message":"Vamos casar a 6 de maio de 2028. Começamos na Igreja Nova de São José de Arcozelo, em Barcelos, e seguimos para a Colina do Romão, em Nine. Guarda este dia para o viver connosco.","timeZone":"Europe/Lisbon","audio":"musica-convite.mp3","couplePhotos":"couplePhotos": [
-    {
-      "src": "quinta-01.png",
-      "label": "Uma fotografia nossa",
-      "note": "Uma memória."
-    },
-    {
-      "src": "quinta-02.png",
-      "label": "A nossa melhor companhia",
-      "note": "Contigo, até os dias mais simples ficam na memória."
-    }
-  ],"caption":"Um dia nosso.\nUma memória de todos.","personalMessage":"Ainda há muito para preparar. Mas há uma coisa que já sabemos: queremos viver este dia com as pessoas de quem gostamos. Com os abraços demorados, as conversas à mesa e aquela vontade de ficar só mais uma dança.","secretMessage":"O dia já está escolhido.\nO abraço fica guardado para ti.","mapUrl":"https://www.google.com/maps/search/?api=1&query=Rua%20do%20Moleiro%20266%204775-460%20Nine%20Vila%20Nova%20de%20Famalic%C3%A3o","postWeddingMessage":"Foi ainda mais bonito porque estiveste connosco. Obrigado por fazeres parte desta memória.","publicUrl":"https://franciscocunha99.github.io/wedding_adriana_and_francisco/"}</script>
+<script id="wedding-settings" type="application/json">{
+  "date": "2028-05-06",
+  "ceremony": "Igreja Nova de São José de Arcozelo",
+  "ceremonyDetail": "Rua das Calçadas · Arcozelo · Barcelos",
+  "ceremonyMapUrl": "https://www.google.com/maps/search/?api=1&query=41.54277162412671%2C-8.6127274001638",
+  "location": "Colina do Romão",
+  "locationDetail": "Rua do Moleiro, 266 · 4775-460 Nine · Vila Nova de Famalicão",
+  "title": "Casamento da Adriana e do Francisco",
+  "message": "Vamos casar a 6 de maio de 2028. Começamos na Igreja Nova de São José de Arcozelo, em Barcelos, e seguimos para a Colina do Romão, em Nine. Guarda este dia para o viver connosco.",
+  "timeZone": "Europe/Lisbon",
+  "audio": "musica-convite.mp3",
+  "couplePhotos": [],
+  "caption": "Um dia nosso.\nUma memória de todos.",
+  "personalMessage": "Ainda há muito para preparar. Mas há uma coisa que já sabemos: queremos viver este dia com as pessoas de quem gostamos. Com os abraços demorados, as conversas à mesa e aquela vontade de ficar só mais uma dança.",
+  "secretMessage": "O dia já está escolhido.\nO abraço fica guardado para ti.",
+  "mapUrl": "https://www.google.com/maps/search/?api=1&query=Rua%20do%20Moleiro%20266%204775-460%20Nine%20Vila%20Nova%20de%20Famalic%C3%A3o",
+  "postWeddingMessage": "Foi ainda mais bonito porque estiveste connosco. Obrigado por fazeres parte desta memória."
+}</script>
 <script>
 (() => {
   'use strict';
@@ -548,30 +500,13 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
   const $$ = (s, root = document) => [...root.querySelectorAll(s)];
   const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
   const mix = (a, b, t) => a + (b - a) * t;
-  const ease = t => t * t * t * (t * (t * 6 - 15) + 10);
+  const ease = t => t * t * (3 - 2 * t);
   const phase = (v, a, b) => ease(clamp((v - a) / (b - a)));
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
   const webURL = value => { try { const u = new URL(value); return /^(https?:)$/.test(u.protocol) ? u.href : ''; } catch { return ''; } };
   const text = (id, value) => { if (typeof value === 'string' && value.trim()) $(id).textContent = value; };
   const listenMedia = (q, fn) => q.addEventListener ? q.addEventListener('change', fn) : q.addListener(fn);
   function module(name, fn) { try { fn(); } catch (e) { if(name === 'envelope'){document.documentElement.classList.remove('motion-ready');$$('.hero [style]').forEach(el=>el.removeAttribute('style'));}if(name === 'revelações')$$('.reveal-pending').forEach(el=>el.classList.remove('reveal-pending'));console.warn('Convite · ' + name, e); } }
-  // Decode external assets before transitions; keep the visible photograph in place.
-  const imageCache=new Map();
-  function prepareImage(src){
-    if(imageCache.has(src))return imageCache.get(src);
-    const pending=new Promise((resolve,reject)=>{
-      const image=new Image();image.decoding='async';let loaded=false;
-      function ready(){if(loaded)return;loaded=true;image.onload=image.onerror=null;
-        if(typeof image.decode==='function')image.decode().catch(()=>{}).then(()=>resolve(image));else resolve(image);
-      }
-      image.onload=ready;image.onerror=()=>{image.onload=image.onerror=null;reject(Error('Image unavailable'));};
-      image.src=src;if(image.complete&&image.naturalWidth)ready();
-    });
-    imageCache.set(src,pending);pending.catch(()=>imageCache.delete(src));
-    if(imageCache.size>14)imageCache.delete(imageCache.keys().next().value);
-    return pending;
-  }
-
   let playTone = () => {};
 
   module('textos', () => {
@@ -702,8 +637,7 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
       const sh = stage.clientHeight, eh = scene.clientHeight, ch = front.offsetHeight;
       geo = { sh, eh, ch, top: scene.offsetTop - eh / 2, range: Math.max(1, hero.offsetHeight - sh), x: stage.clientWidth / 2 - scene.offsetLeft };
       geo.small = Math.min(.9, (eh - 20) / ch);
-      geo.reserve = Math.max(144, actions.offsetHeight + 82);
-      geo.full = Math.max(.2, Math.min(1, (sh - geo.reserve) / ch));
+      geo.full = Math.max(.2, Math.min(1, (sh - 144) / ch));
       const sceneStyle=getComputedStyle(scene);
       geo.perspective=parseFloat(sceneStyle.perspective||sceneStyle.webkitPerspective)||2000;
       if(!opening)current = getProgress(); paint(current); requestPaint();
@@ -719,7 +653,7 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
       const unseal = phase(p, 0, .13), flapOpen = phase(p, .13, .38), pull = phase(p, .40, .70), settle = phase(p, .73, .985);
       const sink = eh * .29 * flapOpen, startY = (eh - ch * small) / 2;
       const liftedY = Math.max(82, (sh - ch * small) / 2 - 24) - top;
-      const finalY = 56 + (sh - geo.reserve - ch * full) / 2 - top;
+      const finalY = 56 + (sh - 144 - ch * full) / 2 - top;
       const clearance = liftedY + ch * small + 28;
       const shellY = mix(sink, clearance, pull) + sh * .9 * settle;
       const opacity = 1 - phase(p, .79, .99);
@@ -739,7 +673,7 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
       card.style.setProperty('--shine', String(Math.sin(settle * Math.PI) * .8));
       const readable=p>.995&&!opening;
       card.classList.toggle('is-open',readable);card.toggleAttribute('inert',!readable);card.tabIndex=readable?0:-1;
-      actions.toggleAttribute('inert',!readable);$('#flip-card').disabled=!readable;actions.classList.toggle('is-revealed',readable);
+      actions.toggleAttribute('inert',!readable);$('#flip-card').disabled=!readable;
       seal.classList.toggle('is-releasing',unseal>0);
       seal.style.transform = `translate(-50%,-50%) translateY(${-42 * unseal}px) rotate(${-9 * unseal}deg) scale(${1 + .12 * unseal})`;
       seal.style.opacity = 1 - unseal;
@@ -766,13 +700,13 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
     }
     function requestPaint() { if (active && !opening && !raf) { lastTime = 0; raf = requestAnimationFrame(frame); } }
     function cancelAuto() { if (autoFrame) cancelAnimationFrame(autoFrame); autoFrame = 0; }
-    function moveTo(top, duration, done) {
+    function moveTo(top, duration) {
       cancelAuto();
       const from = scrollY, distance = top - from, start = performance.now();
       function tick(now) {
         const p = clamp((now - start) / duration);
         window.scrollTo({top: from + distance * ease(p), behavior:'auto'});
-        if (p < 1) autoFrame = requestAnimationFrame(tick); else {autoFrame = 0;done?.();}
+        if (p < 1) autoFrame = requestAnimationFrame(tick); else autoFrame = 0;
       }
       autoFrame = requestAnimationFrame(tick);
     }
@@ -790,13 +724,6 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
       if(!opening&&movingDown&&canStart()&&getProgress()>.003)beginOpening();else requestPaint();
     },{passive:true});
     window.addEventListener('resize', measure, {passive:true});
-    window.addEventListener('album:ready',measure);
-    $('#envelope-album').addEventListener('click',event=>{
-      const target=$('#antes-do-sim');if(target.hidden)return;event.preventDefault();
-      const destination=scrollY+target.getBoundingClientRect().top-20;
-      const arrived=()=>{target.dispatchEvent(new Event('album:arrive'));$('#album-card').focus({preventScroll:true});};
-      if(active&&!reduce.matches)moveTo(destination,1500,arrived);else{window.scrollTo({top:destination,behavior:'auto'});arrived();}
-    });
     const continueLink = $('a[href="#mensagem"]');
     continueLink.addEventListener('click', e => {
       e.preventDefault();
@@ -812,7 +739,7 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
       cancelAuto(); active = !reduce.matches;
       document.documentElement.classList.toggle('motion-ready', active);
       if (active) measure();
-      else { cancelAnimationFrame(raf); raf = 0; originalStyles.forEach((value, el) => value === null ? el.removeAttribute('style') : el.setAttribute('style',value)); card.classList.add('is-open');card.removeAttribute('inert');card.tabIndex=0;actions.removeAttribute('inert');actions.classList.add('is-revealed');$('#flip-card').disabled=false; }
+      else { cancelAnimationFrame(raf); raf = 0; originalStyles.forEach((value, el) => value === null ? el.removeAttribute('style') : el.setAttribute('style',value)); card.classList.add('is-open');card.removeAttribute('inert');card.tabIndex=0;actions.removeAttribute('inert');$('#flip-card').disabled=false; }
     }
     const turn=$('.card-turn'),back=$('.card-back'),flip=$('#flip-card'),tilt=$('.card-tilt');
     const surprise=$('#back-surprise'),secret=$('#back-secret');
@@ -1000,7 +927,7 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
     listenMedia(reduce, mode); mode();
 
 
-    if (window.ResizeObserver) { const ro = new ResizeObserver(measure); ro.observe(front); ro.observe(stage); ro.observe(actions); }
+    if (window.ResizeObserver) { const ro = new ResizeObserver(measure); ro.observe(front); ro.observe(stage); }
     if (document.fonts) document.fonts.ready.then(measure);
   });
 
@@ -1085,232 +1012,68 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
   });
 
   module('galerias', () => {
-    const dialog=$('.image-dialog'),image=$('#large-photo'),caption=$('#image-caption'),surface=$('.image-stage');
-    const status=document.createElement('p');status.className='image-load-status';status.setAttribute('role','status');dialog.append(status);
-    let group=[],index=0,request=0,start=null,entrance=null,exit=null,previous=null;
-    function clearMotion(){entrance?.cancel();exit?.cancel();entrance=null;exit=null;previous?.remove();previous=null;}
-    async function show(i){
-      if(!group.length)return;
-      const direction=i<index?-1:1;index=(i+group.length)%group.length;
-      const version=++request,target=index,thumb=$('img',group[target]);
-      surface.setAttribute('aria-busy','true');status.textContent='';
-      try{await prepareImage(thumb.src);}catch(_){if(version===request){surface.removeAttribute('aria-busy');status.textContent='Não foi possível abrir esta fotografia. Tenta novamente.';}return;}
-      if(version!==request)return;
-      clearMotion();const animate=!reduce.matches&&typeof image.animate==='function';
-      if(animate&&image.hasAttribute('src')){previous=image.cloneNode(false);previous.removeAttribute('id');previous.alt='';previous.setAttribute('aria-hidden','true');previous.className='gallery-departing';surface.append(previous);}
-      image.src=thumb.src;image.alt=thumb.alt;caption.textContent=thumb.alt;
-      const count=document.createElement('small');count.textContent=String(target+1).padStart(2,'0')+' / '+String(group.length).padStart(2,'0');caption.append(count);
-      surface.removeAttribute('aria-busy');
-      if(animate){
-        entrance=image.animate([{opacity:.35,transform:`translateX(${direction*12}px) scale(1.025)`},{opacity:1,transform:'translateX(0) scale(1)'}],{duration:620,easing:'cubic-bezier(.2,.7,.25,1)'});
-        if(previous){const departing=previous;exit=departing.animate([{opacity:1},{opacity:0}],{duration:360,easing:'ease-out',fill:'forwards'});const clean=()=>{departing.remove();if(previous===departing)previous=null;};exit.finished.then(clean,clean);}
-      }
-    }
-    $$('[data-gallery]').forEach(button=>button.addEventListener('click',()=>{++request;clearMotion();image.removeAttribute('src');image.alt='';caption.textContent='';group=$$('[data-gallery="'+button.dataset.gallery+'"]');index=group.indexOf(button);openDialog(dialog);show(index);}));
+    const dialog=$('.image-dialog'),image=$('#large-photo'),caption=$('#image-caption');let group=[],index=0,start;
+    function show(i){index=(i+group.length)%group.length;const item=group[index],img=$('img',item);image.src=img.src;image.alt=img.alt;caption.textContent=img.alt;const count=document.createElement('small');count.textContent=String(index+1).padStart(2,'0')+' / '+String(group.length).padStart(2,'0');caption.appendChild(count);if(!reduce.matches&&image.animate)image.animate([{opacity:.3,transform:'scale(.98)'},{opacity:1,transform:'scale(1)'}],{duration:500,easing:'ease-out'});}
+    $$('[data-gallery]').forEach(b=>b.addEventListener('click',()=>{group=$$('[data-gallery="'+b.dataset.gallery+'"]');show(group.indexOf(b));openDialog(dialog);}));
     $('#photo-previous').addEventListener('click',()=>show(index-1));$('#photo-next').addEventListener('click',()=>show(index+1));
-    dialog.addEventListener('keydown',event=>{if(event.key==='ArrowLeft'){event.preventDefault();show(index-1);}if(event.key==='ArrowRight'){event.preventDefault();show(index+1);}});
-    surface.addEventListener('pointerdown',event=>{if(event.isPrimary!==false)start={id:event.pointerId,x:event.clientX,y:event.clientY};});
-    surface.addEventListener('pointerup',event=>{if(start?.id===event.pointerId&&Math.abs(event.clientX-start.x)>45&&Math.abs(event.clientX-start.x)>Math.abs(event.clientY-start.y))show(index+(event.clientX<start.x?1:-1));start=null;});
-    surface.addEventListener('pointercancel',()=>start=null);
-    function close(){++request;start=null;clearMotion();surface.removeAttribute('aria-busy');status.textContent='';}
-    dialog.addEventListener('close',close);$('.dialog-close',dialog).addEventListener('click',close);listenMedia(reduce,clearMotion);
+    dialog.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){e.preventDefault();show(index-1);}if(e.key==='ArrowRight'){e.preventDefault();show(index+1);}});
+    const surface=$('.image-stage');surface.addEventListener('pointerdown',e=>{start={x:e.clientX,y:e.clientY};});
+    surface.addEventListener('pointerup',e=>{if(start&&Math.abs(e.clientX-start.x)>45&&Math.abs(e.clientX-start.x)>Math.abs(e.clientY-start.y))show(index+(e.clientX<start.x?1:-1));start=null;});surface.addEventListener('pointercancel',()=>start=null);
   });
-
 
   module('o nosso álbum', () => {
     const section=$('#antes-do-sim'),card=$('#album-card');
-    // Keep photographs as repository paths; never embed or rewrite their files.
-    const validPhoto=p=>{
-      if(!p||typeof p.src!=='string'||!p.src.trim())return false;
-      try{return /^(https?:|file:)$/.test(new URL(p.src.trim(),location.href).protocol);}catch(_){return false;}
-    };
-    const photos=(Array.isArray(W.couplePhotos)?W.couplePhotos:[]).filter(validPhoto).slice(0,6).map(p=>({src:p.src.trim(),label:String(p.label||'Um bocadinho de nós').slice(0,70),note:String(p.note||'').slice(0,260)}));
+    // Fotografias do álbum: ficheiros na mesma pasta. Ex.: casal-01.png
+    const validPhoto=p=>p&&typeof p.src==='string'&&p.src.trim()&&!/^data:/i.test(p.src.trim());
+    const photos=(Array.isArray(W.couplePhotos)?W.couplePhotos:[]).filter(validPhoto).slice(0,6).map(p=>({
+      src:p.src.trim(),label:String(p.label||'Um bocadinho de nós').slice(0,70),note:String(p.note||'').slice(0,260)
+    }));
     if(!photos.length)return;
     section.hidden=false;
     const image=$('#album-photo'),placeholder=$('#album-placeholder'),caption=$('#album-caption'),note=$('#album-note');
     const front=$('.snapshot-front',card),back=$('.snapshot-back',card),dots=$('#album-dots');
-    const envelopeLink=$('#envelope-album'),envelopeActions=$('.card-actions');
-    let index=0,requestedIndex=0,photoRequest=0,turned=false,drag=null,suppressUntil=0,entrance=null,exitAnimation=null,flight=null,flipFrame=0;
-    const entries=()=>photos;
-    function putImage(img,entry){
-      if(entry?.src){img.src=entry.src;img.hidden=false;}
-      else{img.hidden=true;img.removeAttribute('src');}
-    }
-    function stopFlip(){
-      cancelAnimationFrame(flipFrame);flipFrame=0;
-      card.classList.remove('is-turning');card.style.removeProperty('--album-turn-scale');
-      card.classList.toggle('is-turned',turned);
-    }
-    function stopMotion(){
-      entrance?.cancel();exitAnimation?.cancel();entrance=null;exitAnimation=null;
-      flight?.remove();flight=null;stopFlip();
-    }
-    function cancelPhotoRequest(){++photoRequest;requestedIndex=index;card.removeAttribute('aria-busy');}
-    function setTurn(value,animate=true){
-      const previous=turned;stopFlip();turned=value;
-      card.setAttribute('aria-pressed',String(value));
-      card.setAttribute('aria-label',value?'Voltar à fotografia: '+entries()[index].label:'Virar esta memória para ler a legenda: '+entries()[index].label);
+    let index=0,turned=false,drag=null,suppressUntil=0,entrance=null;
+    function putImage(img,entry){img.src=entry.src;img.hidden=false;}
+    function setTurn(value){
+      turned=value;card.classList.toggle('is-turned',value);card.setAttribute('aria-pressed',String(value));
+      card.setAttribute('aria-label',value?'Voltar à fotografia: '+photos[index].label:'Virar esta memória para ler a legenda: '+photos[index].label);
       front.setAttribute('aria-hidden',String(value));back.setAttribute('aria-hidden',String(!value));
-      if(!animate||reduce.matches||previous===value){card.classList.toggle('is-turned',value);return;}
-      entrance?.cancel();entrance=null;
-      const start=performance.now();card.classList.add('is-turning');
-      function turnFrame(now){
-        const progress=clamp((now-start)/620),curved=ease(progress);
-        card.style.setProperty('--album-turn-scale',String(Math.max(.025,Math.abs(Math.cos(Math.PI*curved)))));
-        card.classList.toggle('is-turned',progress>=.5?value:previous);
-        if(progress<1)flipFrame=requestAnimationFrame(turnFrame);else stopFlip();
-      }
-      flipFrame=requestAnimationFrame(turnFrame);
-    }
-    function syncEnvelope(){
-      if(!envelopeLink)return;
-      const list=entries();envelopeLink.hidden=false;envelopeActions.classList.add('has-envelope-album');
-      $$('.envelope-photo',envelopeLink).forEach((frame,i)=>{
-        frame.hidden=i>=list.length;const entry=list[i];putImage($('img',frame),entry);$('svg',frame).toggleAttribute('hidden',!!entry?.src);
-      });
-      window.dispatchEvent(new Event('album:ready'));
     }
     function render(direction=0,announce=false){
-      const list=entries(),entry=list[index=(index+list.length)%list.length];
-      stopMotion();setTurn(false,false);
-      putImage(image,entry);image.alt=entry.label+' · Adriana e Francisco';placeholder.hidden=!!entry.src;
-      caption.textContent=entry.label;note.textContent=entry.note||'O melhor desta fotografia é quem está nela.';
-      $$('.snapshot-ghost').forEach((ghost,i)=>{ghost.hidden=list.length<=i+1;putImage($('img',ghost),list[(index+i+1)%list.length]);});
-      $('#album-counter').textContent=String(index+1).padStart(2,'0')+' / '+String(list.length).padStart(2,'0');
-      $('#album-previous').disabled=$('#album-next').disabled=list.length<2;
-      $('#album-hint').textContent=list.length>1?'Desliza para outra memória. Toca para descobrir o verso.':'Toca na fotografia. Há mais do outro lado.';
-      $('#album-preview-label').hidden=!!photos.length;
-      if(dots.children.length!==list.length){
-        dots.replaceChildren();list.forEach((_,i)=>{const button=document.createElement('button');button.type='button';button.className='album-dot';button.addEventListener('click',()=>go(i-requestedIndex));dots.append(button);});
-      }
-      [...dots.children].forEach((button,i)=>{button.setAttribute('aria-current',String(i===index));button.setAttribute('aria-label','Ver fotografia '+(i+1)+': '+list[i].label);});
-      dots.hidden=list.length<2;
-      if(direction&&!reduce.matches&&typeof card.animate==='function')entrance=card.animate([{opacity:.7,transform:`translate(${direction*12}px,18px) rotate(${direction*5}deg) scale(.96)`},{opacity:1,transform:'translate(0,-3px) rotate(-1deg) scale(1.006)',offset:.76},{opacity:1,transform:'translate(0,0) rotate(-2deg) scale(1)'}],{duration:680,easing:'cubic-bezier(.22,.72,.28,1)'});
-      if(announce)$('#album-announcement').textContent='Fotografia '+(index+1)+' de '+list.length+'. '+entry.label;
+      const entry=photos[index=(index+photos.length)%photos.length];entrance?.cancel();entrance=null;setTurn(false);
+      putImage(image,entry);image.alt=entry.label+' · Adriana e Francisco';placeholder.hidden=true;caption.textContent=entry.label;note.textContent=entry.note||'O melhor desta fotografia é quem está nela.';
+      $$('.snapshot-ghost').forEach((ghost,i)=>{ghost.hidden=photos.length<=i+1;if(!ghost.hidden)putImage($('img',ghost),photos[(index+i+1)%photos.length]);});
+      $('#album-counter').textContent=String(index+1).padStart(2,'0')+' / '+String(photos.length).padStart(2,'0');
+      $('#album-previous').disabled=$('#album-next').disabled=photos.length<2;$('#album-hint').textContent=photos.length>1?'Desliza para outra memória. Toca para descobrir o verso.':'Toca na fotografia. Há mais do outro lado.';$('#album-preview-label').hidden=true;
+      if(dots.children.length!==photos.length){dots.replaceChildren();photos.forEach((_,i)=>{const button=document.createElement('button');button.type='button';button.className='album-dot';button.addEventListener('click',()=>go(i-index));dots.append(button);});}
+      [...dots.children].forEach((button,i)=>{button.setAttribute('aria-current',String(i===index));button.setAttribute('aria-label','Ver fotografia '+(i+1)+': '+photos[i].label);});dots.hidden=photos.length<2;
+      if(direction&&!reduce.matches&&typeof card.animate==='function')entrance=card.animate([{opacity:0,transform:`translateX(${direction*24}px) rotate(${direction*4}deg)`},{opacity:1,transform:'translateX(0) rotate(-2deg)'}],{duration:480,easing:'cubic-bezier(.22,.61,.36,1)'});
+      if(announce)$('#album-announcement').textContent='Fotografia '+(index+1)+' de '+photos.length+'. '+entry.label;
     }
-    async function go(step,pose){
-      if(!step||entries().length<2)return;
-      const next=(requestedIndex+step+entries().length)%entries().length,request=++photoRequest;
-      requestedIndex=next;card.setAttribute('aria-busy','true');
-      try{await prepareImage(photos[next].src);}catch(_){
-        if(request===photoRequest){requestedIndex=index;card.removeAttribute('aria-busy');$('#album-announcement').textContent='Não foi possível carregar esta fotografia. Tenta novamente.';}return;
-      }
-      if(request!==photoRequest)return;card.removeAttribute('aria-busy');
-      const animate=!reduce.matches&&typeof card.animate==='function',direction=Math.sign(step);
-      const oldTransform=pose||getComputedStyle(card).transform;
-      const departing=animate?card.cloneNode(true):null;
-      if(departing){
-        departing.removeAttribute('id');departing.removeAttribute('aria-describedby');departing.removeAttribute('aria-label');
-        $$('[id]',departing).forEach(el=>el.removeAttribute('id'));
-        departing.classList.remove('is-dragging','is-turning');departing.classList.add('snapshot-flight');
-        departing.setAttribute('aria-hidden','true');departing.setAttribute('inert','');departing.tabIndex=-1;departing.disabled=true;
-      }
-      index=next;render(direction,true);
-      if(departing){
-        flight=departing;card.parentElement.append(departing);
-        const distance=Math.max(130,Math.min(280,card.clientWidth*.78));
-        const animation=exitAnimation=departing.animate([{opacity:1,transform:oldTransform==='none'?'rotate(-2deg)':oldTransform},{opacity:1,transform:`translate(${-direction*distance*.72}px,-25px) rotate(${-direction*15}deg) scale(.99)`,offset:.6},{opacity:0,transform:`translate(${-direction*distance}px,-10px) rotate(${-direction*20}deg) scale(.94)`}],{duration:570,easing:'cubic-bezier(.32,.02,.26,1)',fill:'forwards'});
-        const clean=()=>{departing.remove();if(flight===departing){flight=null;exitAnimation=null;}};
-        animation.finished.then(clean,clean);
-      }
-    }
+    function go(step){if(!step||photos.length<2)return;index=(index+step+photos.length)%photos.length;render(Math.sign(step),true);}
     $('#album-previous').addEventListener('click',()=>go(-1));$('#album-next').addEventListener('click',()=>go(1));
-    card.addEventListener('click',event=>{if(performance.now()<suppressUntil){event.preventDefault();return;}cancelPhotoRequest();setTurn(!turned);});
-    card.addEventListener('keydown',event=>{
-      if(event.key==='ArrowLeft'||event.key==='ArrowRight'){event.preventDefault();go(event.key==='ArrowRight'?1:-1);}
-      if(event.key==='Escape'){event.preventDefault();setTurn(false);}
-    });
-    card.addEventListener('dragstart',event=>event.preventDefault());
-    function startDrag(id,x,y,event){
-      if(drag||entries().length<2)return;
-      cancelPhotoRequest();stopMotion();drag={id,x,y,dx:0,active:false,lastX:x,lastTime:performance.now(),velocity:0};
-      if(event.type==='mousedown'||event.pointerType==='mouse'){event.preventDefault();card.focus({preventScroll:true});}
-    }
-    function moveDrag(id,x,y,event){
-      if(!drag||drag.id!==id)return;
-      const dx=x-drag.x,dy=y-drag.y;
-      if(!drag.active){
-        if(Math.max(Math.abs(dx),Math.abs(dy))<9)return;
-        if(Math.abs(dy)>Math.abs(dx)*1.1){endDrag(true);return;}
-        if(Math.abs(dx)<Math.abs(dy)*1.1)return;
-        drag.active=true;card.classList.add('is-dragging');
-        if(event.pointerId!==undefined)try{card.setPointerCapture(id);}catch(_){}
-      }
-      if(event.cancelable)event.preventDefault();drag.dx=dx;
-      const now=performance.now();drag.velocity=(x-drag.lastX)/Math.max(1,now-drag.lastTime);drag.lastX=x;drag.lastTime=now;
-      if(!reduce.matches){card.style.setProperty('--album-drag',clamp(dx,-110,110)+'px');card.style.setProperty('--album-lean',(-2+clamp(dx/24,-5,5))+'deg');}
-    }
-    function endDrag(cancelled=false){
-      if(!drag)return;const previous=drag,pose=getComputedStyle(card).transform;drag=null;
-      try{if(card.hasPointerCapture?.(previous.id))card.releasePointerCapture(previous.id);}catch(_){}
-      card.classList.remove('is-dragging');card.style.removeProperty('--album-drag');card.style.removeProperty('--album-lean');
-      const flick=Math.abs(previous.dx)>18&&performance.now()-previous.lastTime<100&&Math.abs(previous.velocity)>.5;
-      if(previous.active){suppressUntil=performance.now()+400;if(!cancelled&&(Math.abs(previous.dx)>42||flick))go(previous.dx<0?1:-1,pose);}
-    }
-    if(window.PointerEvent){
-      card.addEventListener('pointerdown',e=>{if(e.isPrimary!==false&&e.button===0)startDrag(e.pointerId,e.clientX,e.clientY,e);});
-      window.addEventListener('pointermove',e=>{if(e.pointerType==='mouse'&&e.buttons===0){endDrag(true);return;}moveDrag(e.pointerId,e.clientX,e.clientY,e);},{passive:false});
-      window.addEventListener('pointerup',e=>{if(drag?.id===e.pointerId)endDrag();});
-      window.addEventListener('pointercancel',e=>{if(drag?.id===e.pointerId)endDrag(true);});
-      card.addEventListener('lostpointercapture',e=>{if(drag?.id===e.pointerId)endDrag(true);});
-    }else{
-      let lastTouch=-Infinity;
-      card.addEventListener('mousedown',e=>{if(e.button===0&&performance.now()-lastTouch>800)startDrag('mouse',e.clientX,e.clientY,e);});
-      window.addEventListener('mousemove',e=>moveDrag('mouse',e.clientX,e.clientY,e));
-      window.addEventListener('mouseup',()=>{if(drag?.id==='mouse')endDrag();});
-      card.addEventListener('touchstart',e=>{lastTouch=performance.now();if(e.touches.length!==1){endDrag(true);return;}const t=e.touches[0];startDrag(t.identifier,t.clientX,t.clientY,e);},{passive:true});
-      window.addEventListener('touchmove',e=>{if(!drag)return;if(e.touches.length!==1){endDrag(true);return;}const t=Array.from(e.touches).find(t=>t.identifier===drag.id);if(t)moveDrag(t.identifier,t.clientX,t.clientY,e);},{passive:false});
-      ['touchend','touchcancel'].forEach(type=>window.addEventListener(type,e=>{lastTouch=performance.now();if(drag&&Array.from(e.changedTouches).some(t=>t.identifier===drag.id))endDrag(type==='touchcancel');},{passive:true}));
-    }
-    window.addEventListener('blur',()=>{endDrag(true);cancelPhotoRequest();stopMotion();});
-    document.addEventListener('visibilitychange',()=>{if(document.hidden){endDrag(true);cancelPhotoRequest();stopMotion();}});
-    listenMedia(reduce,()=>{endDrag(true);stopMotion();});
-    section.addEventListener('album:arrive',()=>{
-      stopMotion();setTurn(false,false);
-      if(!reduce.matches&&typeof card.animate==='function')entrance=card.animate([{transform:'translateY(38px) rotate(2deg) scale(.97)'},{transform:'translateY(-5px) rotate(-3deg) scale(1.006)',offset:.74},{transform:'translateY(0) rotate(-2deg) scale(1)'}],{duration:950,easing:'cubic-bezier(.2,.7,.25,1)'});
-    });
-    image.addEventListener('error',()=>{placeholder.hidden=false;$('.snapshot-placeholder>span').textContent='Não foi possível carregar esta fotografia.';});
-    image.addEventListener('load',()=>{placeholder.hidden=true;});
-    render();syncEnvelope();
+    card.addEventListener('click',event=>{if(performance.now()<suppressUntil){event.preventDefault();return;}setTurn(!turned);});
+    card.addEventListener('keydown',event=>{if(event.key==='ArrowLeft'||event.key==='ArrowRight'){event.preventDefault();go(event.key==='ArrowRight'?1:-1);}if(event.key==='Escape'){event.preventDefault();setTurn(false);}});
+    card.addEventListener('pointerdown',e=>{if(photos.length<2||e.button!==0)return;drag={id:e.pointerId,x:e.clientX,y:e.clientY,active:false};});
+    card.addEventListener('pointermove',e=>{if(!drag||drag.id!==e.pointerId)return;const dx=e.clientX-drag.x,dy=e.clientY-drag.y;if(!drag.active&&Math.max(Math.abs(dx),Math.abs(dy))>9&&Math.abs(dx)>Math.abs(dy)){drag.active=true;card.setPointerCapture?.(e.pointerId);}if(drag.active)e.preventDefault();});
+    function endDrag(e){if(!drag||e.pointerId!==drag.id)return;const dx=e.clientX-drag.x,active=drag.active;drag=null;if(active){suppressUntil=performance.now()+350;if(Math.abs(dx)>42)go(dx<0?1:-1);}};
+    card.addEventListener('pointerup',endDrag);card.addEventListener('pointercancel',e=>{if(drag?.id===e.pointerId)drag=null;});
+    render();
   });
-
 
   module('revelações', () => {
-    const items=$$('[data-reveal]');let revealObserver,visibilityObserver,frame=0,last=0;
-    const ambience=$$('.hero-stage,.message,.date-section,.venue-chapter,.memory-section,.music-section,.route-section,.faq-section');
-    const pictures=$$('.gallery-main img').map(image=>({image,surface:image.parentElement,current:0}));
-    function setup(){
-      revealObserver?.disconnect();visibilityObserver?.disconnect();cancelAnimationFrame(frame);frame=0;
-      const order=new Map();
-      items.forEach(el=>{const parent=el.closest('.venue-chapter,.section')||el.parentElement,n=order.get(parent)||0;order.set(parent,n+1);el.style.setProperty('--reveal-delay',Math.min(n,2)*85+'ms');el.classList.remove('reveal-pending');});
-      if(reduce.matches||!window.IntersectionObserver){
-        items.forEach(el=>el.classList.add('is-visible'));ambience.forEach(el=>el.classList.add('motion-in-view'));
-        pictures.forEach(p=>{p.current=0;p.image.style.setProperty('--photo-y','0px');});return;
-      }
-      revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');revealObserver.unobserve(entry.target);}}),{threshold:.07,rootMargin:'0px 0px -18px 0px'});
-      items.forEach(el=>{if(!el.classList.contains('is-visible')){el.classList.add('reveal-pending');revealObserver.observe(el);}});
-      visibilityObserver=new IntersectionObserver(entries=>entries.forEach(entry=>entry.target.classList.toggle('motion-in-view',entry.isIntersecting)),{rootMargin:'80px 0px'});
-      ambience.forEach(el=>visibilityObserver.observe(el));schedule();
+    const items=$$('[data-reveal]'); let observer;
+    function setup(){observer?.disconnect();items.forEach(el=>el.classList.remove('reveal-pending'));if(reduce.matches||!window.IntersectionObserver)return;
+      observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');observer.unobserve(e.target);}}),{threshold:.09,rootMargin:'0px 0px -24px 0px'});
+      items.forEach(el=>{if(!el.classList.contains('is-visible')){el.classList.add('reveal-pending');observer.observe(el);}});
     }
-    function paint(now){
-      frame=0;if(reduce.matches||document.hidden)return;
-      const dt=Math.min(48,now-(last||now-16));last=now;let moving=false;
-      pictures.forEach(p=>{
-        const rect=p.surface.getBoundingClientRect();if(rect.bottom<0||rect.top>innerHeight)return;
-        const target=clamp((rect.top+rect.height/2-innerHeight/2)/innerHeight,-.6,.6)*15;
-        p.current+=(target-p.current)*(1-Math.exp(-dt/95));
-        if(Math.abs(target-p.current)<.025)p.current=target;else moving=true;
-        p.image.style.setProperty('--photo-y',p.current.toFixed(3)+'px');
-      });
-      if(moving)frame=requestAnimationFrame(paint);
-    }
-    function schedule(){if(!frame&&!reduce.matches&&!document.hidden){last=0;frame=requestAnimationFrame(paint);}}
-    addEventListener('scroll',schedule,{passive:true});addEventListener('resize',schedule,{passive:true});
-    document.addEventListener('visibilitychange',()=>{document.documentElement.classList.toggle('motion-paused',document.hidden);if(document.hidden){cancelAnimationFrame(frame);frame=0;}else schedule();});
     setup();listenMedia(reduce,setup);
+    let pending=false;const photos=$$('.gallery-main img');
+    function parallax(){pending=false;if(reduce.matches)return;photos.forEach(img=>{const r=img.parentElement.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight){const offset=clamp((r.top+r.height/2-innerHeight/2)/innerHeight,-.6,.6)*15;img.style.setProperty('--photo-y',offset+'px');}});}
+    addEventListener('scroll',()=>{if(!pending){pending=true;requestAnimationFrame(parallax);}},{passive:true});
   });
 
-
+  // Gold foil: horizontal rubbing reveals a note; vertical gestures keep scrolling.
   module('dourado', () => {
     const canvas=$('.foil-canvas'),ctx=canvas.getContext('2d'),shell=$('.foil-shell'),keep=$('.keepsake'),button=$('#reveal-secret'),hint=$('#foil-hint'),secret=$('#secret-message');
     if(!ctx)return;let w=0,h=0,strokes=[],visited=new Set(),pointer=null,revealed=false;
@@ -1357,8 +1120,6 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
 
   module('brinde', () => {
     const canvas=$('.confetti'),ctx=canvas.getContext('2d'),button=$('#celebrate');if(!ctx)return;let animation=0;
-    function stop(){cancelAnimationFrame(animation);animation=0;canvas.hidden=true;ctx.clearRect(0,0,canvas.width,canvas.height);}
-    document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});listenMedia(reduce,()=>{if(reduce.matches)stop();});
     button.addEventListener('click',()=>{
       playTone('open');if(reduce.matches){text('#share-status','Aos encontros, aos abraços e às memórias que vamos criar. Até 6 de maio!');return;}
       cancelAnimationFrame(animation);const dpr=Math.min(devicePixelRatio||1,2),w=innerWidth,h=innerHeight;canvas.width=w*dpr;canvas.height=h*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);canvas.hidden=false;
@@ -1390,7 +1151,7 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
       const r=main.getBoundingClientRect(),width=main.clientWidth||innerWidth,height=main.scrollHeight;
       svg.setAttribute('viewBox',`0 0 ${width} ${height}`);
       const x=Math.max(10,($('.wrap').getBoundingClientRect().left||22)-21);
-      const points=['#mensagem','#antes-do-sim','#memoria','#data','#linha-do-tempo','#igreja','#quinta','#trajeto','#musica','#perguntas'].filter(s=>!$(s).hidden).map(s=>{const b=$(s).getBoundingClientRect();return b.top-r.top+32;});
+      const points=['#mensagem','#memoria','#data','#linha-do-tempo','#igreja','#quinta','#trajeto','#musica','#perguntas'].map(s=>{const b=$(s).getBoundingClientRect();return b.top-r.top+32;});
       let d=`M${x} ${points[0]}`;
       points.slice(1).forEach(y=>{d+=` L${x} ${y-18} C${x+18} ${y-18} ${x+18} ${y+18} ${x} ${y+18}`;});
       path.setAttribute('d',d);total=Math.max(1,points.at(-1)-points[0]);update();
@@ -1410,21 +1171,19 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
 
   module('perguntas animadas', () => {
     $$('.questions details').forEach(detail=>{
-      const summary=$('summary',detail);let animation=null,wanted=detail.open,version=0;
-      function finish(){++version;animation?.cancel();animation=null;detail.open=wanted;detail.style.height='';detail.style.overflow='';}
-      summary.addEventListener('click',event=>{
+      const summary=$('summary',detail);let animation=null,wanted=detail.open;
+      summary.addEventListener('click',e=>{
         if(reduce.matches||!detail.animate)return;
-        event.preventDefault();const from=detail.getBoundingClientRect().height,ticket=++version;
-        wanted=!wanted;animation?.cancel();detail.style.height='';detail.style.overflow='hidden';if(wanted)detail.open=true;
-        const to=wanted?detail.getBoundingClientRect().height:summary.getBoundingClientRect().height;
-        animation=detail.animate([{height:from+'px'},{height:to+'px'}],{duration:Math.min(480,280+Math.abs(to-from)*.35),easing:'cubic-bezier(.2,.72,.24,1)'});
-        animation.onfinish=()=>{if(ticket!==version)return;animation=null;detail.open=wanted;detail.style.height='';detail.style.overflow='';};
+        e.preventDefault();const start=detail.getBoundingClientRect().height;
+        wanted=!wanted;animation?.cancel();detail.style.height='';detail.style.overflow='hidden';
+        if(wanted)detail.open=true;
+        const end=wanted?detail.getBoundingClientRect().height:summary.getBoundingClientRect().height;
+        animation=detail.animate([{height:start+'px'},{height:end+'px'}],{duration:440,easing:'cubic-bezier(.2,.7,.2,1)'});
+        animation.onfinish=()=>{detail.open=wanted;detail.style.height='';detail.style.overflow='';animation=null;};
       });
       detail.addEventListener('toggle',()=>{if(!animation)wanted=detail.open;});
-      listenMedia(reduce,()=>{if(reduce.matches)finish();});addEventListener('resize',()=>{if(animation)finish();},{passive:true});
     });
   });
-
 
   module('recordação', () => {
     async function drawLogo(ctx,id,x,y,width,height,tint){
