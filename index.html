@@ -287,31 +287,28 @@ html.opening-locked{overscroll-behavior:none;scroll-behavior:auto!important}
 .final-letter .replay{margin:24px auto 0;min-height:44px;padding:10px 12px}
 @media(max-width:600px){.closing-emblem{width:140px;height:140px}.closing-emblem>.af-mark{width:104px;height:90px}.final-letter h2{margin-top:22px}.final-letter #closing-copy{max-width:280px}.final-letter .closing-actions{column-gap:20px}.final-letter .replay{margin-top:20px}}
 
-/* An open keepsake album: linen cover, ivory pages, photograph corners. */
+/* An open keepsake album: the whole paper leaf turns, never just the photograph. */
 .couple-album{background:radial-gradient(ellipse at 50% 38%,#f7f7f0,#e8efeb 64%,#e2ebe8);color:var(--ink);padding:clamp(64px,8vw,112px) 0;overflow:hidden}
 .album-heading{text-align:center;max-width:720px;margin:0 auto 44px}
 .album-heading .section-title{font-size:clamp(42px,6vw,70px);line-height:1.06;margin:16px 0 22px}
 .album-heading>p:last-child{font-size:12px;line-height:1.9;color:var(--muted)}
 .album-stage{position:relative;max-width:1020px;margin:auto}
 .album-preview-label{display:table;margin:0 auto 32px;padding:7px 12px;border:1px solid #af965745;border-radius:30px;font-size:8px;letter-spacing:.06em;line-height:1.5;color:#857344}
-.album-book{position:relative;padding:10px;background:repeating-linear-gradient(90deg,#ffffff04 0 1px,transparent 1px 4px),#173c4c;border-radius:4px 8px 8px 4px;box-shadow:0 30px 60px #15333e1c,0 4px 8px #15333e18;isolation:isolate;outline-offset:9px}
+.album-book{position:relative;padding:10px;background:repeating-linear-gradient(90deg,#ffffff04 0 1px,transparent 1px 4px),#173c4c;border-radius:4px 8px 8px 4px;box-shadow:0 30px 60px #15333e1c,0 4px 8px #15333e18;isolation:isolate;outline-offset:9px;perspective:2400px;-webkit-perspective:2400px}
 .album-book::before{content:'';position:absolute;inset:5px;border:1px solid #d4b77860;border-radius:2px 5px 5px 2px;pointer-events:none}
 .album-book::after{content:'';position:absolute;left:12px;right:12px;bottom:-5px;height:5px;background:repeating-linear-gradient(0deg,#b7b4a8 0 1px,#ece9dc 1px 2px);border-radius:0 0 3px 3px;z-index:-1}
-.book-pages{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);background:#faf7ee;position:relative}
-.book-leaf{position:relative;min-width:0;padding:30px 32px 23px}
+.book-pages{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);background:#faf7ee;position:relative;isolation:isolate;transform-style:preserve-3d;-webkit-transform-style:preserve-3d}
+.book-leaf{position:relative;min-width:0;padding:30px 32px 23px;overflow:hidden}
 .book-left{background:linear-gradient(90deg,#faf8f1 94%,#e3dece);display:flex;flex-direction:column;justify-content:center}
 .book-right{background:linear-gradient(90deg,#e9e2d2,#faf7ee 6%,#f7f3e8);display:flex;flex-direction:column;justify-content:center;padding:38px 42px 28px}
 .book-running-title{font:italic 19px/1.3 var(--serif);color:#937847;text-align:center;margin:0 0 24px}
 .book-running-title span{font-size:14px;padding:0 5px}
-.book-visual{position:relative;display:block;padding:0;width:100%;border:0;background:transparent;cursor:grab;touch-action:pan-y pinch-zoom;color:var(--ink);user-select:none;-webkit-user-select:none;perspective:1450px;-webkit-perspective:1450px;overflow:visible}
-.book-visual.is-dragging{cursor:grabbing}
+.book-visual{position:relative;display:block;width:100%;color:var(--ink);user-select:none;-webkit-user-select:none}
 .book-visual img{-webkit-user-drag:none;pointer-events:none}
-.book-mount{position:relative;display:block;aspect-ratio:4/3;padding:10px;background:#fffdf5;border:1px solid #c1b38d3b;box-shadow:0 7px 16px #34464312;transform:translateX(var(--page-peek,0px)) rotateY(var(--page-angle,0deg));transform-origin:center center;transform-style:preserve-3d;-webkit-transform-style:preserve-3d;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.book-mount{position:relative;display:block;aspect-ratio:4/3;padding:10px;background:#fffdf5;border:1px solid #c1b38d3b;box-shadow:0 7px 16px #34464312}
 .book-mount>img{display:block;width:100%;height:100%;object-fit:contain;background:#e9e9df}
 .photo-corner{position:absolute;width:27px;height:27px;background:linear-gradient(135deg,#dbc9a170,#bca36a66);clip-path:polygon(0 0,100% 0,0 100%);pointer-events:none}
 .corner-tl{left:-3px;top:-3px}.corner-tr{right:-3px;top:-3px;transform:rotate(90deg)}.corner-bl{left:-3px;bottom:-3px;transform:rotate(-90deg)}.corner-br{right:-3px;bottom:-3px;transform:rotate(180deg)}
-.book-photo-action{display:flex;justify-content:center;gap:8px;color:#91794f;font:400 8px/1.5 var(--sans);letter-spacing:.07em;margin-top:17px;min-height:16px}
-.book-photo-action>span{transition:transform .35s ease}.book-visual:hover .book-photo-action>span{transform:translate(2px,-2px)}
 .book-footnote{font:italic 14px/1.5 var(--serif);color:#989482;text-align:center;margin-top:19px}
 .book-number{font:italic clamp(50px,6vw,79px)/1 var(--serif);color:#b2996650;margin-bottom:13px}
 .book-story .kicker{font-size:7px;letter-spacing:.17em;color:#9e8554;margin:0 0 12px}
@@ -321,35 +318,43 @@ html.opening-locked{overscroll-behavior:none;scroll-behavior:auto!important}
 .book-signoff{display:flex;align-items:center;gap:13px;margin-top:34px;color:#997c44}
 .book-signoff .af-mark{width:36px;height:36px;filter:url(#af-gold);flex:none}
 .book-signoff p{font:400 8px/1.8 var(--sans)}.book-signoff em{font:italic 18px/1.4 var(--serif)}
-.book-spine{position:absolute;left:calc((100% - 20px)*.53488 + 10px);top:10px;bottom:10px;width:16px;transform:translateX(-50%);background:linear-gradient(90deg,transparent,#7563441a 45%,#fffdfb77 60%,transparent);pointer-events:none}
+.book-spine{position:absolute;left:50%;top:10px;bottom:10px;width:18px;transform:translateX(-50%);background:linear-gradient(90deg,transparent,#75634420 42%,#fffdfb88 57%,transparent);pointer-events:none;z-index:8}
 .book-ribbon{position:absolute;right:43px;top:100%;height:31px;width:20px;background:linear-gradient(90deg,#aa8547,#c0a16a 50%,#a58144);clip-path:polygon(0 0,100% 0,100% 100%,50% 75%,0 100%);z-index:-1}
-.book-turning-page{position:absolute;left:0;top:0;width:100%;aspect-ratio:4/3;z-index:6;pointer-events:none;transform-style:preserve-3d;-webkit-transform-style:preserve-3d;will-change:transform;filter:drop-shadow(0 9px 10px #33423a22)}
-.book-turning-page.turn-next{transform-origin:right center}.book-turning-page.turn-previous{transform-origin:left center}
-.book-turning-front,.book-turning-back{position:absolute!important;inset:0!important;width:100%;height:100%;margin:0;backface-visibility:hidden;-webkit-backface-visibility:hidden}
-.book-turning-front{transform:none!important;transform-origin:center!important;z-index:2}
-.book-turning-back{display:block;transform:rotateY(180deg);z-index:1;background:linear-gradient(90deg,#e8e0d0,#fffdf7 15%,#f4efe3 88%,#d8cdb8);border:1px solid #c1b38d55;box-shadow:inset 18px 0 28px #75634412,inset -4px 0 12px #fff9e777}
-.book-turning-back::before{content:'';position:absolute;inset:9px;border:1px solid #b7975e25;background:linear-gradient(115deg,transparent 42%,#fff8df9c 52%,transparent 64%)}
-.book-turning-page::after{content:'';position:absolute;top:0;bottom:0;width:18%;z-index:3;opacity:.55;pointer-events:none;background:linear-gradient(90deg,transparent,#624f2726,#fff2c7a8,transparent)}
-.book-turning-page.turn-next::after{right:-2%;transform:scaleX(-1)}.book-turning-page.turn-previous::after{left:-2%}
 .book-photo-placeholder{position:absolute;inset:10px;display:grid;place-content:center;text-align:center;padding:18px;background:#e7eadd;color:#7f836f;font:italic 24px/1.3 var(--serif)}
-.album-underbook{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:37px 5px 0}
-.album-hint{font-size:10px;line-height:1.7;color:#6b7b7c;max-width:350px}
-.album-navigation{display:flex;align-items:center;justify-content:center;gap:15px;flex:none}
-.album-arrow{width:44px;height:44px;display:grid;place-items:center;border:1px solid #a78b584a;border-radius:50%;background:transparent;color:#8d7243;font-size:19px}
+
+/* Physical page-turn: a complete paper leaf crosses the centre fold. */
+.book-page-cover,.book-turning-sheet{position:absolute;top:0;bottom:0;pointer-events:none;overflow:visible}
+.book-page-cover{z-index:4}
+.book-page-cover>.book-leaf{width:100%;height:100%}
+.book-turning-sheet{z-index:9;transform-style:preserve-3d;-webkit-transform-style:preserve-3d;will-change:transform,filter}
+.book-turning-sheet.turn-next{transform-origin:left center}
+.book-turning-sheet.turn-previous{transform-origin:right center}
+.book-turn-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:preserve-3d;-webkit-transform-style:preserve-3d}
+.book-turn-face>.book-leaf{width:100%;height:100%}
+.book-turn-back{transform:rotateY(180deg)}
+.book-turn-face::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.62;background:linear-gradient(90deg,transparent 12%,#75634418 47%,#fff4d49c 52%,#75634416 58%,transparent 90%)}
+.book-turning-sheet.turn-next .book-turn-face::after{transform:scaleX(-1)}
+
+/* On narrow screens the complete visible spread turns as one sheet. */
+.book-mobile-sheet{position:absolute;inset:0;z-index:14;pointer-events:none;transform-style:preserve-3d;-webkit-transform-style:preserve-3d;will-change:transform,filter}
+.book-mobile-sheet.turn-next{transform-origin:left center}.book-mobile-sheet.turn-previous{transform-origin:right center}
+.book-mobile-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;background:#faf7ee}
+.book-mobile-face>.book-pages{width:100%;height:100%}
+.book-mobile-back{transform:rotateY(180deg)}
+
+.album-underbook{display:flex;align-items:center;justify-content:center;margin:37px auto 0;text-align:center}
+.album-navigation{display:flex;align-items:center;justify-content:center;gap:15px;margin-inline:auto}
+.album-arrow{width:48px;height:48px;display:grid;place-items:center;border:1px solid #a78b584a;border-radius:50%;background:transparent;color:#8d7243;font-size:20px}
+.album-arrow:hover:not(:disabled){background:#fffaf099;box-shadow:0 8px 22px #425b5610}
 .album-arrow:disabled{opacity:.25;cursor:default}
-.album-counter{min-width:61px;font-size:9px;letter-spacing:.16em;color:#627b81;text-align:center}
-.album-bookmarks{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:27px auto 0}
-.album-bookmark{display:flex;align-items:center;gap:8px;border:1px solid transparent;border-bottom:1px solid #a78b5855;background:#f8f8ef66;padding:6px 11px 6px 6px;color:#7c806f;transition:background-color .3s,border-color .3s;min-height:48px}
-.album-bookmark img{width:43px;height:32px;object-fit:cover;background:#d6e0dc;pointer-events:none}
-.album-bookmark span{font:500 8px/1.5 var(--sans);letter-spacing:.13em}
-.album-bookmark[aria-current="true"]{background:#fffaf0;border-color:#b69b635c;color:#917141}
+.album-counter{min-width:70px;font-size:9px;letter-spacing:.16em;color:#627b81;text-align:center}
 .album-load-status{font-size:10px;line-height:1.6;text-align:center;color:#816d48;max-width:450px;margin:13px auto 0}
 .album-load-status:empty{margin:0}
 .album-load-status:not(.has-error){position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%)}
-@media(max-width:760px){.couple-album>.wrap{width:calc(100% - 32px)}.album-heading{padding-inline:12px;margin-bottom:34px}.album-heading .section-title{font-size:clamp(37px,9.3vw,57px)}.album-book{max-width:500px;margin:auto;padding:8px 8px 8px 18px}.book-pages{grid-template-columns:minmax(0,1fr)}.book-leaf{padding:22px 21px}.book-left{background:linear-gradient(90deg,#ece5d5,#faf8f1 6%)}.book-right{padding-top:17px;padding-bottom:26px;background:linear-gradient(90deg,#ece5d5,#faf8f1 6%)}.book-running-title{font-size:18px;margin-bottom:21px}.book-footnote{display:none}.book-photo-action{margin-top:14px}.book-spine{left:18px;top:8px;bottom:8px;width:12px}.book-right::before{content:'';position:absolute;top:0;left:21px;right:21px;height:1px;background:linear-gradient(90deg,#ae8e5055,transparent)}.book-number{position:absolute;right:21px;top:19px;font-size:43px;line-height:1;color:#b2996630}.book-story{position:relative;z-index:1}.book-story .kicker{font-size:6px;margin:0 40px 10px 0}.book-story h3{font-size:31px;max-width:90%}.book-rule{margin:16px 0;width:29px}.book-story>p:last-child{font-size:12px;line-height:1.8}.book-signoff{margin-top:22px;gap:10px}.book-signoff .af-mark{width:29px;height:29px}.book-signoff em{font-size:17px}.book-signoff p{font-size:7px}.book-ribbon{right:28px;height:24px;width:17px}.album-underbook{max-width:500px;flex-direction:column;gap:13px;margin:33px auto 0;text-align:center}.album-bookmarks{margin-top:21px;gap:9px}.album-preview-label{font-size:7px;margin-bottom:26px}}
-@media(max-width:360px){.book-leaf{padding-inline:17px}.book-right::before{left:17px;right:17px}.book-story h3{font-size:27px}.book-mount{padding:7px}.album-bookmarks{gap:6px}.album-bookmark{padding-right:8px}}
-@media(prefers-reduced-motion:reduce){.book-mount,.book-photo-action>span,.album-bookmark{transition:none!important}.book-visual:hover .book-photo-action>span{transform:none}}
-@media print{.album-navigation,.album-bookmarks,.album-hint,.album-preview-label,.book-photo-action,.book-turning-page{display:none!important}.album-book{box-shadow:none;break-inside:avoid}.book-mount{transform:none!important}}
+@media(max-width:760px){.couple-album>.wrap{width:calc(100% - 32px)}.album-heading{padding-inline:12px;margin-bottom:34px}.album-heading .section-title{font-size:clamp(37px,9.3vw,57px)}.album-book{max-width:500px;margin:auto;padding:8px 8px 8px 18px}.book-pages{grid-template-columns:minmax(0,1fr)}.book-leaf{padding:22px 21px}.book-left{background:linear-gradient(90deg,#ece5d5,#faf8f1 6%)}.book-right{padding-top:17px;padding-bottom:26px;background:linear-gradient(90deg,#ece5d5,#faf8f1 6%)}.book-running-title{font-size:18px;margin-bottom:21px}.book-footnote{display:none}.book-spine{left:18px;top:8px;bottom:8px;width:12px}.book-right::before{content:'';position:absolute;top:0;left:21px;right:21px;height:1px;background:linear-gradient(90deg,#ae8e5055,transparent)}.book-number{position:absolute;right:21px;top:19px;font-size:43px;line-height:1;color:#b2996630}.book-story{position:relative;z-index:1}.book-story .kicker{font-size:6px;margin:0 40px 10px 0}.book-story h3{font-size:31px;max-width:90%}.book-rule{margin:16px 0;width:29px}.book-story>p:last-child{font-size:12px;line-height:1.8}.book-signoff{margin-top:22px;gap:10px}.book-signoff .af-mark{width:29px;height:29px}.book-signoff em{font-size:17px}.book-signoff p{font-size:7px}.book-ribbon{right:28px;height:24px;width:17px}.album-underbook{max-width:500px;margin-top:30px}.album-preview-label{font-size:7px;margin-bottom:26px}.book-page-cover,.book-turning-sheet{display:none!important}}
+@media(max-width:360px){.book-leaf{padding-inline:17px}.book-right::before{left:17px;right:17px}.book-story h3{font-size:27px}.book-mount{padding:7px}.album-navigation{gap:11px}.album-arrow{width:44px;height:44px}}
+@media(prefers-reduced-motion:reduce){.album-arrow{transition:none!important}.book-page-cover,.book-turning-sheet,.book-mobile-sheet{display:none!important}}
+@media print{.album-navigation,.album-preview-label,.book-turning-sheet,.book-page-cover,.book-mobile-sheet{display:none!important}.album-book{box-shadow:none;break-inside:avoid}}
 
 /* One motion rhythm: quiet entrances, paper movement, readable resting states. */
 :root{--motion-soft:cubic-bezier(.2,.72,.24,1);--motion-reveal:cubic-bezier(.16,1,.3,1)}
@@ -435,15 +440,14 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
   <div class="album-heading" data-reveal><p class="kicker">Um pequeno álbum dentro do convite</p><h2 class="section-title" id="album-title">Há histórias que<br><em>se guardam assim.</em></h2><p>Uma fotografia. Uma pequena história.<br>Um bocadinho de nós, em cada página.</p></div>
   <div class="album-stage">
    <p class="album-preview-label" id="album-preview-label" hidden>Pré-visualização · fotografias da quinta</p>
-   <div class="album-book" id="album-card" tabindex="0" role="group" aria-roledescription="álbum de fotografias" aria-label="O nosso álbum" aria-describedby="album-hint">
+   <div class="album-book" id="album-card" tabindex="0" role="group" aria-roledescription="álbum de fotografias" aria-label="O nosso álbum">
     <span class="book-ribbon" aria-hidden="true"></span>
-    <div class="book-pages">
+    <div class="book-pages" id="album-pages">
      <div class="book-leaf book-left">
       <p class="book-running-title">Adriana <span>&</span> Francisco</p>
-      <button class="book-visual" id="album-photo-turn" type="button" aria-label="Folhear para a fotografia seguinte">
+      <div class="book-visual" id="album-photo-turn">
        <span class="book-mount"><img id="album-photo" alt="" decoding="async" draggable="false"><span class="book-photo-placeholder" id="album-placeholder" hidden>Esta fotografia<br>chega já.</span><i class="photo-corner corner-tl" aria-hidden="true"></i><i class="photo-corner corner-tr" aria-hidden="true"></i><i class="photo-corner corner-bl" aria-hidden="true"></i><i class="photo-corner corner-br" aria-hidden="true"></i></span>
-       <span class="book-photo-action" aria-hidden="true">Mais uma memória <span>↗</span></span>
-      </button>
+      </div>
       <p class="book-footnote">As coisas bonitas merecem ficar.</p>
      </div>
      <div class="book-leaf book-right">
@@ -454,8 +458,7 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
     </div>
     <span class="book-spine" aria-hidden="true"></span>
    </div>
-   <div class="album-underbook"><p class="album-hint" id="album-hint">Desliza na fotografia ou usa as setas para folhear.</p><div class="album-navigation" role="group" aria-label="Folhear o álbum"><button class="album-arrow" id="album-previous" type="button" aria-label="Fotografia anterior">←</button><span class="album-counter" id="album-counter">01 / 03</span><button class="album-arrow" id="album-next" type="button" aria-label="Fotografia seguinte">→</button></div></div>
-   <div class="album-bookmarks" id="album-bookmarks" role="group" aria-label="Ir diretamente a uma fotografia"></div>
+   <div class="album-underbook"><div class="album-navigation" role="group" aria-label="Folhear o álbum"><button class="album-arrow" id="album-previous" type="button" aria-label="Página anterior">←</button><span class="album-counter" id="album-counter" aria-live="off">01 / 03</span><button class="album-arrow" id="album-next" type="button" aria-label="Página seguinte">→</button></div></div>
    <p class="album-load-status" id="album-announcement" role="status" aria-live="polite"></p>
   </div>
  </div>
@@ -1115,28 +1118,28 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
 
 
   module('o nosso álbum', () => {
-    const section=$('#antes-do-sim'),book=$('#album-card'),surface=$('#album-photo-turn');
+    const section=$('#antes-do-sim'),book=$('#album-card'),pages=$('#album-pages');
     const validPhoto=p=>{
       if(!p||typeof p.src!=='string'||!p.src.trim())return false;
       try{return /^(https?:|file:)$/.test(new URL(p.src.trim(),location.href).protocol);}catch(_){return false;}
     };
-    // Keep the same external repository paths and the same editable configuration.
+    // Keep the same external repository paths and editable configuration.
     const photos=(Array.isArray(W.couplePhotos)?W.couplePhotos:[]).filter(validPhoto).slice(0,6).map(p=>({src:p.src.trim(),label:String(p.label||'Um bocadinho de nós').slice(0,70),note:String(p.note||'').slice(0,260),alt:String(p.alt||p.label||'Adriana e Francisco').slice(0,160)}));
     if(!photos.length)return;
     section.hidden=false;
-    const image=$('#album-photo'),mount=$('.book-mount'),story=$('.book-story'),placeholder=$('#album-placeholder');
-    const bookmarks=$('#album-bookmarks'),status=$('#album-announcement'),previous=$('#album-previous'),next=$('#album-next');
-    let index=0,requestedIndex=0,ticket=0,drag=null,suppressUntil=0,animations=[],sheet=null,lastArrival=-Infinity;
+    const image=$('#album-photo'),placeholder=$('#album-placeholder'),status=$('#album-announcement');
+    const previous=$('#album-previous'),next=$('#album-next');
+    let index=0,requestedIndex=0,ticket=0,animations=[],sheet=null,cover=null,lastArrival=-Infinity;
     const canAnimate=()=>!reduce.matches&&!document.hidden&&typeof book.animate==='function';
-    function stopMotion(){animations.forEach(a=>a.cancel());animations=[];sheet?.remove();sheet=null;}
+    const isNarrow=()=>window.matchMedia('(max-width:760px)').matches;
+    function stopMotion(){animations.forEach(a=>a.cancel());animations=[];sheet?.remove();cover?.remove();sheet=cover=null;}
     function motion(element,frames,options){
       if(!canAnimate())return null;
       const animation=element.animate(frames,options);animations.push(animation);
       if(animation.finished)animation.finished.then(()=>{animations=animations.filter(a=>a!==animation);},()=>{animations=animations.filter(a=>a!==animation);});
       return animation;
     }
-    function resetPose(){mount.style.removeProperty('--page-peek');mount.style.removeProperty('--page-angle');}
-    function cancelRequest(){++ticket;requestedIndex=index;book.removeAttribute('aria-busy');resetPose();}
+    function cancelRequest(){++ticket;requestedIndex=index;book.removeAttribute('aria-busy');}
     function announce(message,error=false){status.textContent=message;status.classList.toggle('has-error',error);}
     function showPhoto(entry){image.src=entry.src;image.alt=entry.alt;placeholder.hidden=true;}
     function render(announceChange=false){
@@ -1145,100 +1148,84 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
       $('#album-note').textContent=photo.note||'Há fotografias que dizem o que as palavras não conseguem.';
       $('#album-page-number').textContent=String(index+1).padStart(2,'0');
       $('#album-counter').textContent=String(index+1).padStart(2,'0')+' / '+String(photos.length).padStart(2,'0');
-      surface.setAttribute('aria-label',photos.length>1?'Folhear para a fotografia seguinte. Agora: '+photo.label:photo.alt);
-      [...bookmarks.children].forEach((button,i)=>button.setAttribute('aria-current',String(index===i)));
-      if(announceChange)announce('Fotografia '+(index+1)+' de '+photos.length+'. '+photo.label);
+      book.setAttribute('aria-label','O nosso álbum. Página '+(index+1)+' de '+photos.length+': '+photo.label);
+      if(announceChange)announce('Página '+(index+1)+' de '+photos.length+'. '+photo.label);
     }
-    function returnPage(){
-      const pose=getComputedStyle(mount).transform;resetPose();
-      motion(mount,[{transform:pose==='none'?'translateX(0) rotateY(0deg)':pose},{transform:'translateX(0) rotateY(0deg)'}],{duration:420,easing:'cubic-bezier(.16,1,.3,1)'});
+    function sanitizeClone(node){
+      const clone=node.cloneNode(true);
+      if(clone.id)clone.removeAttribute('id');
+      clone.querySelectorAll('[id]').forEach(el=>el.removeAttribute('id'));
+      clone.querySelectorAll('button,a,input,select,textarea,[tabindex]').forEach(el=>{el.tabIndex=-1;el.setAttribute('aria-hidden','true');});
+      clone.setAttribute('aria-hidden','true');
+      clone.setAttribute('inert','');
+      return clone;
+    }
+    function leafGeometry(leaf){
+      const pr=pages.getBoundingClientRect(),lr=leaf.getBoundingClientRect();
+      return {left:lr.left-pr.left,width:lr.width};
+    }
+    function makeDesktopTurn(direction,currentLeft,currentRight){
+      const turningSource=direction>0?currentRight:currentLeft;
+      const staticSource=direction>0?currentLeft:currentRight;
+      const targetBack=direction>0?sanitizeClone($('.book-left',pages)):sanitizeClone($('.book-right',pages));
+      const turnGeo=leafGeometry(direction>0?$('.book-right',pages):$('.book-left',pages));
+      const staticGeo=leafGeometry(direction>0?$('.book-left',pages):$('.book-right',pages));
+
+      cover=document.createElement('div');cover.className='book-page-cover';cover.style.left=staticGeo.left+'px';cover.style.width=staticGeo.width+'px';cover.append(staticSource);pages.append(cover);
+
+      sheet=document.createElement('div');sheet.className='book-turning-sheet '+(direction>0?'turn-next':'turn-previous');sheet.style.left=turnGeo.left+'px';sheet.style.width=turnGeo.width+'px';sheet.setAttribute('aria-hidden','true');sheet.setAttribute('inert','');
+      const front=document.createElement('div');front.className='book-turn-face book-turn-front';front.append(turningSource);
+      const back=document.createElement('div');back.className='book-turn-face book-turn-back';back.append(targetBack);
+      sheet.append(front,back);pages.append(sheet);
+      const degrees=direction>0?-179:179;
+      const animation=motion(sheet,[
+        {transform:'rotateY(0deg)',filter:'drop-shadow(0 7px 7px #33423a1a)'},
+        {transform:`rotateY(${degrees*.38}deg)`,filter:'drop-shadow(0 18px 18px #2638323b)',offset:.38},
+        {transform:`rotateY(${degrees*.68}deg)`,filter:'drop-shadow(0 15px 16px #26383232)',offset:.68},
+        {transform:`rotateY(${degrees}deg)`,filter:'drop-shadow(0 3px 5px #26383210)'}
+      ],{duration:1050,easing:'cubic-bezier(.38,.02,.16,1)',fill:'forwards'});
+      return animation;
+    }
+    function makeMobileTurn(direction,oldPages){
+      const targetPages=sanitizeClone(pages);
+      sheet=document.createElement('div');sheet.className='book-mobile-sheet '+(direction>0?'turn-next':'turn-previous');sheet.setAttribute('aria-hidden','true');sheet.setAttribute('inert','');
+      const front=document.createElement('div');front.className='book-mobile-face book-mobile-front';front.append(oldPages);
+      const back=document.createElement('div');back.className='book-mobile-face book-mobile-back';back.append(targetPages);
+      sheet.append(front,back);pages.append(sheet);
+      const degrees=direction>0?-179:179;
+      return motion(sheet,[
+        {transform:'rotateY(0deg)',filter:'drop-shadow(0 7px 7px #33423a1a)'},
+        {transform:`rotateY(${degrees*.5}deg)`,filter:'drop-shadow(0 20px 20px #2638323b)',offset:.5},
+        {transform:`rotateY(${degrees}deg)`,filter:'drop-shadow(0 3px 5px #26383210)'}
+      ],{duration:1000,easing:'cubic-bezier(.38,.02,.16,1)',fill:'forwards'});
     }
     async function go(step){
-      if(!step||photos.length<2)return;
-      const destination=(requestedIndex+step+photos.length)%photos.length,request=++ticket;
-      requestedIndex=destination;book.setAttribute('aria-busy','true');
+      if(!step||photos.length<2||book.hasAttribute('aria-busy'))return;
+      const destination=(requestedIndex+step+photos.length)%photos.length,request=++ticket,direction=Math.sign(step);
+      requestedIndex=destination;book.setAttribute('aria-busy','true');previous.disabled=next.disabled=true;
       try{await prepareImage(photos[destination].src);}catch(_){
-        if(request===ticket){requestedIndex=index;book.removeAttribute('aria-busy');returnPage();announce('Não foi possível carregar esta fotografia. Tenta novamente.',true);}return;
+        if(request===ticket){requestedIndex=index;book.removeAttribute('aria-busy');previous.disabled=next.disabled=false;announce('Não foi possível carregar esta fotografia. Tenta novamente.',true);}return;
       }
       if(request!==ticket)return;
-      book.removeAttribute('aria-busy');
-      if(destination===index){resetPose();return;}
-      const direction=Math.sign(step),pose=getComputedStyle(mount).transform;
       stopMotion();
-      const oldPage=canAnimate()?mount.cloneNode(true):null;
-      let turningPage=null;
-      if(oldPage){
-        oldPage.removeAttribute('id');$$('[id]',oldPage).forEach(el=>el.removeAttribute('id'));
-        oldPage.classList.add('book-turning-front');oldPage.setAttribute('aria-hidden','true');oldPage.setAttribute('inert','');
-        oldPage.style.removeProperty('--page-peek');oldPage.style.removeProperty('--page-angle');
-        turningPage=document.createElement('span');turningPage.className='book-turning-page '+(direction>0?'turn-next':'turn-previous');turningPage.setAttribute('aria-hidden','true');turningPage.setAttribute('inert','');
-        const back=document.createElement('span');back.className='book-turning-back';turningPage.append(oldPage,back);
-      }
-      index=destination;resetPose();render(true);
-      if(turningPage){
-        sheet=turningPage;surface.append(turningPage);
-        const degrees=direction>0?-178:178;
-        const animation=motion(turningPage,[
-          {transform:'translateX(0) rotateY(0deg)',filter:'drop-shadow(0 8px 8px #33423a18)'},
-          {transform:`translateX(${-direction*3}px) rotateY(${degrees*.42}deg)`,filter:'drop-shadow(0 15px 15px #33423a32)',offset:.46},
-          {transform:`translateX(${-direction*8}px) rotateY(${degrees*.72}deg)`,filter:'drop-shadow(0 11px 12px #33423a25)',offset:.72},
-          {transform:`translateX(${-direction*13}px) rotateY(${degrees}deg)`,filter:'drop-shadow(0 3px 5px #33423a10)'}
-        ],{duration:920,easing:'cubic-bezier(.36,.05,.16,1)',fill:'forwards'});
-        const clean=()=>{turningPage.remove();if(sheet===turningPage)sheet=null;};
-        if(animation?.finished)animation.finished.then(clean,clean);else clean();
-        motion(mount,[{opacity:.38,transform:`translateX(${direction*10}px) rotateY(${-direction*7}deg)`},{opacity:1,transform:'translateX(0) rotateY(0deg)'}],{duration:900,easing:'cubic-bezier(.16,1,.3,1)'});
-        motion(story,[{opacity:0,transform:`translateX(${direction*10}px) translateY(6px)`},{opacity:1,transform:'none'}],{duration:720,delay:120,easing:'cubic-bezier(.16,1,.3,1)',fill:'backwards'});
-      }
+      const narrow=isNarrow();
+      const oldPages=narrow?sanitizeClone(pages):null;
+      const currentLeft=!narrow?sanitizeClone($('.book-left',pages)):null;
+      const currentRight=!narrow?sanitizeClone($('.book-right',pages)):null;
+      index=destination;render(true);
+      let animation=null;
+      if(canAnimate())animation=narrow?makeMobileTurn(direction,oldPages):makeDesktopTurn(direction,currentLeft,currentRight);
+      const finish=()=>{sheet?.remove();cover?.remove();sheet=cover=null;book.removeAttribute('aria-busy');previous.disabled=next.disabled=photos.length<2;};
+      if(animation?.finished)animation.finished.then(finish,finish);else finish();
     }
-    previous.addEventListener('click',()=>go(-1));next.addEventListener('click',()=>go(1));
-    surface.addEventListener('click',event=>{if(performance.now()<suppressUntil){event.preventDefault();return;}go(1);});
+    previous.addEventListener('click',()=>go(-1));
+    next.addEventListener('click',()=>go(1));
+    // Arrow keys remain as an accessibility equivalent; the visible controls are only the centred arrows.
     book.addEventListener('keydown',event=>{
       if(event.key==='ArrowLeft'||event.key==='ArrowRight'){event.preventDefault();go(event.key==='ArrowRight'?1:-1);}
       if(event.key==='Home'||event.key==='End'){event.preventDefault();go((event.key==='Home'?0:photos.length-1)-requestedIndex);}
     });
-    surface.addEventListener('dragstart',event=>event.preventDefault());
-    function startDrag(id,x,y,event){
-      if(drag||photos.length<2)return;
-      cancelRequest();stopMotion();drag={id,x,y,dx:0,active:false,lastX:x,lastTime:performance.now(),velocity:0};
-      if(event.type==='mousedown'||event.pointerType==='mouse'){event.preventDefault();surface.focus({preventScroll:true});}
-    }
-    function moveDrag(id,x,y,event){
-      if(!drag||drag.id!==id)return;
-      const dx=x-drag.x,dy=y-drag.y;
-      if(!drag.active){
-        if(Math.max(Math.abs(dx),Math.abs(dy))<9)return;
-        if(Math.abs(dy)>Math.abs(dx)*1.1){endDrag(true);return;}
-        if(Math.abs(dx)<Math.abs(dy)*1.1)return;
-        drag.active=true;surface.classList.add('is-dragging');
-        if(event.pointerId!==undefined)try{surface.setPointerCapture(id);}catch(_){}
-      }
-      if(event.cancelable)event.preventDefault();drag.dx=dx;
-      const now=performance.now();drag.velocity=(x-drag.lastX)/Math.max(1,now-drag.lastTime);drag.lastX=x;drag.lastTime=now;
-      if(!reduce.matches){mount.style.setProperty('--page-peek',clamp(dx*.14,-19,19)+'px');mount.style.setProperty('--page-angle',clamp(dx*.16,-9,9)+'deg');}
-    }
-    function endDrag(cancelled=false){
-      if(!drag)return;const former=drag;drag=null;
-      try{if(surface.hasPointerCapture?.(former.id))surface.releasePointerCapture(former.id);}catch(_){}
-      surface.classList.remove('is-dragging');
-      const flick=Math.abs(former.dx)>18&&performance.now()-former.lastTime<100&&Math.abs(former.velocity)>.5;
-      if(former.active){suppressUntil=performance.now()+400;if(!cancelled&&(Math.abs(former.dx)>42||flick))go(former.dx<0?1:-1);else returnPage();}else resetPose();
-    }
-    if(window.PointerEvent){
-      surface.addEventListener('pointerdown',event=>{if(event.isPrimary===false){endDrag(true);return;}if(event.button===0)startDrag(event.pointerId,event.clientX,event.clientY,event);});
-      window.addEventListener('pointermove',event=>{if(event.pointerType==='mouse'&&event.buttons===0){endDrag(true);return;}moveDrag(event.pointerId,event.clientX,event.clientY,event);},{passive:false});
-      window.addEventListener('pointerup',event=>{if(drag?.id===event.pointerId)endDrag();});
-      window.addEventListener('pointercancel',event=>{if(drag?.id===event.pointerId)endDrag(true);});
-      surface.addEventListener('lostpointercapture',event=>{if(drag?.id===event.pointerId)endDrag(true);});
-    }else{
-      let lastTouch=-Infinity;
-      surface.addEventListener('mousedown',event=>{if(event.button===0&&performance.now()-lastTouch>800)startDrag('mouse',event.clientX,event.clientY,event);});
-      window.addEventListener('mousemove',event=>{if(event.buttons===0){endDrag(true);return;}moveDrag('mouse',event.clientX,event.clientY,event);});
-      window.addEventListener('mouseup',()=>{if(drag?.id==='mouse')endDrag();});
-      surface.addEventListener('touchstart',event=>{lastTouch=performance.now();if(event.touches.length!==1){endDrag(true);return;}const point=event.touches[0];startDrag(point.identifier,point.clientX,point.clientY,event);},{passive:true});
-      window.addEventListener('touchmove',event=>{if(!drag)return;if(event.touches.length!==1){endDrag(true);return;}const point=Array.from(event.touches).find(t=>t.identifier===drag.id);if(point)moveDrag(point.identifier,point.clientX,point.clientY,event);},{passive:false});
-      ['touchend','touchcancel'].forEach(type=>window.addEventListener(type,event=>{lastTouch=performance.now();if(drag&&Array.from(event.changedTouches).some(t=>t.identifier===drag.id))endDrag(type==='touchcancel');},{passive:true}));
-    }
-    function clearInteraction(){endDrag(true);cancelRequest();stopMotion();}
+    function clearInteraction(){cancelRequest();stopMotion();previous.disabled=next.disabled=photos.length<2;}
     window.addEventListener('blur',clearInteraction);
     window.addEventListener('resize',clearInteraction,{passive:true});
     document.addEventListener('visibilitychange',()=>{if(document.hidden)clearInteraction();});
@@ -1252,15 +1239,8 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
     }
     section.addEventListener('album:arrive',arrive);
     if(window.IntersectionObserver){const observer=new IntersectionObserver(items=>{if(items.some(item=>item.isIntersecting)){arrive();observer.disconnect();}},{threshold:.12,rootMargin:'0px 0px -20px 0px'});observer.observe(book);}
-    photos.forEach((photo,i)=>{
-      const button=document.createElement('button');button.type='button';button.className='album-bookmark';button.setAttribute('aria-label','Ver fotografia '+(i+1)+': '+photo.label);
-      const img=document.createElement('img');img.src=photo.src;img.alt='';img.loading='lazy';img.decoding='async';img.draggable=false;
-      const number=document.createElement('span');number.textContent=String(i+1).padStart(2,'0');button.append(img,number);button.addEventListener('click',()=>go(i-requestedIndex));bookmarks.append(button);
-    });
     const preview=photos.every(photo=>/^quinta-0[123]\.png$/i.test(photo.src));$('#album-preview-label').hidden=!preview;
-    previous.disabled=next.disabled=surface.disabled=photos.length<2;bookmarks.hidden=photos.length<2;
-    $('.book-photo-action').hidden=photos.length<2;
-    if(photos.length<2){$('#album-hint').textContent='Uma fotografia. Tanta coisa para guardar.';surface.setAttribute('aria-label',photos[0].alt);}
+    previous.disabled=next.disabled=photos.length<2;
     image.addEventListener('error',()=>{placeholder.hidden=false;placeholder.textContent='Não foi possível carregar esta fotografia.';});
     image.addEventListener('load',()=>{placeholder.hidden=true;});
     render();window.dispatchEvent(new Event('album:ready'));if(!window.IntersectionObserver)arrive();
