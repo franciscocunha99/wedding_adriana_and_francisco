@@ -322,43 +322,35 @@ html.opening-locked{overscroll-behavior:none;scroll-behavior:auto!important}
 .book-ribbon{position:absolute;right:43px;top:100%;height:31px;width:20px;background:linear-gradient(90deg,#aa8547,#c0a16a 50%,#a58144);clip-path:polygon(0 0,100% 0,100% 100%,50% 75%,0 100%);z-index:-1}
 .book-photo-placeholder{position:absolute;inset:10px;display:grid;place-content:center;text-align:center;padding:18px;background:#e7eadd;color:#7f836f;font:italic 24px/1.3 var(--serif)}
 
-/* Physical page-turn: the complete paper leaf bends, catches light and casts a moving shadow. */
-.book-page-cover,.book-turning-sheet{position:absolute;top:0;bottom:0;pointer-events:none;overflow:visible}
-.book-page-cover{z-index:4;transform:translateZ(.1px)}
+/* Physical page-turn rebuilt as two half-turns. The old page closes to the spine;
+   the NEW page then opens from the spine. This avoids browser back-face glitches and
+   guarantees that page 3 (the next photograph) is what appears after the midpoint. */
+.book-page-cover{position:absolute;top:0;bottom:0;pointer-events:none;overflow:hidden;z-index:4;transform:translateZ(.1px)}
 .book-page-cover>.book-leaf{width:100%;height:100%}
-.book-turning-sheet{z-index:9;transform-style:preserve-3d;-webkit-transform-style:preserve-3d;will-change:transform,filter;backface-visibility:visible;-webkit-backface-visibility:visible}
-.book-turning-sheet.turn-next{transform-origin:left center}
-.book-turning-sheet.turn-previous{transform-origin:right center}
-.book-turn-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:preserve-3d;-webkit-transform-style:preserve-3d;will-change:filter}
-.book-turn-face>.book-leaf{width:100%;height:100%}
-.book-turn-back{transform:rotateY(180deg)}
-/* A soft travelling reflection makes the sheet feel flexible instead of card-like. */
-.book-turn-face::after{content:'';position:absolute;inset:-2% -7%;pointer-events:none;opacity:0;background:linear-gradient(92deg,transparent 10%,rgba(92,75,48,.08) 35%,rgba(112,91,56,.2) 45%,rgba(255,250,227,.62) 51%,rgba(126,101,61,.14) 58%,transparent 82%);transform:translateX(42%) scaleX(.86);filter:blur(.25px);animation:album-paper-sheen 1180ms cubic-bezier(.2,.62,.18,1) both}
-.book-turning-sheet.turn-next .book-turn-face::after{transform:translateX(-42%) scaleX(-.86);animation-name:album-paper-sheen-next}
-.book-turning-sheet::before{content:'';position:absolute;top:0;bottom:0;width:19%;z-index:3;pointer-events:none;opacity:0;filter:blur(.6px);mix-blend-mode:multiply}
-.book-turning-sheet.turn-next::before{left:-1px;background:linear-gradient(90deg,rgba(68,54,35,.34),rgba(68,54,35,.12) 34%,transparent);animation:album-hinge-shadow 1180ms ease-in-out both}
-.book-turning-sheet.turn-previous::before{right:-1px;background:linear-gradient(270deg,rgba(68,54,35,.34),rgba(68,54,35,.12) 34%,transparent);animation:album-hinge-shadow 1180ms ease-in-out both}
-.book-turning-sheet::after{content:'';position:absolute;top:.5%;bottom:.5%;width:1px;z-index:4;pointer-events:none;background:rgba(255,249,224,.76);box-shadow:0 0 7px rgba(255,246,211,.42);opacity:0;animation:album-page-edge 1180ms ease-in-out both}
-.book-turning-sheet.turn-next::after{right:0}.book-turning-sheet.turn-previous::after{left:0}
+.book-turning-sheet{position:absolute;inset:0;z-index:9;pointer-events:none;overflow:visible;transform-style:preserve-3d;-webkit-transform-style:preserve-3d;perspective:2400px;-webkit-perspective:2400px}
+.book-turning-sheet::before,.book-turning-sheet::after{content:none}
+.book-turn-panel{position:absolute;top:0;bottom:0;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden;transform-style:flat;-webkit-transform-style:flat;will-change:transform,opacity;opacity:0}
+.book-turn-panel>.book-leaf{width:100%;height:100%}
+.book-turn-departing{opacity:1}
+.book-turn-panel::after{content:'';position:absolute;inset:-2% -9%;pointer-events:none;opacity:0;background:linear-gradient(92deg,transparent 11%,rgba(92,75,48,.09) 36%,rgba(112,91,56,.18) 45%,rgba(255,250,227,.7) 51%,rgba(126,101,61,.13) 59%,transparent 83%);filter:blur(.25px)}
+.book-turn-departing::after{animation:album-paper-sheen-out 620ms cubic-bezier(.3,.7,.2,1) both}
+.book-turn-arriving::after{animation:album-paper-sheen-in 660ms 520ms cubic-bezier(.2,.62,.18,1) both}
 .book-cast-shadow{position:absolute;top:0;bottom:0;width:34%;z-index:7;pointer-events:none;opacity:0;filter:blur(7px);will-change:opacity,transform}
 .book-cast-shadow.shadow-next{right:50%;transform-origin:right center;background:linear-gradient(270deg,rgba(52,42,29,.34),rgba(52,42,29,.13) 28%,transparent 82%)}
 .book-cast-shadow.shadow-previous{left:50%;transform-origin:left center;background:linear-gradient(90deg,rgba(52,42,29,.34),rgba(52,42,29,.13) 28%,transparent 82%)}
-@keyframes album-paper-sheen{0%{opacity:.03;transform:translateX(42%) scaleX(.86)}30%{opacity:.24}52%{opacity:.74;transform:translateX(-3%) scaleX(1.04)}72%{opacity:.32}100%{opacity:0;transform:translateX(-46%) scaleX(.9)}}
-@keyframes album-paper-sheen-next{0%{opacity:.03;transform:translateX(-42%) scaleX(-.86)}30%{opacity:.24}52%{opacity:.74;transform:translateX(3%) scaleX(-1.04)}72%{opacity:.32}100%{opacity:0;transform:translateX(46%) scaleX(-.9)}}
-@keyframes album-hinge-shadow{0%,100%{opacity:0;transform:scaleX(.25)}22%{opacity:.2}50%{opacity:.72;transform:scaleX(1.08)}76%{opacity:.22}100%{transform:scaleX(.2)}}
-@keyframes album-page-edge{0%,100%{opacity:0}26%{opacity:.2}49%{opacity:.95}69%{opacity:.32}}
+@keyframes album-paper-sheen-out{0%{opacity:.03;transform:translateX(42%) scaleX(.86)}48%{opacity:.28}82%{opacity:.72;transform:translateX(-2%) scaleX(1.03)}100%{opacity:.18;transform:translateX(-18%) scaleX(.98)}}
+@keyframes album-paper-sheen-in{0%{opacity:.22;transform:translateX(18%) scaleX(.98)}22%{opacity:.74;transform:translateX(2%) scaleX(1.03)}62%{opacity:.28}100%{opacity:0;transform:translateX(-42%) scaleX(.9)}}
 
-/* On narrow screens the complete visible page turns with the same paper flex. */
-.book-mobile-sheet{position:absolute;inset:0;z-index:14;pointer-events:none;transform-style:preserve-3d;-webkit-transform-style:preserve-3d;will-change:transform,filter;backface-visibility:visible;-webkit-backface-visibility:visible}
-.book-mobile-sheet.turn-next{transform-origin:left center}.book-mobile-sheet.turn-previous{transform-origin:right center}
-.book-mobile-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;background:#faf7ee;will-change:filter}
+/* Narrow screens use the same two-phase hand-off for the complete visible album. */
+.book-mobile-underlay{position:absolute;inset:0;z-index:4;pointer-events:none;overflow:hidden;background:#faf7ee}
+.book-mobile-underlay>.book-pages{width:100%;height:100%}
+.book-mobile-sheet{position:absolute;inset:0;z-index:14;pointer-events:none;transform-style:preserve-3d;-webkit-transform-style:preserve-3d;perspective:1900px;-webkit-perspective:1900px}
+.book-mobile-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;background:#faf7ee;will-change:transform,opacity;opacity:0}
 .book-mobile-face>.book-pages{width:100%;height:100%}
-.book-mobile-back{transform:rotateY(180deg)}
-.book-mobile-sheet::before{content:'';position:absolute;top:0;bottom:0;width:22%;z-index:4;pointer-events:none;opacity:0;filter:blur(.7px);mix-blend-mode:multiply;animation:album-hinge-shadow 1120ms ease-in-out both}
-.book-mobile-sheet.turn-next::before{left:0;background:linear-gradient(90deg,rgba(68,54,35,.32),rgba(68,54,35,.1),transparent)}
-.book-mobile-sheet.turn-previous::before{right:0;background:linear-gradient(270deg,rgba(68,54,35,.32),rgba(68,54,35,.1),transparent)}
-.book-mobile-face::after{content:'';position:absolute;inset:-2% -7%;pointer-events:none;opacity:0;background:linear-gradient(92deg,transparent 12%,rgba(91,74,47,.16) 40%,rgba(255,250,227,.62) 51%,rgba(116,93,56,.12) 61%,transparent 84%);animation:album-paper-sheen 1120ms cubic-bezier(.2,.62,.18,1) both}
-.book-mobile-sheet.turn-next .book-mobile-face::after{animation-name:album-paper-sheen-next}
+.book-mobile-front{opacity:1}
+.book-mobile-face::after{content:'';position:absolute;inset:-2% -7%;pointer-events:none;opacity:0;background:linear-gradient(92deg,transparent 12%,rgba(91,74,47,.16) 40%,rgba(255,250,227,.62) 51%,rgba(116,93,56,.12) 61%,transparent 84%)}
+.book-mobile-front::after{animation:album-paper-sheen-out 590ms cubic-bezier(.3,.7,.2,1) both}
+.book-mobile-back::after{animation:album-paper-sheen-in 630ms 500ms cubic-bezier(.2,.62,.18,1) both}
 
 .album-underbook{display:flex;align-items:center;justify-content:center;margin:37px auto 0;text-align:center}
 .album-navigation{display:flex;align-items:center;justify-content:center;gap:15px;margin-inline:auto}
@@ -371,8 +363,8 @@ html.opening-locked{overscroll-behavior:none;scroll-behavior:auto!important}
 .album-load-status:not(.has-error){position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%)}
 @media(max-width:760px){.couple-album>.wrap{width:calc(100% - 32px)}.album-heading{padding-inline:12px;margin-bottom:34px}.album-heading .section-title{font-size:clamp(37px,9.3vw,57px)}.album-book{max-width:500px;margin:auto;padding:8px 8px 8px 18px}.book-pages{grid-template-columns:minmax(0,1fr)}.book-leaf{padding:22px 21px}.book-left{background:linear-gradient(90deg,#ece5d5,#faf8f1 6%)}.book-right{padding-top:17px;padding-bottom:26px;background:linear-gradient(90deg,#ece5d5,#faf8f1 6%)}.book-running-title{font-size:18px;margin-bottom:21px}.book-footnote{display:none}.book-spine{left:18px;top:8px;bottom:8px;width:12px}.book-right::before{content:'';position:absolute;top:0;left:21px;right:21px;height:1px;background:linear-gradient(90deg,#ae8e5055,transparent)}.book-number{position:absolute;right:21px;top:19px;font-size:43px;line-height:1;color:#b2996630}.book-story{position:relative;z-index:1}.book-story .kicker{font-size:6px;margin:0 40px 10px 0}.book-story h3{font-size:31px;max-width:90%}.book-rule{margin:16px 0;width:29px}.book-story>p:last-child{font-size:12px;line-height:1.8}.book-signoff{margin-top:22px;gap:10px}.book-signoff .af-mark{width:29px;height:29px}.book-signoff em{font-size:17px}.book-signoff p{font-size:7px}.book-ribbon{right:28px;height:24px;width:17px}.album-underbook{max-width:500px;margin-top:30px}.album-preview-label{font-size:7px;margin-bottom:26px}.book-page-cover,.book-turning-sheet{display:none!important}}
 @media(max-width:360px){.book-leaf{padding-inline:17px}.book-right::before{left:17px;right:17px}.book-story h3{font-size:27px}.book-mount{padding:7px}.album-navigation{gap:11px}.album-arrow{width:44px;height:44px}}
-@media(prefers-reduced-motion:reduce){.album-arrow{transition:none!important}.book-page-cover,.book-turning-sheet,.book-mobile-sheet{display:none!important}}
-@media print{.album-navigation,.album-preview-label,.book-turning-sheet,.book-page-cover,.book-mobile-sheet{display:none!important}.album-book{box-shadow:none;break-inside:avoid}}
+@media(prefers-reduced-motion:reduce){.album-arrow{transition:none!important}.book-page-cover,.book-turning-sheet,.book-mobile-sheet,.book-mobile-underlay{display:none!important}}
+@media print{.album-navigation,.album-preview-label,.book-turning-sheet,.book-page-cover,.book-mobile-sheet,.book-mobile-underlay{display:none!important}.album-book{box-shadow:none;break-inside:avoid}}
 
 /* One motion rhythm: quiet entrances, paper movement, readable resting states. */
 :root{--motion-soft:cubic-bezier(.2,.72,.24,1);--motion-reveal:cubic-bezier(.16,1,.3,1)}
@@ -1201,61 +1193,75 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
       return {left:lr.left-pr.left,width:lr.width};
     }
     function makeDesktopTurn(direction,currentLeft,currentRight,targetPages){
-      const turningSource=direction>0?currentRight:currentLeft;
-      const targetBack=direction>0?sanitizeClone($('.book-left',targetPages)):sanitizeClone($('.book-right',targetPages));
+      const currentLeftNode=$('.book-left',pages),currentRightNode=$('.book-right',pages);
+      const leftGeo=leafGeometry(currentLeftNode),rightGeo=leafGeometry(currentRightNode);
+      const departingSource=direction>0?currentRight:currentLeft;
+      // NEXT: page 2 closes, page 3 (next photograph) opens on the left.
+      // PREVIOUS: current left page closes, previous right page opens on the right.
+      const arrivingSource=direction>0?sanitizeClone($('.book-left',targetPages)):sanitizeClone($('.book-right',targetPages));
       const targetUnderlay=direction>0?sanitizeClone($('.book-right',targetPages)):sanitizeClone($('.book-left',targetPages));
-      const turnGeo=leafGeometry(direction>0?$('.book-right',pages):$('.book-left',pages));
+      const departingGeo=direction>0?rightGeo:leftGeo;
+      const arrivingGeo=direction>0?leftGeo:rightGeo;
+      const underlayGeo=direction>0?rightGeo:leftGeo;
 
-      // As soon as the old leaf lifts, the page underneath belongs to the new
-      // spread. This keeps the physical page order coherent throughout the turn.
-      cover=document.createElement('div');cover.className='book-page-cover';cover.style.left=turnGeo.left+'px';cover.style.width=turnGeo.width+'px';cover.append(targetUnderlay);pages.append(cover);
+      // The page below the lifted sheet already belongs to the destination spread.
+      cover=document.createElement('div');cover.className='book-page-cover';cover.style.left=underlayGeo.left+'px';cover.style.width=underlayGeo.width+'px';cover.append(targetUnderlay);pages.append(cover);
 
-      sheet=document.createElement('div');sheet.className='book-turning-sheet '+(direction>0?'turn-next':'turn-previous');sheet.style.left=turnGeo.left+'px';sheet.style.width=turnGeo.width+'px';sheet.setAttribute('aria-hidden','true');sheet.setAttribute('inert','');
-      const front=document.createElement('div');front.className='book-turn-face book-turn-front';front.append(turningSource);
-      const back=document.createElement('div');back.className='book-turn-face book-turn-back';back.append(targetBack);
-      sheet.append(front,back);pages.append(sheet);
+      sheet=document.createElement('div');sheet.className='book-turning-sheet '+(direction>0?'turn-next':'turn-previous');sheet.setAttribute('aria-hidden','true');sheet.setAttribute('inert','');
+      const departing=document.createElement('div');departing.className='book-turn-panel book-turn-departing';departing.style.left=departingGeo.left+'px';departing.style.width=departingGeo.width+'px';departing.style.transformOrigin=direction>0?'left center':'right center';departing.append(departingSource);
+      const arriving=document.createElement('div');arriving.className='book-turn-panel book-turn-arriving';arriving.style.left=arrivingGeo.left+'px';arriving.style.width=arrivingGeo.width+'px';arriving.style.transformOrigin=direction>0?'right center':'left center';arriving.append(arrivingSource);
+      sheet.append(departing,arriving);pages.append(sheet);
+
       castShadow=document.createElement('div');castShadow.className='book-cast-shadow '+(direction>0?'shadow-next':'shadow-previous');castShadow.setAttribute('aria-hidden','true');pages.append(castShadow);
-
-      // Force the destination side to be laid out before the first animation
-      // frame, so a cached bitmap from the previous photograph cannot flash.
       void sheet.offsetWidth;
 
-      const degrees=direction>0?-180:180;
-      const animation=motion(sheet,[
-        {transform:'rotateY(0deg) translateZ(0) scaleX(1)',filter:'drop-shadow(0 4px 5px rgba(38,56,50,.08))',offset:0},
-        {transform:`rotateY(${degrees*.10}deg) translateZ(2px) scaleX(.998)`,filter:'drop-shadow(0 8px 9px rgba(38,56,50,.16))',offset:.13},
-        {transform:`rotateY(${degrees*.31}deg) translateZ(9px) scaleX(.988)`,filter:'drop-shadow(0 16px 16px rgba(38,56,50,.24))',offset:.32},
-        {transform:`rotateY(${degrees*.52}deg) translateZ(18px) scaleX(.963)`,filter:'drop-shadow(0 23px 22px rgba(38,56,50,.31))',offset:.52},
-        {transform:`rotateY(${degrees*.73}deg) translateZ(13px) scaleX(.976)`,filter:'drop-shadow(0 18px 18px rgba(38,56,50,.24))',offset:.71},
-        {transform:`rotateY(${degrees*.92}deg) translateZ(4px) scaleX(.994)`,filter:'drop-shadow(0 8px 9px rgba(38,56,50,.13))',offset:.9},
-        {transform:`rotateY(${degrees}deg) translateZ(.1px) scaleX(1)`,filter:'drop-shadow(0 2px 3px rgba(38,56,50,.04))',offset:1}
-      ],{duration:1180,easing:'cubic-bezier(.25,.58,.16,1)',fill:'forwards'});
-      motion(front,[{filter:'brightness(1) saturate(1)'},{filter:'brightness(.97) saturate(.99)',offset:.28},{filter:'brightness(.82) saturate(.94)',offset:.52},{filter:'brightness(.93) saturate(.98)',offset:.76},{filter:'brightness(1) saturate(1)'}],{duration:1180,easing:'linear',fill:'both'});
-      motion(back,[{filter:'brightness(.82) saturate(.94)'},{filter:'brightness(.86) saturate(.95)',offset:.48},{filter:'brightness(.96) saturate(.99)',offset:.76},{filter:'brightness(1) saturate(1)'}],{duration:1180,easing:'linear',fill:'both'});
-      motion(cover,[{filter:'brightness(.91)'},{filter:'brightness(.94)',offset:.3},{filter:'brightness(1)',offset:.72},{filter:'brightness(1)'}],{duration:1180,easing:'linear',fill:'both'});
-      motion(castShadow,[{opacity:0,transform:'scaleX(.12)'},{opacity:.12,transform:'scaleX(.4)',offset:.2},{opacity:.46,transform:'scaleX(1.05)',offset:.51},{opacity:.16,transform:'scaleX(.48)',offset:.8},{opacity:0,transform:'scaleX(.12)'}],{duration:1180,easing:'cubic-bezier(.22,.61,.36,1)',fill:'both'});
-      return animation;
+      const outAngle=direction>0?-90:90;
+      const inAngle=direction>0?90:-90;
+      const out=motion(departing,[
+        {transform:'rotateY(0deg) translateZ(0) scaleX(1)',opacity:1,offset:0},
+        {transform:`rotateY(${outAngle*.28}deg) translateZ(5px) scaleX(.994)`,opacity:1,offset:.3},
+        {transform:`rotateY(${outAngle*.7}deg) translateZ(14px) scaleX(.978)`,opacity:1,offset:.72},
+        {transform:`rotateY(${outAngle*.96}deg) translateZ(18px) scaleX(.965)`,opacity:1,offset:.96},
+        {transform:`rotateY(${outAngle}deg) translateZ(18px) scaleX(.962)`,opacity:0,offset:1}
+      ],{duration:620,easing:'cubic-bezier(.42,0,.32,1)',fill:'both'});
+      const incoming=motion(arriving,[
+        {transform:`rotateY(${inAngle}deg) translateZ(18px) scaleX(.962)`,opacity:0,offset:0},
+        {transform:`rotateY(${inAngle*.96}deg) translateZ(18px) scaleX(.965)`,opacity:1,offset:.04},
+        {transform:`rotateY(${inAngle*.7}deg) translateZ(14px) scaleX(.978)`,opacity:1,offset:.28},
+        {transform:`rotateY(${inAngle*.28}deg) translateZ(5px) scaleX(.994)`,opacity:1,offset:.7},
+        {transform:'rotateY(0deg) translateZ(.1px) scaleX(1)',opacity:1,offset:1}
+      ],{duration:660,delay:520,easing:'cubic-bezier(.18,.72,.18,1)',fill:'both'});
+      motion(castShadow,[
+        {opacity:0,transform:'scaleX(.12)',offset:0},
+        {opacity:.16,transform:'scaleX(.42)',offset:.2},
+        {opacity:.5,transform:'scaleX(1.08)',offset:.49},
+        {opacity:.48,transform:'scaleX(1.02)',offset:.53},
+        {opacity:.15,transform:'scaleX(.42)',offset:.82},
+        {opacity:0,transform:'scaleX(.12)',offset:1}
+      ],{duration:1180,easing:'cubic-bezier(.22,.61,.36,1)',fill:'both'});
+      return incoming||out;
     }
     function makeMobileTurn(direction,oldPages,targetPages){
       const destination=sanitizeClone(targetPages);
+      // Put the new complete album underneath first so the old spread can never flash back.
+      cover=document.createElement('div');cover.className='book-mobile-underlay';cover.setAttribute('aria-hidden','true');cover.setAttribute('inert','');cover.append(sanitizeClone(targetPages));pages.append(cover);
       sheet=document.createElement('div');sheet.className='book-mobile-sheet '+(direction>0?'turn-next':'turn-previous');sheet.setAttribute('aria-hidden','true');sheet.setAttribute('inert','');
-      const front=document.createElement('div');front.className='book-mobile-face book-mobile-front';front.append(oldPages);
-      const back=document.createElement('div');back.className='book-mobile-face book-mobile-back';back.append(destination);
-      sheet.append(front,back);pages.append(sheet);
-      void sheet.offsetWidth;
-      const degrees=direction>0?-180:180;
-      const animation=motion(sheet,[
-        {transform:'rotateY(0deg) translateZ(0) scaleX(1)',filter:'drop-shadow(0 4px 5px rgba(38,56,50,.08))',offset:0},
-        {transform:`rotateY(${degrees*.12}deg) translateZ(2px) scaleX(.997)`,filter:'drop-shadow(0 8px 9px rgba(38,56,50,.15))',offset:.15},
-        {transform:`rotateY(${degrees*.34}deg) translateZ(8px) scaleX(.985)`,filter:'drop-shadow(0 15px 15px rgba(38,56,50,.22))',offset:.34},
-        {transform:`rotateY(${degrees*.53}deg) translateZ(15px) scaleX(.965)`,filter:'drop-shadow(0 21px 20px rgba(38,56,50,.29))',offset:.53},
-        {transform:`rotateY(${degrees*.75}deg) translateZ(10px) scaleX(.98)`,filter:'drop-shadow(0 15px 15px rgba(38,56,50,.21))',offset:.74},
-        {transform:`rotateY(${degrees*.93}deg) translateZ(3px) scaleX(.995)`,filter:'drop-shadow(0 7px 8px rgba(38,56,50,.12))',offset:.91},
-        {transform:`rotateY(${degrees}deg) translateZ(.1px) scaleX(1)`,filter:'drop-shadow(0 2px 3px rgba(38,56,50,.04))',offset:1}
-      ],{duration:1120,easing:'cubic-bezier(.25,.58,.16,1)',fill:'forwards'});
-      motion(front,[{filter:'brightness(1)'},{filter:'brightness(.96)',offset:.3},{filter:'brightness(.82)',offset:.53},{filter:'brightness(.94)',offset:.77},{filter:'brightness(1)'}],{duration:1120,easing:'linear',fill:'both'});
-      motion(back,[{filter:'brightness(.82)'},{filter:'brightness(.86)',offset:.5},{filter:'brightness(.96)',offset:.78},{filter:'brightness(1)'}],{duration:1120,easing:'linear',fill:'both'});
-      return animation;
+      const departing=document.createElement('div');departing.className='book-mobile-face book-mobile-front';departing.style.transformOrigin=direction>0?'left center':'right center';departing.append(oldPages);
+      const arriving=document.createElement('div');arriving.className='book-mobile-face book-mobile-back';arriving.style.transformOrigin=direction>0?'right center':'left center';arriving.append(destination);
+      sheet.append(departing,arriving);pages.append(sheet);void sheet.offsetWidth;
+      const outAngle=direction>0?-90:90,inAngle=direction>0?90:-90;
+      const out=motion(departing,[
+        {transform:'rotateY(0deg) translateZ(0) scaleX(1)',opacity:1},
+        {transform:`rotateY(${outAngle*.68}deg) translateZ(11px) scaleX(.978)`,opacity:1,offset:.72},
+        {transform:`rotateY(${outAngle}deg) translateZ(15px) scaleX(.965)`,opacity:0}
+      ],{duration:590,easing:'cubic-bezier(.42,0,.32,1)',fill:'both'});
+      const incoming=motion(arriving,[
+        {transform:`rotateY(${inAngle}deg) translateZ(15px) scaleX(.965)`,opacity:0},
+        {transform:`rotateY(${inAngle*.96}deg) translateZ(15px) scaleX(.968)`,opacity:1,offset:.04},
+        {transform:`rotateY(${inAngle*.6}deg) translateZ(10px) scaleX(.982)`,opacity:1,offset:.36},
+        {transform:'rotateY(0deg) translateZ(.1px) scaleX(1)',opacity:1}
+      ],{duration:630,delay:500,easing:'cubic-bezier(.18,.72,.18,1)',fill:'both'});
+      return incoming||out;
     }
     async function go(step){
       if(!step||photos.length<2||book.hasAttribute('aria-busy'))return;
