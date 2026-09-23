@@ -1,0 +1,12 @@
+CONVITE ADRIANA & FRANCISCO
+
+Todos os ficheiros estão na mesma pasta.
+Para usar no GitHub Pages, coloca o conteúdo desta pasta no repositório e mantém o nome index.html.
+
+Ficheiros principais:
+- index.html
+- musica-convite.mp3
+- imagens .png
+- fontes .woff
+
+Não alteres os nomes dos ficheiros sem atualizar as referências no index.html.
