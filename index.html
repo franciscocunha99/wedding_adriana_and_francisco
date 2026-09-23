@@ -1124,18 +1124,7 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
       if(!p||typeof p.src!=='string'||!p.src.trim())return false;
       try{return /^(https?:|file:)$/.test(new URL(p.src.trim(),location.href).protocol);}catch(_){return false;}
     };
-    const photos=(Array.isArray(W.couplePhotos)?W.couplePhotos:[
-    {
-      "src": "quinta-01.png",
-      "label": "Uma fotografia nossa",
-      "note": "Uma memória."
-    },
-    {
-      "src": "quinta-02.png",
-      "label": "A nossa melhor companhia",
-      "note": "Contigo, até os dias mais simples ficam na memória."
-    }
-  ]).filter(validPhoto).slice(0,6).map(p=>({src:p.src.trim(),label:String(p.label||'Um bocadinho de nós').slice(0,70),note:String(p.note||'').slice(0,260)}));
+    const photos=(Array.isArray(W.couplePhotos)?W.couplePhotos:[]).filter(validPhoto).slice(0,6).map(p=>({src:p.src.trim(),label:String(p.label||'Um bocadinho de nós').slice(0,70),note:String(p.note||'').slice(0,260)}));
     if(!photos.length)return;
     section.hidden=false;
     const image=$('#album-photo'),placeholder=$('#album-placeholder'),caption=$('#album-caption'),note=$('#album-note');
