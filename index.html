@@ -1178,24 +1178,48 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
       clone.setAttribute('inert','');
       return clone;
     }
+    // Build the destination spread before the turn starts. In particular, the
+    // reverse of page 2 is already page 3 (the next photograph), rather than a
+    // clone of the page that is currently visible.
+    function buildSpread(targetIndex){
+      const photo=photos[targetIndex],spread=pages.cloneNode(true);
+      const oldImage=$('#album-photo',spread);
+      if(oldImage){
+        const freshImage=document.createElement('img');
+        freshImage.id='album-photo';freshImage.alt=photo.alt;freshImage.decoding='sync';freshImage.draggable=false;
+        freshImage.loading='eager';freshImage.src=photo.src;
+        oldImage.replaceWith(freshImage);
+      }
+      const targetPlaceholder=$('#album-placeholder',spread);if(targetPlaceholder)targetPlaceholder.hidden=true;
+      const caption=$('#album-caption',spread);if(caption)caption.textContent=photo.label;
+      const note=$('#album-note',spread);if(note)note.textContent=photo.note||'Há fotografias que dizem o que as palavras não conseguem.';
+      const number=$('#album-page-number',spread);if(number)number.textContent=String(targetIndex+1).padStart(2,'0');
+      return spread;
+    }
     function leafGeometry(leaf){
       const pr=pages.getBoundingClientRect(),lr=leaf.getBoundingClientRect();
       return {left:lr.left-pr.left,width:lr.width};
     }
-    function makeDesktopTurn(direction,currentLeft,currentRight){
+    function makeDesktopTurn(direction,currentLeft,currentRight,targetPages){
       const turningSource=direction>0?currentRight:currentLeft;
-      const staticSource=direction>0?currentLeft:currentRight;
-      const targetBack=direction>0?sanitizeClone($('.book-left',pages)):sanitizeClone($('.book-right',pages));
+      const targetBack=direction>0?sanitizeClone($('.book-left',targetPages)):sanitizeClone($('.book-right',targetPages));
+      const targetUnderlay=direction>0?sanitizeClone($('.book-right',targetPages)):sanitizeClone($('.book-left',targetPages));
       const turnGeo=leafGeometry(direction>0?$('.book-right',pages):$('.book-left',pages));
-      const staticGeo=leafGeometry(direction>0?$('.book-left',pages):$('.book-right',pages));
 
-      cover=document.createElement('div');cover.className='book-page-cover';cover.style.left=staticGeo.left+'px';cover.style.width=staticGeo.width+'px';cover.append(staticSource);pages.append(cover);
+      // As soon as the old leaf lifts, the page underneath belongs to the new
+      // spread. This keeps the physical page order coherent throughout the turn.
+      cover=document.createElement('div');cover.className='book-page-cover';cover.style.left=turnGeo.left+'px';cover.style.width=turnGeo.width+'px';cover.append(targetUnderlay);pages.append(cover);
 
       sheet=document.createElement('div');sheet.className='book-turning-sheet '+(direction>0?'turn-next':'turn-previous');sheet.style.left=turnGeo.left+'px';sheet.style.width=turnGeo.width+'px';sheet.setAttribute('aria-hidden','true');sheet.setAttribute('inert','');
       const front=document.createElement('div');front.className='book-turn-face book-turn-front';front.append(turningSource);
       const back=document.createElement('div');back.className='book-turn-face book-turn-back';back.append(targetBack);
       sheet.append(front,back);pages.append(sheet);
       castShadow=document.createElement('div');castShadow.className='book-cast-shadow '+(direction>0?'shadow-next':'shadow-previous');castShadow.setAttribute('aria-hidden','true');pages.append(castShadow);
+
+      // Force the destination side to be laid out before the first animation
+      // frame, so a cached bitmap from the previous photograph cannot flash.
+      void sheet.offsetWidth;
+
       const degrees=direction>0?-180:180;
       const animation=motion(sheet,[
         {transform:'rotateY(0deg) translateZ(0) scaleX(1)',filter:'drop-shadow(0 4px 5px rgba(38,56,50,.08))',offset:0},
@@ -1208,16 +1232,17 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
       ],{duration:1180,easing:'cubic-bezier(.25,.58,.16,1)',fill:'forwards'});
       motion(front,[{filter:'brightness(1) saturate(1)'},{filter:'brightness(.97) saturate(.99)',offset:.28},{filter:'brightness(.82) saturate(.94)',offset:.52},{filter:'brightness(.93) saturate(.98)',offset:.76},{filter:'brightness(1) saturate(1)'}],{duration:1180,easing:'linear',fill:'both'});
       motion(back,[{filter:'brightness(.82) saturate(.94)'},{filter:'brightness(.86) saturate(.95)',offset:.48},{filter:'brightness(.96) saturate(.99)',offset:.76},{filter:'brightness(1) saturate(1)'}],{duration:1180,easing:'linear',fill:'both'});
-      motion(cover,[{filter:'brightness(1)'},{filter:'brightness(.965)',offset:.28},{filter:'brightness(.90)',offset:.53},{filter:'brightness(.97)',offset:.8},{filter:'brightness(1)'}],{duration:1180,easing:'linear',fill:'both'});
+      motion(cover,[{filter:'brightness(.91)'},{filter:'brightness(.94)',offset:.3},{filter:'brightness(1)',offset:.72},{filter:'brightness(1)'}],{duration:1180,easing:'linear',fill:'both'});
       motion(castShadow,[{opacity:0,transform:'scaleX(.12)'},{opacity:.12,transform:'scaleX(.4)',offset:.2},{opacity:.46,transform:'scaleX(1.05)',offset:.51},{opacity:.16,transform:'scaleX(.48)',offset:.8},{opacity:0,transform:'scaleX(.12)'}],{duration:1180,easing:'cubic-bezier(.22,.61,.36,1)',fill:'both'});
       return animation;
     }
-    function makeMobileTurn(direction,oldPages){
-      const targetPages=sanitizeClone(pages);
+    function makeMobileTurn(direction,oldPages,targetPages){
+      const destination=sanitizeClone(targetPages);
       sheet=document.createElement('div');sheet.className='book-mobile-sheet '+(direction>0?'turn-next':'turn-previous');sheet.setAttribute('aria-hidden','true');sheet.setAttribute('inert','');
       const front=document.createElement('div');front.className='book-mobile-face book-mobile-front';front.append(oldPages);
-      const back=document.createElement('div');back.className='book-mobile-face book-mobile-back';back.append(targetPages);
+      const back=document.createElement('div');back.className='book-mobile-face book-mobile-back';back.append(destination);
       sheet.append(front,back);pages.append(sheet);
+      void sheet.offsetWidth;
       const degrees=direction>0?-180:180;
       const animation=motion(sheet,[
         {transform:'rotateY(0deg) translateZ(0) scaleX(1)',filter:'drop-shadow(0 4px 5px rgba(38,56,50,.08))',offset:0},
@@ -1241,15 +1266,16 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
       }
       if(request!==ticket)return;
       stopMotion();
-      const narrow=isNarrow();
+      const narrow=isNarrow(),targetPages=buildSpread(destination);
       const oldPages=narrow?sanitizeClone(pages):null;
       const currentLeft=!narrow?sanitizeClone($('.book-left',pages)):null;
       const currentRight=!narrow?sanitizeClone($('.book-right',pages)):null;
-      index=destination;render(true);
       let animation=null;
-      if(canAnimate())animation=narrow?makeMobileTurn(direction,oldPages):makeDesktopTurn(direction,currentLeft,currentRight);
-      const finish=()=>{sheet?.remove();cover?.remove();castShadow?.remove();sheet=cover=castShadow=null;book.removeAttribute('aria-busy');previous.disabled=next.disabled=photos.length<2;};
-      if(animation?.finished)animation.finished.then(finish,finish);else finish();
+      if(canAnimate())animation=narrow?makeMobileTurn(direction,oldPages,targetPages):makeDesktopTurn(direction,currentLeft,currentRight,targetPages);
+      const cleanup=()=>{sheet?.remove();cover?.remove();castShadow?.remove();sheet=cover=castShadow=null;book.removeAttribute('aria-busy');previous.disabled=next.disabled=photos.length<2;};
+      const commit=()=>{if(request===ticket){index=destination;requestedIndex=destination;render(true);}cleanup();};
+      if(animation?.finished)animation.finished.then(commit,()=>{if(request===ticket){index=destination;requestedIndex=destination;render(true);}cleanup();});
+      else{index=destination;requestedIndex=destination;render(true);cleanup();}
     }
     previous.addEventListener('click',()=>go(-1));
     next.addEventListener('click',()=>go(1));
