@@ -326,30 +326,39 @@ html.opening-locked{overscroll-behavior:none;scroll-behavior:auto!important}
    guarantees that page 3 (the next photograph) is what appears after the midpoint. */
 .book-page-cover{position:absolute;top:0;bottom:0;pointer-events:none;overflow:hidden;z-index:4;transform:translateZ(.1px)}
 .book-page-cover>.book-leaf{width:100%;height:100%}
-.book-turning-sheet{position:absolute;inset:0;z-index:9;pointer-events:none;overflow:visible;transform-style:preserve-3d;-webkit-transform-style:preserve-3d;perspective:2400px;-webkit-perspective:2400px}
-.book-turning-sheet::before,.book-turning-sheet::after{content:none}
-.book-turn-panel{position:absolute;top:0;bottom:0;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden;transform-style:flat;-webkit-transform-style:flat;will-change:transform,opacity;opacity:0}
-.book-turn-panel>.book-leaf{width:100%;height:100%}
+.book-turning-sheet{position:absolute;inset:0;z-index:9;pointer-events:none;overflow:visible;transform-style:preserve-3d;-webkit-transform-style:preserve-3d;perspective:2600px;-webkit-perspective:2600px;perspective-origin:50% 46%;-webkit-perspective-origin:50% 46%;transform:translateZ(0)}
+/* A very thin glint at the spine hides the front/back hand-off at 90deg and reads as paper thickness. */
+.book-turning-sheet::before{content:'';position:absolute;z-index:12;left:50%;top:1.5%;bottom:1.5%;width:2px;transform:translateX(-50%);pointer-events:none;opacity:0;background:linear-gradient(180deg,transparent,#fff8df 8%,#e4d2a7 48%,#fff8df 92%,transparent);box-shadow:0 0 5px #fff6d7aa,0 0 12px #6f5a382d;animation:album-spine-edge 1160ms linear both}
+.book-turning-sheet::after{content:none}
+.book-turn-panel{position:absolute;top:0;bottom:0;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden;transform-style:preserve-3d;-webkit-transform-style:preserve-3d;will-change:transform,opacity;opacity:0;box-shadow:0 2px 5px rgba(62,49,31,.06)}
+.book-turn-panel>.book-leaf{width:100%;height:100%;transform:translateZ(.1px)}
 .book-turn-departing{opacity:1}
-.book-turn-panel::after{content:'';position:absolute;inset:-2% -9%;pointer-events:none;opacity:0;background:linear-gradient(92deg,transparent 11%,rgba(92,75,48,.09) 36%,rgba(112,91,56,.18) 45%,rgba(255,250,227,.7) 51%,rgba(126,101,61,.13) 59%,transparent 83%);filter:blur(.25px)}
-.book-turn-departing::after{animation:album-paper-sheen-out 700ms cubic-bezier(.25,.72,.18,1) both}
-.book-turn-arriving::after{animation:album-paper-sheen-in 720ms 540ms cubic-bezier(.16,.74,.16,1) both}
-.book-cast-shadow{position:absolute;top:0;bottom:0;width:34%;z-index:7;pointer-events:none;opacity:0;filter:blur(7px);will-change:opacity,transform}
-.book-cast-shadow.shadow-next{right:50%;transform-origin:right center;background:linear-gradient(270deg,rgba(52,42,29,.34),rgba(52,42,29,.13) 28%,transparent 82%)}
-.book-cast-shadow.shadow-previous{left:50%;transform-origin:left center;background:linear-gradient(90deg,rgba(52,42,29,.34),rgba(52,42,29,.13) 28%,transparent 82%)}
-@keyframes album-paper-sheen-out{0%{opacity:.02;transform:translateX(46%) scaleX(.84)}34%{opacity:.16}68%{opacity:.46;transform:translateX(10%) scaleX(.98)}88%{opacity:.7;transform:translateX(-4%) scaleX(1.025)}100%{opacity:.12;transform:translateX(-20%) scaleX(.98)}}
-@keyframes album-paper-sheen-in{0%{opacity:.12;transform:translateX(20%) scaleX(.98)}18%{opacity:.68;transform:translateX(4%) scaleX(1.025)}48%{opacity:.42}76%{opacity:.13;transform:translateX(-20%) scaleX(.96)}100%{opacity:0;transform:translateX(-46%) scaleX(.9)}}
+/* The free edge catches a little light while the sheet is lifted. */
+.book-turn-panel::before{content:'';position:absolute;z-index:3;top:0;bottom:0;width:2px;pointer-events:none;background:linear-gradient(180deg,rgba(255,255,255,.15),rgba(255,249,224,.9) 15%,rgba(178,151,101,.45) 52%,rgba(255,249,224,.82) 86%,rgba(255,255,255,.12));box-shadow:0 0 5px rgba(119,91,48,.18)}
+.turn-next .book-turn-departing::before,.turn-previous .book-turn-arriving::before{right:0}
+.turn-next .book-turn-arriving::before,.turn-previous .book-turn-departing::before{left:0}
+.book-turn-panel::after{content:'';position:absolute;z-index:2;inset:-3% -12%;pointer-events:none;opacity:0;background:linear-gradient(92deg,transparent 8%,rgba(76,59,37,.05) 28%,rgba(94,73,43,.18) 42%,rgba(255,250,229,.76) 50%,rgba(121,96,57,.16) 60%,transparent 83%);filter:blur(.35px)}
+.book-turn-departing::after{animation:album-paper-sheen-out 1160ms linear both}
+.book-turn-arriving::after{animation:album-paper-sheen-in 1160ms linear both}
+.book-cast-shadow{position:absolute;top:1%;bottom:1%;width:39%;z-index:7;pointer-events:none;opacity:0;filter:blur(9px);will-change:opacity,transform}
+.book-cast-shadow.shadow-next{right:50%;transform-origin:right center;background:linear-gradient(270deg,rgba(48,38,26,.38),rgba(58,45,29,.16) 30%,transparent 84%)}
+.book-cast-shadow.shadow-previous{left:50%;transform-origin:left center;background:linear-gradient(90deg,rgba(48,38,26,.38),rgba(58,45,29,.16) 30%,transparent 84%)}
+@keyframes album-spine-edge{0%,37%{opacity:0;transform:translateX(-50%) scaleY(.9)}45%{opacity:.16}49%{opacity:.72;transform:translateX(-50%) scaleY(.985)}50%{opacity:.94;transform:translateX(-50%) scaleY(1)}51%{opacity:.72}57%{opacity:.15}67%,100%{opacity:0;transform:translateX(-50%) scaleY(.92)}}
+@keyframes album-paper-sheen-out{0%{opacity:.015;transform:translateX(50%) scaleX(.82)}16%{opacity:.07}34%{opacity:.2;transform:translateX(26%) scaleX(.92)}44%{opacity:.48;transform:translateX(8%) scaleX(1)}49%{opacity:.72;transform:translateX(-1%) scaleX(1.03)}50%{opacity:.08;transform:translateX(-5%) scaleX(1.01)}51%,100%{opacity:0;transform:translateX(-12%) scaleX(.98)}}
+@keyframes album-paper-sheen-in{0%,49%{opacity:0;transform:translateX(12%) scaleX(.98)}50%{opacity:.08;transform:translateX(5%) scaleX(1.01)}51%{opacity:.7;transform:translateX(1%) scaleX(1.03)}58%{opacity:.46;transform:translateX(-10%) scaleX(1)}72%{opacity:.18;transform:translateX(-27%) scaleX(.92)}88%{opacity:.06}100%{opacity:0;transform:translateX(-50%) scaleX(.82)}}
 
 /* Narrow screens use the same two-phase hand-off for the complete visible album. */
 .book-mobile-underlay{position:absolute;inset:0;z-index:4;pointer-events:none;overflow:hidden;background:#faf7ee}
 .book-mobile-underlay>.book-pages{width:100%;height:100%}
-.book-mobile-sheet{position:absolute;inset:0;z-index:14;pointer-events:none;transform-style:preserve-3d;-webkit-transform-style:preserve-3d;perspective:1900px;-webkit-perspective:1900px}
-.book-mobile-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;background:#faf7ee;will-change:transform,opacity;opacity:0}
-.book-mobile-face>.book-pages{width:100%;height:100%}
+.book-mobile-sheet{position:absolute;inset:0;z-index:14;pointer-events:none;transform-style:preserve-3d;-webkit-transform-style:preserve-3d;perspective:2100px;-webkit-perspective:2100px;perspective-origin:50% 44%;-webkit-perspective-origin:50% 44%}
+.book-mobile-sheet::before{content:'';position:absolute;z-index:16;top:0;bottom:0;left:50%;width:2px;transform:translateX(-50%);opacity:0;pointer-events:none;background:#fff5d6;box-shadow:0 0 7px #fff4d0b8;animation:album-mobile-edge 1020ms linear both}
+.book-mobile-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;background:#faf7ee;will-change:transform,opacity;opacity:0;transform-style:preserve-3d;-webkit-transform-style:preserve-3d}
+.book-mobile-face>.book-pages{width:100%;height:100%;transform:translateZ(.1px)}
 .book-mobile-front{opacity:1}
-.book-mobile-face::after{content:'';position:absolute;inset:-2% -7%;pointer-events:none;opacity:0;background:linear-gradient(92deg,transparent 12%,rgba(91,74,47,.16) 40%,rgba(255,250,227,.62) 51%,rgba(116,93,56,.12) 61%,transparent 84%)}
-.book-mobile-front::after{animation:album-paper-sheen-out 660ms cubic-bezier(.25,.72,.18,1) both}
-.book-mobile-back::after{animation:album-paper-sheen-in 690ms 500ms cubic-bezier(.16,.74,.16,1) both}
+.book-mobile-face::after{content:'';position:absolute;inset:-2% -9%;pointer-events:none;opacity:0;background:linear-gradient(92deg,transparent 10%,rgba(91,74,47,.08) 31%,rgba(101,80,48,.19) 43%,rgba(255,250,227,.7) 51%,rgba(116,93,56,.13) 61%,transparent 85%)}
+.book-mobile-front::after{animation:album-paper-sheen-out 1020ms linear both}
+.book-mobile-back::after{animation:album-paper-sheen-in 1020ms linear both}
+@keyframes album-mobile-edge{0%,40%{opacity:0}47%{opacity:.2}49.5%{opacity:.78}50%{opacity:.9}50.5%{opacity:.78}57%{opacity:.16}66%,100%{opacity:0}}
 
 .album-underbook{display:flex;align-items:center;justify-content:center;margin:37px auto 0;text-align:center}
 .album-navigation{display:flex;align-items:center;justify-content:center;gap:15px;margin-inline:auto}
@@ -1194,15 +1203,14 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
       const currentLeftNode=$('.book-left',pages),currentRightNode=$('.book-right',pages);
       const leftGeo=leafGeometry(currentLeftNode),rightGeo=leafGeometry(currentRightNode);
       const departingSource=direction>0?currentRight:currentLeft;
-      // NEXT: page 2 closes, page 3 (next photograph) opens on the left.
-      // PREVIOUS: current left page closes, previous right page opens on the right.
+      // NEXT: page 2 closes, page 3 opens from the spine. PREVIOUS mirrors the same motion.
+      // Both halves now share one clock, so there is no timing seam at the spine.
       const arrivingSource=direction>0?sanitizeClone($('.book-left',targetPages)):sanitizeClone($('.book-right',targetPages));
       const targetUnderlay=direction>0?sanitizeClone($('.book-right',targetPages)):sanitizeClone($('.book-left',targetPages));
       const departingGeo=direction>0?rightGeo:leftGeo;
       const arrivingGeo=direction>0?leftGeo:rightGeo;
       const underlayGeo=direction>0?rightGeo:leftGeo;
 
-      // The page below the lifted sheet already belongs to the destination spread.
       cover=document.createElement('div');cover.className='book-page-cover';cover.style.left=underlayGeo.left+'px';cover.style.width=underlayGeo.width+'px';cover.append(targetUnderlay);pages.append(cover);
 
       sheet=document.createElement('div');sheet.className='book-turning-sheet '+(direction>0?'turn-next':'turn-previous');sheet.setAttribute('aria-hidden','true');sheet.setAttribute('inert','');
@@ -1213,61 +1221,70 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
       castShadow=document.createElement('div');castShadow.className='book-cast-shadow '+(direction>0?'shadow-next':'shadow-previous');castShadow.setAttribute('aria-hidden','true');pages.append(castShadow);
       void sheet.offsetWidth;
 
-      const outAngle=direction>0?-90:90;
-      const inAngle=direction>0?90:-90;
-      // A slightly longer, overlapping hand-off keeps the leaf moving continuously
-      // through the spine while preserving the correct page mapping.
+      const duration=1160;
+      const outAngle=direction>0?-90:90,inAngle=direction>0?90:-90;
+      const bend=direction>0?1:-1;
+      // One continuous angular profile: slow lift, quicker travel through the middle,
+      // then a soft landing. The visual hand-off occurs only when the paper is edge-on.
       const out=motion(departing,[
         {transform:'rotateY(0deg) translateZ(0) scaleX(1) skewY(0deg)',opacity:1,offset:0},
-        {transform:`rotateY(${outAngle*.12}deg) translateZ(2px) scaleX(.999) skewY(${direction*.18}deg)`,opacity:1,offset:.16},
-        {transform:`rotateY(${outAngle*.42}deg) translateZ(9px) scaleX(.991) skewY(${direction*.48}deg)`,opacity:1,offset:.44},
-        {transform:`rotateY(${outAngle*.72}deg) translateZ(16px) scaleX(.978) skewY(${direction*.72}deg)`,opacity:1,offset:.7},
-        {transform:`rotateY(${outAngle*.91}deg) translateZ(20px) scaleX(.968) skewY(${direction*.4}deg)`,opacity:1,offset:.9},
-        {transform:`rotateY(${outAngle}deg) translateZ(21px) scaleX(.963) skewY(0deg)`,opacity:0,offset:1}
-      ],{duration:700,easing:'cubic-bezier(.36,.02,.22,1)',fill:'both'});
+        {transform:`rotateY(${outAngle*.07}deg) translateZ(1px) scaleX(.9995) skewY(${bend*.08}deg)`,opacity:1,offset:.10},
+        {transform:`rotateY(${outAngle*.24}deg) translateZ(4px) scaleX(.996) skewY(${bend*.28}deg)`,opacity:1,offset:.22},
+        {transform:`rotateY(${outAngle*.52}deg) translateZ(11px) scaleX(.987) skewY(${bend*.62}deg)`,opacity:1,offset:.35},
+        {transform:`rotateY(${outAngle*.80}deg) translateZ(18px) scaleX(.974) skewY(${bend*.74}deg)`,opacity:1,offset:.445},
+        {transform:`rotateY(${outAngle*.95}deg) translateZ(22px) scaleX(.966) skewY(${bend*.36}deg)`,opacity:1,offset:.488},
+        {transform:`rotateY(${outAngle}deg) translateZ(23px) scaleX(.964) skewY(0deg)`,opacity:0,offset:.501},
+        {transform:`rotateY(${outAngle}deg) translateZ(23px) scaleX(.964) skewY(0deg)`,opacity:0,offset:1}
+      ],{duration,easing:'linear',fill:'both'});
       const incoming=motion(arriving,[
-        {transform:`rotateY(${inAngle}deg) translateZ(21px) scaleX(.963) skewY(0deg)`,opacity:0,offset:0},
-        {transform:`rotateY(${inAngle*.97}deg) translateZ(21px) scaleX(.965) skewY(${-direction*.2}deg)`,opacity:.88,offset:.055},
-        {transform:`rotateY(${inAngle*.78}deg) translateZ(17px) scaleX(.975) skewY(${-direction*.65}deg)`,opacity:1,offset:.25},
-        {transform:`rotateY(${inAngle*.48}deg) translateZ(10px) scaleX(.988) skewY(${-direction*.48}deg)`,opacity:1,offset:.52},
-        {transform:`rotateY(${inAngle*.18}deg) translateZ(3px) scaleX(.997) skewY(${-direction*.16}deg)`,opacity:1,offset:.82},
+        {transform:`rotateY(${inAngle}deg) translateZ(23px) scaleX(.964) skewY(0deg)`,opacity:0,offset:0},
+        {transform:`rotateY(${inAngle}deg) translateZ(23px) scaleX(.964) skewY(0deg)`,opacity:0,offset:.499},
+        {transform:`rotateY(${inAngle*.98}deg) translateZ(23px) scaleX(.965) skewY(${-bend*.14}deg)`,opacity:1,offset:.508},
+        {transform:`rotateY(${inAngle*.84}deg) translateZ(19px) scaleX(.973) skewY(${-bend*.58}deg)`,opacity:1,offset:.56},
+        {transform:`rotateY(${inAngle*.57}deg) translateZ(12px) scaleX(.986) skewY(${-bend*.68}deg)`,opacity:1,offset:.665},
+        {transform:`rotateY(${inAngle*.29}deg) translateZ(5px) scaleX(.995) skewY(${-bend*.30}deg)`,opacity:1,offset:.79},
+        {transform:`rotateY(${inAngle*.09}deg) translateZ(1px) scaleX(.999) skewY(${-bend*.08}deg)`,opacity:1,offset:.91},
         {transform:'rotateY(0deg) translateZ(.1px) scaleX(1) skewY(0deg)',opacity:1,offset:1}
-      ],{duration:720,delay:540,easing:'cubic-bezier(.16,.72,.14,1)',fill:'both'});
+      ],{duration,easing:'linear',fill:'both'});
       motion(castShadow,[
-        {opacity:0,transform:'scaleX(.08)',offset:0},
-        {opacity:.1,transform:'scaleX(.28)',offset:.14},
-        {opacity:.3,transform:'scaleX(.7)',offset:.36},
-        {opacity:.52,transform:'scaleX(1.08)',offset:.48},
-        {opacity:.54,transform:'scaleX(1.12)',offset:.53},
-        {opacity:.34,transform:'scaleX(.76)',offset:.68},
-        {opacity:.12,transform:'scaleX(.34)',offset:.86},
-        {opacity:0,transform:'scaleX(.08)',offset:1}
-      ],{duration:1260,easing:'cubic-bezier(.2,.62,.28,1)',fill:'both'});
+        {opacity:0,transform:'scaleX(.06) translateX(0)',offset:0},
+        {opacity:.07,transform:`scaleX(.2) translateX(${direction*1}px)`,offset:.16},
+        {opacity:.2,transform:`scaleX(.48) translateX(${direction*2}px)`,offset:.31},
+        {opacity:.43,transform:`scaleX(.88) translateX(${direction*3}px)`,offset:.43},
+        {opacity:.57,transform:`scaleX(1.08) translateX(${direction*3}px)`,offset:.495},
+        {opacity:.55,transform:`scaleX(1.05) translateX(${-direction*2}px)`,offset:.52},
+        {opacity:.34,transform:`scaleX(.72) translateX(${-direction*2}px)`,offset:.65},
+        {opacity:.14,transform:`scaleX(.34) translateX(${-direction*1}px)`,offset:.82},
+        {opacity:0,transform:'scaleX(.06) translateX(0)',offset:1}
+      ],{duration,easing:'linear',fill:'both'});
       return incoming||out;
     }
     function makeMobileTurn(direction,oldPages,targetPages){
       const destination=sanitizeClone(targetPages);
-      // Put the new complete album underneath first so the old spread can never flash back.
       cover=document.createElement('div');cover.className='book-mobile-underlay';cover.setAttribute('aria-hidden','true');cover.setAttribute('inert','');cover.append(sanitizeClone(targetPages));pages.append(cover);
       sheet=document.createElement('div');sheet.className='book-mobile-sheet '+(direction>0?'turn-next':'turn-previous');sheet.setAttribute('aria-hidden','true');sheet.setAttribute('inert','');
       const departing=document.createElement('div');departing.className='book-mobile-face book-mobile-front';departing.style.transformOrigin=direction>0?'left center':'right center';departing.append(oldPages);
       const arriving=document.createElement('div');arriving.className='book-mobile-face book-mobile-back';arriving.style.transformOrigin=direction>0?'right center':'left center';arriving.append(destination);
       sheet.append(departing,arriving);pages.append(sheet);void sheet.offsetWidth;
-      const outAngle=direction>0?-90:90,inAngle=direction>0?90:-90;
+      const duration=1020,outAngle=direction>0?-90:90,inAngle=direction>0?90:-90,bend=direction>0?1:-1;
       const out=motion(departing,[
-        {transform:'rotateY(0deg) translateZ(0) scaleX(1)',opacity:1,offset:0},
-        {transform:`rotateY(${outAngle*.2}deg) translateZ(3px) scaleX(.997)`,opacity:1,offset:.22},
-        {transform:`rotateY(${outAngle*.58}deg) translateZ(10px) scaleX(.984)`,opacity:1,offset:.58},
-        {transform:`rotateY(${outAngle*.88}deg) translateZ(15px) scaleX(.971)`,opacity:1,offset:.88},
-        {transform:`rotateY(${outAngle}deg) translateZ(17px) scaleX(.965)`,opacity:0,offset:1}
-      ],{duration:660,easing:'cubic-bezier(.36,.02,.22,1)',fill:'both'});
+        {transform:'rotateY(0deg) translateZ(0) scaleX(1) skewY(0deg)',opacity:1,offset:0},
+        {transform:`rotateY(${outAngle*.09}deg) translateZ(1px) scaleX(.999) skewY(${bend*.08}deg)`,opacity:1,offset:.11},
+        {transform:`rotateY(${outAngle*.31}deg) translateZ(4px) scaleX(.994) skewY(${bend*.28}deg)`,opacity:1,offset:.27},
+        {transform:`rotateY(${outAngle*.68}deg) translateZ(11px) scaleX(.979) skewY(${bend*.48}deg)`,opacity:1,offset:.42},
+        {transform:`rotateY(${outAngle*.96}deg) translateZ(16px) scaleX(.968) skewY(${bend*.18}deg)`,opacity:1,offset:.489},
+        {transform:`rotateY(${outAngle}deg) translateZ(17px) scaleX(.966) skewY(0deg)`,opacity:0,offset:.501},
+        {transform:`rotateY(${outAngle}deg) translateZ(17px) scaleX(.966) skewY(0deg)`,opacity:0,offset:1}
+      ],{duration,easing:'linear',fill:'both'});
       const incoming=motion(arriving,[
-        {transform:`rotateY(${inAngle}deg) translateZ(17px) scaleX(.965)`,opacity:0,offset:0},
-        {transform:`rotateY(${inAngle*.96}deg) translateZ(17px) scaleX(.968)`,opacity:.9,offset:.06},
-        {transform:`rotateY(${inAngle*.7}deg) translateZ(12px) scaleX(.98)`,opacity:1,offset:.3},
-        {transform:`rotateY(${inAngle*.34}deg) translateZ(5px) scaleX(.994)`,opacity:1,offset:.66},
-        {transform:'rotateY(0deg) translateZ(.1px) scaleX(1)',opacity:1,offset:1}
-      ],{duration:690,delay:500,easing:'cubic-bezier(.16,.72,.14,1)',fill:'both'});
+        {transform:`rotateY(${inAngle}deg) translateZ(17px) scaleX(.966) skewY(0deg)`,opacity:0,offset:0},
+        {transform:`rotateY(${inAngle}deg) translateZ(17px) scaleX(.966) skewY(0deg)`,opacity:0,offset:.499},
+        {transform:`rotateY(${inAngle*.96}deg) translateZ(16px) scaleX(.968) skewY(${-bend*.18}deg)`,opacity:1,offset:.51},
+        {transform:`rotateY(${inAngle*.67}deg) translateZ(11px) scaleX(.98) skewY(${-bend*.48}deg)`,opacity:1,offset:.61},
+        {transform:`rotateY(${inAngle*.32}deg) translateZ(5px) scaleX(.994) skewY(${-bend*.28}deg)`,opacity:1,offset:.77},
+        {transform:`rotateY(${inAngle*.09}deg) translateZ(1px) scaleX(.999) skewY(${-bend*.08}deg)`,opacity:1,offset:.91},
+        {transform:'rotateY(0deg) translateZ(.1px) scaleX(1) skewY(0deg)',opacity:1,offset:1}
+      ],{duration,easing:'linear',fill:'both'});
       return incoming||out;
     }
     async function go(step){
