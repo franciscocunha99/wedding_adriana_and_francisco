@@ -293,7 +293,6 @@ html.opening-locked{overscroll-behavior:none;scroll-behavior:auto!important}
 .album-heading .section-title{font-size:clamp(42px,6vw,70px);line-height:1.06;margin:16px 0 22px}
 .album-heading>p:last-child{font-size:12px;line-height:1.9;color:var(--muted)}
 .album-stage{position:relative;max-width:1020px;margin:auto}
-.album-preview-label{display:table;margin:0 auto 32px;padding:7px 12px;border:1px solid #af965745;border-radius:30px;font-size:8px;letter-spacing:.06em;line-height:1.5;color:#857344}
 .album-book{position:relative;padding:10px;background:repeating-linear-gradient(90deg,#ffffff04 0 1px,transparent 1px 4px),#173c4c;border-radius:4px 8px 8px 4px;box-shadow:0 30px 60px #15333e1c,0 4px 8px #15333e18;isolation:isolate;outline-offset:9px;perspective:2400px;-webkit-perspective:2400px}
 .album-book::before{content:'';position:absolute;inset:5px;border:1px solid #d4b77860;border-radius:2px 5px 5px 2px;pointer-events:none}
 .album-book::after{content:'';position:absolute;left:12px;right:12px;bottom:-5px;height:5px;background:repeating-linear-gradient(0deg,#b7b4a8 0 1px,#ece9dc 1px 2px);border-radius:0 0 3px 3px;z-index:-1}
@@ -333,13 +332,13 @@ html.opening-locked{overscroll-behavior:none;scroll-behavior:auto!important}
 .book-turn-panel>.book-leaf{width:100%;height:100%}
 .book-turn-departing{opacity:1}
 .book-turn-panel::after{content:'';position:absolute;inset:-2% -9%;pointer-events:none;opacity:0;background:linear-gradient(92deg,transparent 11%,rgba(92,75,48,.09) 36%,rgba(112,91,56,.18) 45%,rgba(255,250,227,.7) 51%,rgba(126,101,61,.13) 59%,transparent 83%);filter:blur(.25px)}
-.book-turn-departing::after{animation:album-paper-sheen-out 620ms cubic-bezier(.3,.7,.2,1) both}
-.book-turn-arriving::after{animation:album-paper-sheen-in 660ms 520ms cubic-bezier(.2,.62,.18,1) both}
+.book-turn-departing::after{animation:album-paper-sheen-out 700ms cubic-bezier(.25,.72,.18,1) both}
+.book-turn-arriving::after{animation:album-paper-sheen-in 720ms 540ms cubic-bezier(.16,.74,.16,1) both}
 .book-cast-shadow{position:absolute;top:0;bottom:0;width:34%;z-index:7;pointer-events:none;opacity:0;filter:blur(7px);will-change:opacity,transform}
 .book-cast-shadow.shadow-next{right:50%;transform-origin:right center;background:linear-gradient(270deg,rgba(52,42,29,.34),rgba(52,42,29,.13) 28%,transparent 82%)}
 .book-cast-shadow.shadow-previous{left:50%;transform-origin:left center;background:linear-gradient(90deg,rgba(52,42,29,.34),rgba(52,42,29,.13) 28%,transparent 82%)}
-@keyframes album-paper-sheen-out{0%{opacity:.03;transform:translateX(42%) scaleX(.86)}48%{opacity:.28}82%{opacity:.72;transform:translateX(-2%) scaleX(1.03)}100%{opacity:.18;transform:translateX(-18%) scaleX(.98)}}
-@keyframes album-paper-sheen-in{0%{opacity:.22;transform:translateX(18%) scaleX(.98)}22%{opacity:.74;transform:translateX(2%) scaleX(1.03)}62%{opacity:.28}100%{opacity:0;transform:translateX(-42%) scaleX(.9)}}
+@keyframes album-paper-sheen-out{0%{opacity:.02;transform:translateX(46%) scaleX(.84)}34%{opacity:.16}68%{opacity:.46;transform:translateX(10%) scaleX(.98)}88%{opacity:.7;transform:translateX(-4%) scaleX(1.025)}100%{opacity:.12;transform:translateX(-20%) scaleX(.98)}}
+@keyframes album-paper-sheen-in{0%{opacity:.12;transform:translateX(20%) scaleX(.98)}18%{opacity:.68;transform:translateX(4%) scaleX(1.025)}48%{opacity:.42}76%{opacity:.13;transform:translateX(-20%) scaleX(.96)}100%{opacity:0;transform:translateX(-46%) scaleX(.9)}}
 
 /* Narrow screens use the same two-phase hand-off for the complete visible album. */
 .book-mobile-underlay{position:absolute;inset:0;z-index:4;pointer-events:none;overflow:hidden;background:#faf7ee}
@@ -349,8 +348,8 @@ html.opening-locked{overscroll-behavior:none;scroll-behavior:auto!important}
 .book-mobile-face>.book-pages{width:100%;height:100%}
 .book-mobile-front{opacity:1}
 .book-mobile-face::after{content:'';position:absolute;inset:-2% -7%;pointer-events:none;opacity:0;background:linear-gradient(92deg,transparent 12%,rgba(91,74,47,.16) 40%,rgba(255,250,227,.62) 51%,rgba(116,93,56,.12) 61%,transparent 84%)}
-.book-mobile-front::after{animation:album-paper-sheen-out 590ms cubic-bezier(.3,.7,.2,1) both}
-.book-mobile-back::after{animation:album-paper-sheen-in 630ms 500ms cubic-bezier(.2,.62,.18,1) both}
+.book-mobile-front::after{animation:album-paper-sheen-out 660ms cubic-bezier(.25,.72,.18,1) both}
+.book-mobile-back::after{animation:album-paper-sheen-in 690ms 500ms cubic-bezier(.16,.74,.16,1) both}
 
 .album-underbook{display:flex;align-items:center;justify-content:center;margin:37px auto 0;text-align:center}
 .album-navigation{display:flex;align-items:center;justify-content:center;gap:15px;margin-inline:auto}
@@ -361,10 +360,10 @@ html.opening-locked{overscroll-behavior:none;scroll-behavior:auto!important}
 .album-load-status{font-size:10px;line-height:1.6;text-align:center;color:#816d48;max-width:450px;margin:13px auto 0}
 .album-load-status:empty{margin:0}
 .album-load-status:not(.has-error){position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%)}
-@media(max-width:760px){.couple-album>.wrap{width:calc(100% - 32px)}.album-heading{padding-inline:12px;margin-bottom:34px}.album-heading .section-title{font-size:clamp(37px,9.3vw,57px)}.album-book{max-width:500px;margin:auto;padding:8px 8px 8px 18px}.book-pages{grid-template-columns:minmax(0,1fr)}.book-leaf{padding:22px 21px}.book-left{background:linear-gradient(90deg,#ece5d5,#faf8f1 6%)}.book-right{padding-top:17px;padding-bottom:26px;background:linear-gradient(90deg,#ece5d5,#faf8f1 6%)}.book-running-title{font-size:18px;margin-bottom:21px}.book-footnote{display:none}.book-spine{left:18px;top:8px;bottom:8px;width:12px}.book-right::before{content:'';position:absolute;top:0;left:21px;right:21px;height:1px;background:linear-gradient(90deg,#ae8e5055,transparent)}.book-number{position:absolute;right:21px;top:19px;font-size:43px;line-height:1;color:#b2996630}.book-story{position:relative;z-index:1}.book-story .kicker{font-size:6px;margin:0 40px 10px 0}.book-story h3{font-size:31px;max-width:90%}.book-rule{margin:16px 0;width:29px}.book-story>p:last-child{font-size:12px;line-height:1.8}.book-signoff{margin-top:22px;gap:10px}.book-signoff .af-mark{width:29px;height:29px}.book-signoff em{font-size:17px}.book-signoff p{font-size:7px}.book-ribbon{right:28px;height:24px;width:17px}.album-underbook{max-width:500px;margin-top:30px}.album-preview-label{font-size:7px;margin-bottom:26px}.book-page-cover,.book-turning-sheet{display:none!important}}
+@media(max-width:760px){.couple-album>.wrap{width:calc(100% - 32px)}.album-heading{padding-inline:12px;margin-bottom:34px}.album-heading .section-title{font-size:clamp(37px,9.3vw,57px)}.album-book{max-width:500px;margin:auto;padding:8px 8px 8px 18px}.book-pages{grid-template-columns:minmax(0,1fr)}.book-leaf{padding:22px 21px}.book-left{background:linear-gradient(90deg,#ece5d5,#faf8f1 6%)}.book-right{padding-top:17px;padding-bottom:26px;background:linear-gradient(90deg,#ece5d5,#faf8f1 6%)}.book-running-title{font-size:18px;margin-bottom:21px}.book-footnote{display:none}.book-spine{left:18px;top:8px;bottom:8px;width:12px}.book-right::before{content:'';position:absolute;top:0;left:21px;right:21px;height:1px;background:linear-gradient(90deg,#ae8e5055,transparent)}.book-number{position:absolute;right:21px;top:19px;font-size:43px;line-height:1;color:#b2996630}.book-story{position:relative;z-index:1}.book-story .kicker{font-size:6px;margin:0 40px 10px 0}.book-story h3{font-size:31px;max-width:90%}.book-rule{margin:16px 0;width:29px}.book-story>p:last-child{font-size:12px;line-height:1.8}.book-signoff{margin-top:22px;gap:10px}.book-signoff .af-mark{width:29px;height:29px}.book-signoff em{font-size:17px}.book-signoff p{font-size:7px}.book-ribbon{right:28px;height:24px;width:17px}.album-underbook{max-width:500px;margin-top:30px}.book-page-cover,.book-turning-sheet{display:none!important}}
 @media(max-width:360px){.book-leaf{padding-inline:17px}.book-right::before{left:17px;right:17px}.book-story h3{font-size:27px}.book-mount{padding:7px}.album-navigation{gap:11px}.album-arrow{width:44px;height:44px}}
 @media(prefers-reduced-motion:reduce){.album-arrow{transition:none!important}.book-page-cover,.book-turning-sheet,.book-mobile-sheet,.book-mobile-underlay{display:none!important}}
-@media print{.album-navigation,.album-preview-label,.book-turning-sheet,.book-page-cover,.book-mobile-sheet,.book-mobile-underlay{display:none!important}.album-book{box-shadow:none;break-inside:avoid}}
+@media print{.album-navigation,.book-turning-sheet,.book-page-cover,.book-mobile-sheet,.book-mobile-underlay{display:none!important}.album-book{box-shadow:none;break-inside:avoid}}
 
 /* One motion rhythm: quiet entrances, paper movement, readable resting states. */
 :root{--motion-soft:cubic-bezier(.2,.72,.24,1);--motion-reveal:cubic-bezier(.16,1,.3,1)}
@@ -449,7 +448,6 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
  <div class="wrap">
   <div class="album-heading" data-reveal><p class="kicker">Um pequeno álbum dentro do convite</p><h2 class="section-title" id="album-title">Há histórias que<br><em>se guardam assim.</em></h2><p>Uma fotografia. Uma pequena história.<br>Um bocadinho de nós, em cada página.</p></div>
   <div class="album-stage">
-   <p class="album-preview-label" id="album-preview-label" hidden>Pré-visualização · fotografias da quinta</p>
    <div class="album-book" id="album-card" tabindex="0" role="group" aria-roledescription="álbum de fotografias" aria-label="O nosso álbum">
     <span class="book-ribbon" aria-hidden="true"></span>
     <div class="book-pages" id="album-pages">
@@ -1217,28 +1215,34 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
 
       const outAngle=direction>0?-90:90;
       const inAngle=direction>0?90:-90;
+      // A slightly longer, overlapping hand-off keeps the leaf moving continuously
+      // through the spine while preserving the correct page mapping.
       const out=motion(departing,[
-        {transform:'rotateY(0deg) translateZ(0) scaleX(1)',opacity:1,offset:0},
-        {transform:`rotateY(${outAngle*.28}deg) translateZ(5px) scaleX(.994)`,opacity:1,offset:.3},
-        {transform:`rotateY(${outAngle*.7}deg) translateZ(14px) scaleX(.978)`,opacity:1,offset:.72},
-        {transform:`rotateY(${outAngle*.96}deg) translateZ(18px) scaleX(.965)`,opacity:1,offset:.96},
-        {transform:`rotateY(${outAngle}deg) translateZ(18px) scaleX(.962)`,opacity:0,offset:1}
-      ],{duration:620,easing:'cubic-bezier(.42,0,.32,1)',fill:'both'});
+        {transform:'rotateY(0deg) translateZ(0) scaleX(1) skewY(0deg)',opacity:1,offset:0},
+        {transform:`rotateY(${outAngle*.12}deg) translateZ(2px) scaleX(.999) skewY(${direction*.18}deg)`,opacity:1,offset:.16},
+        {transform:`rotateY(${outAngle*.42}deg) translateZ(9px) scaleX(.991) skewY(${direction*.48}deg)`,opacity:1,offset:.44},
+        {transform:`rotateY(${outAngle*.72}deg) translateZ(16px) scaleX(.978) skewY(${direction*.72}deg)`,opacity:1,offset:.7},
+        {transform:`rotateY(${outAngle*.91}deg) translateZ(20px) scaleX(.968) skewY(${direction*.4}deg)`,opacity:1,offset:.9},
+        {transform:`rotateY(${outAngle}deg) translateZ(21px) scaleX(.963) skewY(0deg)`,opacity:0,offset:1}
+      ],{duration:700,easing:'cubic-bezier(.36,.02,.22,1)',fill:'both'});
       const incoming=motion(arriving,[
-        {transform:`rotateY(${inAngle}deg) translateZ(18px) scaleX(.962)`,opacity:0,offset:0},
-        {transform:`rotateY(${inAngle*.96}deg) translateZ(18px) scaleX(.965)`,opacity:1,offset:.04},
-        {transform:`rotateY(${inAngle*.7}deg) translateZ(14px) scaleX(.978)`,opacity:1,offset:.28},
-        {transform:`rotateY(${inAngle*.28}deg) translateZ(5px) scaleX(.994)`,opacity:1,offset:.7},
-        {transform:'rotateY(0deg) translateZ(.1px) scaleX(1)',opacity:1,offset:1}
-      ],{duration:660,delay:520,easing:'cubic-bezier(.18,.72,.18,1)',fill:'both'});
+        {transform:`rotateY(${inAngle}deg) translateZ(21px) scaleX(.963) skewY(0deg)`,opacity:0,offset:0},
+        {transform:`rotateY(${inAngle*.97}deg) translateZ(21px) scaleX(.965) skewY(${-direction*.2}deg)`,opacity:.88,offset:.055},
+        {transform:`rotateY(${inAngle*.78}deg) translateZ(17px) scaleX(.975) skewY(${-direction*.65}deg)`,opacity:1,offset:.25},
+        {transform:`rotateY(${inAngle*.48}deg) translateZ(10px) scaleX(.988) skewY(${-direction*.48}deg)`,opacity:1,offset:.52},
+        {transform:`rotateY(${inAngle*.18}deg) translateZ(3px) scaleX(.997) skewY(${-direction*.16}deg)`,opacity:1,offset:.82},
+        {transform:'rotateY(0deg) translateZ(.1px) scaleX(1) skewY(0deg)',opacity:1,offset:1}
+      ],{duration:720,delay:540,easing:'cubic-bezier(.16,.72,.14,1)',fill:'both'});
       motion(castShadow,[
-        {opacity:0,transform:'scaleX(.12)',offset:0},
-        {opacity:.16,transform:'scaleX(.42)',offset:.2},
-        {opacity:.5,transform:'scaleX(1.08)',offset:.49},
-        {opacity:.48,transform:'scaleX(1.02)',offset:.53},
-        {opacity:.15,transform:'scaleX(.42)',offset:.82},
-        {opacity:0,transform:'scaleX(.12)',offset:1}
-      ],{duration:1180,easing:'cubic-bezier(.22,.61,.36,1)',fill:'both'});
+        {opacity:0,transform:'scaleX(.08)',offset:0},
+        {opacity:.1,transform:'scaleX(.28)',offset:.14},
+        {opacity:.3,transform:'scaleX(.7)',offset:.36},
+        {opacity:.52,transform:'scaleX(1.08)',offset:.48},
+        {opacity:.54,transform:'scaleX(1.12)',offset:.53},
+        {opacity:.34,transform:'scaleX(.76)',offset:.68},
+        {opacity:.12,transform:'scaleX(.34)',offset:.86},
+        {opacity:0,transform:'scaleX(.08)',offset:1}
+      ],{duration:1260,easing:'cubic-bezier(.2,.62,.28,1)',fill:'both'});
       return incoming||out;
     }
     function makeMobileTurn(direction,oldPages,targetPages){
@@ -1251,16 +1255,19 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
       sheet.append(departing,arriving);pages.append(sheet);void sheet.offsetWidth;
       const outAngle=direction>0?-90:90,inAngle=direction>0?90:-90;
       const out=motion(departing,[
-        {transform:'rotateY(0deg) translateZ(0) scaleX(1)',opacity:1},
-        {transform:`rotateY(${outAngle*.68}deg) translateZ(11px) scaleX(.978)`,opacity:1,offset:.72},
-        {transform:`rotateY(${outAngle}deg) translateZ(15px) scaleX(.965)`,opacity:0}
-      ],{duration:590,easing:'cubic-bezier(.42,0,.32,1)',fill:'both'});
+        {transform:'rotateY(0deg) translateZ(0) scaleX(1)',opacity:1,offset:0},
+        {transform:`rotateY(${outAngle*.2}deg) translateZ(3px) scaleX(.997)`,opacity:1,offset:.22},
+        {transform:`rotateY(${outAngle*.58}deg) translateZ(10px) scaleX(.984)`,opacity:1,offset:.58},
+        {transform:`rotateY(${outAngle*.88}deg) translateZ(15px) scaleX(.971)`,opacity:1,offset:.88},
+        {transform:`rotateY(${outAngle}deg) translateZ(17px) scaleX(.965)`,opacity:0,offset:1}
+      ],{duration:660,easing:'cubic-bezier(.36,.02,.22,1)',fill:'both'});
       const incoming=motion(arriving,[
-        {transform:`rotateY(${inAngle}deg) translateZ(15px) scaleX(.965)`,opacity:0},
-        {transform:`rotateY(${inAngle*.96}deg) translateZ(15px) scaleX(.968)`,opacity:1,offset:.04},
-        {transform:`rotateY(${inAngle*.6}deg) translateZ(10px) scaleX(.982)`,opacity:1,offset:.36},
-        {transform:'rotateY(0deg) translateZ(.1px) scaleX(1)',opacity:1}
-      ],{duration:630,delay:500,easing:'cubic-bezier(.18,.72,.18,1)',fill:'both'});
+        {transform:`rotateY(${inAngle}deg) translateZ(17px) scaleX(.965)`,opacity:0,offset:0},
+        {transform:`rotateY(${inAngle*.96}deg) translateZ(17px) scaleX(.968)`,opacity:.9,offset:.06},
+        {transform:`rotateY(${inAngle*.7}deg) translateZ(12px) scaleX(.98)`,opacity:1,offset:.3},
+        {transform:`rotateY(${inAngle*.34}deg) translateZ(5px) scaleX(.994)`,opacity:1,offset:.66},
+        {transform:'rotateY(0deg) translateZ(.1px) scaleX(1)',opacity:1,offset:1}
+      ],{duration:690,delay:500,easing:'cubic-bezier(.16,.72,.14,1)',fill:'both'});
       return incoming||out;
     }
     async function go(step){
@@ -1304,7 +1311,6 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
     }
     section.addEventListener('album:arrive',arrive);
     if(window.IntersectionObserver){const observer=new IntersectionObserver(items=>{if(items.some(item=>item.isIntersecting)){arrive();observer.disconnect();}},{threshold:.12,rootMargin:'0px 0px -20px 0px'});observer.observe(book);}
-    const preview=photos.every(photo=>/^quinta-0[123]\.png$/i.test(photo.src));$('#album-preview-label').hidden=!preview;
     previous.disabled=next.disabled=photos.length<2;
     image.addEventListener('error',()=>{placeholder.hidden=false;placeholder.textContent='Não foi possível carregar esta fotografia.';});
     image.addEventListener('load',()=>{placeholder.hidden=true;});
