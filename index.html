@@ -287,68 +287,107 @@ html.opening-locked{overscroll-behavior:none;scroll-behavior:auto!important}
 .final-letter .replay{margin:24px auto 0;min-height:44px;padding:10px 12px}
 @media(max-width:600px){.closing-emblem{width:140px;height:140px}.closing-emblem>.af-mark{width:104px;height:90px}.final-letter h2{margin-top:22px}.final-letter #closing-copy{max-width:280px}.final-letter .closing-actions{column-gap:20px}.final-letter .replay{margin-top:20px}}
 
-/* A small pile of photographs, with handwritten memories on the reverse. */
-.couple-album{background:#eaf0ef;color:var(--ink);padding:clamp(64px,8vw,112px) 0;overflow:hidden}
-.album-heading{text-align:center;max-width:670px;margin:0 auto 38px}
-.album-heading .section-title{font-size:clamp(43px,6vw,72px);line-height:1.04;margin:16px 0 22px}
-.album-heading>p:last-child{font-size:12px;line-height:1.85;color:var(--muted)}
-.album-stage{position:relative;max-width:520px;margin:auto;text-align:center}
-.album-preview-label{font-size:9px;letter-spacing:.06em;color:#7f755e;margin:0 auto 28px}
-.snapshot-stack{position:relative;width:min(340px,calc(100% - 54px));aspect-ratio:4/5;margin:36px auto 0}
-.snapshot-ghost,.snapshot{position:absolute;inset:0;background:#fbf8f0;border:1px solid #b99c6538;border-radius:2px;box-shadow:0 16px 35px #172f3914}
-.snapshot-ghost{padding:13px 13px 50px;pointer-events:none;transition:transform .65s cubic-bezier(.22,.61,.36,1)}
-.snapshot-ghost::after{content:'';position:absolute;inset:13px 13px 50px;background:linear-gradient(145deg,#c8d8d9,#a9c0c3);z-index:0}
-.snapshot-ghost img{position:relative;z-index:1;width:100%;height:100%;object-fit:contain;background:#e6e7df}
-.ghost-far{transform:translate(-14px,3px) rotate(-9deg)}
-.ghost-near{transform:translate(12px,8px) rotate(7deg);background:#f3efdf}
-.snapshot{width:100%;height:100%;padding:0;display:block;color:var(--ink);text-align:center;cursor:grab;touch-action:pan-y pinch-zoom;-webkit-user-select:none;user-select:none;transform:translateX(var(--album-drag,0px)) rotate(var(--album-lean,-2deg));box-shadow:0 24px 44px #142e3b25;transition:transform .35s ease}
-.snapshot.is-dragging{transition:none;cursor:grabbing}
-.snapshot-front,.snapshot-back{position:absolute;inset:0;display:flex;flex-direction:column;transition:opacity .35s ease,transform .5s cubic-bezier(.22,.61,.36,1)}
-.snapshot-front{padding:13px 13px 17px;opacity:1;transform:rotate(0)}
-.snapshot-window{display:block;position:relative;flex:1;min-height:0;overflow:hidden;background:#e6e7df}
-.snapshot-window>img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#e6e7df;-webkit-user-drag:none}
-.snapshot-placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:23px;background:radial-gradient(ellipse at top,#244956,#112f40);color:#ece0bf}
-.snapshot-placeholder .af-mark{width:100px;height:90px;filter:url(#af-gold)}
-.snapshot-placeholder>span{font:400 26px/1.2 var(--serif)}
-.snapshot-caption{font:italic 24px/1.15 var(--serif);padding:17px 16px 0;overflow-wrap:anywhere}
-.snapshot-corner{position:absolute;right:9px;bottom:8px;color:#a68a56;font-size:14px}
-.snapshot-back{padding:30px 26px 20px;align-items:center;justify-content:center;gap:20px;background:repeating-linear-gradient(0deg,transparent 0,transparent 29px,#bda37213 30px),#fbf8f0;opacity:0;transform:rotate(3deg);pointer-events:none}
-.snapshot-back .kicker{font-size:7px;letter-spacing:.16em;color:#927744}
-.snapshot-back .af-mark{width:39px;height:35px;filter:url(#af-gold)}
-.snapshot-note{font:italic clamp(22px,4.2vw,29px)/1.25 var(--serif);white-space:pre-line;overflow-wrap:anywhere;max-height:60%;overflow:auto}
-.snapshot-signature{font:italic 19px/1.2 var(--serif);color:#a18550}
-.snapshot-back-hint{font-size:8px;line-height:1.4;color:#8c8e7f;margin-top:auto}
-.snapshot.is-turned .snapshot-front{opacity:0;transform:rotate(-3deg);pointer-events:none}
-.snapshot.is-turned .snapshot-back{opacity:1;transform:rotate(0);pointer-events:auto}
-.album-hint{margin:32px 15px 13px;font-size:10px;line-height:1.7;color:#6b7b7c}
-.album-navigation{display:flex;justify-content:center;align-items:center;gap:18px}
+/* An open keepsake album: linen cover, ivory pages, photograph corners. */
+.couple-album{background:radial-gradient(ellipse at 50% 38%,#f7f7f0,#e8efeb 64%,#e2ebe8);color:var(--ink);padding:clamp(64px,8vw,112px) 0;overflow:hidden}
+.album-heading{text-align:center;max-width:720px;margin:0 auto 44px}
+.album-heading .section-title{font-size:clamp(42px,6vw,70px);line-height:1.06;margin:16px 0 22px}
+.album-heading>p:last-child{font-size:12px;line-height:1.9;color:var(--muted)}
+.album-stage{position:relative;max-width:1020px;margin:auto}
+.album-preview-label{display:table;margin:0 auto 32px;padding:7px 12px;border:1px solid #af965745;border-radius:30px;font-size:8px;letter-spacing:.06em;line-height:1.5;color:#857344}
+.album-book{position:relative;padding:10px;background:repeating-linear-gradient(90deg,#ffffff04 0 1px,transparent 1px 4px),#173c4c;border-radius:4px 8px 8px 4px;box-shadow:0 30px 60px #15333e1c,0 4px 8px #15333e18;isolation:isolate;outline-offset:9px}
+.album-book::before{content:'';position:absolute;inset:5px;border:1px solid #d4b77860;border-radius:2px 5px 5px 2px;pointer-events:none}
+.album-book::after{content:'';position:absolute;left:12px;right:12px;bottom:-5px;height:5px;background:repeating-linear-gradient(0deg,#b7b4a8 0 1px,#ece9dc 1px 2px);border-radius:0 0 3px 3px;z-index:-1}
+.book-pages{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);background:#faf7ee;position:relative}
+.book-leaf{position:relative;min-width:0;padding:30px 32px 23px}
+.book-left{background:linear-gradient(90deg,#faf8f1 94%,#e3dece);display:flex;flex-direction:column;justify-content:center}
+.book-right{background:linear-gradient(90deg,#e9e2d2,#faf7ee 6%,#f7f3e8);display:flex;flex-direction:column;justify-content:center;padding:38px 42px 28px}
+.book-running-title{font:italic 19px/1.3 var(--serif);color:#937847;text-align:center;margin:0 0 24px}
+.book-running-title span{font-size:14px;padding:0 5px}
+.book-visual{position:relative;display:block;padding:0;width:100%;border:0;background:transparent;cursor:grab;touch-action:pan-y pinch-zoom;color:var(--ink);user-select:none;-webkit-user-select:none}
+.book-visual.is-dragging{cursor:grabbing}
+.book-visual img{-webkit-user-drag:none;pointer-events:none}
+.book-mount{position:relative;display:block;aspect-ratio:4/3;padding:10px;background:#fffdf5;border:1px solid #c1b38d3b;box-shadow:0 7px 16px #34464312;transform:translateX(var(--page-peek,0px));transform-origin:left center}
+.book-mount>img{display:block;width:100%;height:100%;object-fit:contain;background:#e9e9df}
+.photo-corner{position:absolute;width:27px;height:27px;background:linear-gradient(135deg,#dbc9a170,#bca36a66);clip-path:polygon(0 0,100% 0,0 100%);pointer-events:none}
+.corner-tl{left:-3px;top:-3px}.corner-tr{right:-3px;top:-3px;transform:rotate(90deg)}.corner-bl{left:-3px;bottom:-3px;transform:rotate(-90deg)}.corner-br{right:-3px;bottom:-3px;transform:rotate(180deg)}
+.book-photo-action{display:flex;justify-content:center;gap:8px;color:#91794f;font:400 8px/1.5 var(--sans);letter-spacing:.07em;margin-top:17px;min-height:16px}
+.book-photo-action>span{transition:transform .35s ease}.book-visual:hover .book-photo-action>span{transform:translate(2px,-2px)}
+.book-footnote{font:italic 14px/1.5 var(--serif);color:#989482;text-align:center;margin-top:19px}
+.book-number{font:italic clamp(50px,6vw,79px)/1 var(--serif);color:#b2996650;margin-bottom:13px}
+.book-story .kicker{font-size:7px;letter-spacing:.17em;color:#9e8554;margin:0 0 12px}
+.book-story h3{font:400 clamp(28px,3.6vw,43px)/1.07 var(--serif);letter-spacing:-.025em;overflow-wrap:anywhere}
+.book-rule{width:37px;height:1px;background:#ae8e5070;margin:23px 0}
+.book-story>p:last-child{font:400 15px/1.8 var(--sans);color:#6d7975;white-space:pre-line;overflow-wrap:anywhere}
+.book-signoff{display:flex;align-items:center;gap:13px;margin-top:34px;color:#997c44}
+.book-signoff .af-mark{width:36px;height:36px;filter:url(#af-gold);flex:none}
+.book-signoff p{font:400 8px/1.8 var(--sans)}.book-signoff em{font:italic 18px/1.4 var(--serif)}
+.book-spine{position:absolute;left:calc((100% - 20px)*.53488 + 10px);top:10px;bottom:10px;width:16px;transform:translateX(-50%);background:linear-gradient(90deg,transparent,#7563441a 45%,#fffdfb77 60%,transparent);pointer-events:none}
+.book-ribbon{position:absolute;right:43px;top:100%;height:31px;width:20px;background:linear-gradient(90deg,#aa8547,#c0a16a 50%,#a58144);clip-path:polygon(0 0,100% 0,100% 100%,50% 75%,0 100%);z-index:-1}
+.book-turning-sheet{position:absolute;inset:0 0 auto;z-index:3;pointer-events:none;will-change:transform,opacity;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.book-turning-sheet::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,#604d202b 80%,#fff8dbad);pointer-events:none}
+.book-photo-placeholder{position:absolute;inset:10px;display:grid;place-content:center;text-align:center;padding:18px;background:#e7eadd;color:#7f836f;font:italic 24px/1.3 var(--serif)}
+.album-underbook{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:37px 5px 0}
+.album-hint{font-size:10px;line-height:1.7;color:#6b7b7c;max-width:350px}
+.album-navigation{display:flex;align-items:center;justify-content:center;gap:15px;flex:none}
 .album-arrow{width:44px;height:44px;display:grid;place-items:center;border:1px solid #a78b584a;border-radius:50%;background:transparent;color:#8d7243;font-size:19px}
 .album-arrow:disabled{opacity:.25;cursor:default}
-.album-counter{min-width:65px;font-size:9px;letter-spacing:.18em;color:#627b81}
-.album-dots{display:flex;justify-content:center;gap:2px;margin-top:5px}
-.album-dot{width:28px;height:28px;padding:0;display:grid;place-items:center;border:0;background:transparent}
-.album-dot::after{content:'';width:5px;height:5px;border-radius:50%;background:#9baaad;transition:transform .25s,background .25s}
-.album-dot[aria-current="true"]::after{background:#ae8a49;transform:scale(1.5)}
-.album-announcement{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%)}
-.album-editor{max-width:540px;margin:38px auto 0;border:1px solid #b39a6855;background:#f7f7ee;border-radius:4px}
-.album-editor summary{padding:18px 20px;cursor:pointer;font-size:12px;list-style:none;display:flex;justify-content:space-between;gap:16px}
-.album-editor-body{padding:0 20px 20px;display:grid;gap:16px;text-align:left}
-.album-editor-body>p{font-size:11px;line-height:1.7;color:#627174}
-.album-upload{padding:13px 16px;display:flex;justify-content:space-between;align-items:center;border:1px solid #aa8a5260;cursor:pointer;font-size:11px}
-#album-files{width:100%;font-size:11px;color:#6c7976}
-.album-edit-fields{display:grid;gap:14px}
-.album-edit-fields label{font-size:10px;line-height:1.8;color:#647575;display:grid;gap:5px}
-.album-edit-fields input,.album-edit-fields textarea{width:100%;padding:10px 12px;border:1px solid #a9906260;background:#fffdf6;border-radius:2px;color:#223d49;font:400 13px/1.5 var(--sans)}
-.album-edit-fields textarea{resize:vertical;min-height:85px}
-.album-edit-fields .text-button{justify-self:start;font-size:10px;color:#8b7152}
-.album-editor .calendar-save{font-size:11px;justify-content:center;width:100%}
-.album-editor button:disabled{opacity:.4;cursor:default}
-.album-editor .album-editor-help{font-size:9px;margin:0;color:#7b837d}
-.album-editor code{font-size:10px;overflow-wrap:anywhere}
-@media(hover:hover) and (pointer:fine){.snapshot-stack:hover .ghost-far{transform:translate(-23px,4px) rotate(-12deg)}.snapshot-stack:hover .ghost-near{transform:translate(22px,8px) rotate(10deg)}}
-@media(max-width:600px){.album-heading{margin-bottom:32px}.snapshot-stack{width:min(306px,calc(100% - 46px))}.snapshot-front{padding:10px 10px 15px}.snapshot-caption{font-size:22px;padding-top:14px}.snapshot-back{padding:22px 18px 15px;gap:13px}.snapshot-note{font-size:clamp(20px,5.3vw,25px)}.snapshot-back .af-mark{width:30px;height:27px}.snapshot-back-hint{font-size:7px}.album-heading .section-title{font-size:clamp(38px,10vw,54px)}.album-edit-fields input,.album-edit-fields textarea{font-size:16px}}
-@media(prefers-reduced-motion:reduce){.snapshot,.snapshot-front,.snapshot-back,.snapshot-ghost,.album-dot::after{transition:none!important}}
-@media print{.album-editor,.album-navigation,.album-dots,.album-hint,.snapshot-back,.snapshot-ghost{display:none!important}.couple-album{break-inside:avoid}.snapshot{transform:none!important}.snapshot-front{opacity:1!important;transform:none!important}}
+.album-counter{min-width:61px;font-size:9px;letter-spacing:.16em;color:#627b81;text-align:center}
+.album-bookmarks{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:27px auto 0}
+.album-bookmark{display:flex;align-items:center;gap:8px;border:1px solid transparent;border-bottom:1px solid #a78b5855;background:#f8f8ef66;padding:6px 11px 6px 6px;color:#7c806f;transition:background-color .3s,border-color .3s;min-height:48px}
+.album-bookmark img{width:43px;height:32px;object-fit:cover;background:#d6e0dc;pointer-events:none}
+.album-bookmark span{font:500 8px/1.5 var(--sans);letter-spacing:.13em}
+.album-bookmark[aria-current="true"]{background:#fffaf0;border-color:#b69b635c;color:#917141}
+.album-load-status{font-size:10px;line-height:1.6;text-align:center;color:#816d48;max-width:450px;margin:13px auto 0}
+.album-load-status:empty{margin:0}
+.album-load-status:not(.has-error){position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%)}
+@media(max-width:760px){.couple-album>.wrap{width:calc(100% - 32px)}.album-heading{padding-inline:12px;margin-bottom:34px}.album-heading .section-title{font-size:clamp(37px,9.3vw,57px)}.album-book{max-width:500px;margin:auto;padding:8px 8px 8px 18px}.book-pages{grid-template-columns:minmax(0,1fr)}.book-leaf{padding:22px 21px}.book-left{background:linear-gradient(90deg,#ece5d5,#faf8f1 6%)}.book-right{padding-top:17px;padding-bottom:26px;background:linear-gradient(90deg,#ece5d5,#faf8f1 6%)}.book-running-title{font-size:18px;margin-bottom:21px}.book-footnote{display:none}.book-photo-action{margin-top:14px}.book-spine{left:18px;top:8px;bottom:8px;width:12px}.book-right::before{content:'';position:absolute;top:0;left:21px;right:21px;height:1px;background:linear-gradient(90deg,#ae8e5055,transparent)}.book-number{position:absolute;right:21px;top:19px;font-size:43px;line-height:1;color:#b2996630}.book-story{position:relative;z-index:1}.book-story .kicker{font-size:6px;margin:0 40px 10px 0}.book-story h3{font-size:31px;max-width:90%}.book-rule{margin:16px 0;width:29px}.book-story>p:last-child{font-size:12px;line-height:1.8}.book-signoff{margin-top:22px;gap:10px}.book-signoff .af-mark{width:29px;height:29px}.book-signoff em{font-size:17px}.book-signoff p{font-size:7px}.book-ribbon{right:28px;height:24px;width:17px}.album-underbook{max-width:500px;flex-direction:column;gap:13px;margin:33px auto 0;text-align:center}.album-bookmarks{margin-top:21px;gap:9px}.album-preview-label{font-size:7px;margin-bottom:26px}}
+@media(max-width:360px){.book-leaf{padding-inline:17px}.book-right::before{left:17px;right:17px}.book-story h3{font-size:27px}.book-mount{padding:7px}.album-bookmarks{gap:6px}.album-bookmark{padding-right:8px}}
+@media(prefers-reduced-motion:reduce){.book-mount,.book-photo-action>span,.album-bookmark{transition:none!important}.book-visual:hover .book-photo-action>span{transform:none}}
+@media print{.album-navigation,.album-bookmarks,.album-hint,.album-preview-label,.book-photo-action,.book-turning-sheet{display:none!important}.album-book{box-shadow:none;break-inside:avoid}.book-mount{transform:none!important}}
+
+/* A second little keepsake travels with the invitation. */
+.envelope-album{display:flex;flex-basis:100%;align-items:center;justify-content:center;gap:13px;max-width:340px;min-height:46px;color:var(--gold-light);text-decoration:none;margin:3px auto 0;padding:0 5px;opacity:0;transform:translateY(15px);transition:opacity .65s ease,transform .85s cubic-bezier(.16,1,.3,1)}
+.card-actions.is-revealed .envelope-album{opacity:1;transform:translateY(0);transition-delay:.18s}
+.envelope-miniatures{position:relative;display:block;width:74px;height:42px;flex:none}
+.envelope-photo{position:absolute;top:0;left:0;width:29px;height:36px;padding:3px 3px 7px;background:#f6f1e4;box-shadow:0 4px 9px #0004;border:1px solid #c2a46c70;transform:rotate(-10deg)}
+.envelope-photo:nth-child(2){left:22px;top:1px;transform:rotate(1deg)}
+.envelope-photo:nth-child(3){left:43px;transform:rotate(10deg)}
+.envelope-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.envelope-photo .af-mark{display:block;width:100%;height:100%;filter:url(#af-navy)}
+.envelope-album-copy{display:block;text-align:left;font:italic 16px/1.2 var(--serif)}
+.envelope-album-copy small{display:block;font:400 8px/1.4 var(--sans);letter-spacing:.025em;margin-top:3px;color:#c7c9b7}
+.has-envelope-album .card-instruction{position:absolute;width:1px;height:1px;min-height:0;overflow:hidden;clip-path:inset(50%);flex-basis:auto;margin:0}
+@media(max-width:600px){.envelope-album{gap:10px;margin-top:1px;min-height:44px}.envelope-album-copy{font-size:15px}.envelope-album-copy small{font-size:7px}.envelope-miniatures{height:38px;transform:scale(.9);transform-origin:center}}
+@media(prefers-reduced-motion:reduce){.envelope-album{opacity:1;transform:none;transition:none!important}}
+@media print{.envelope-album{display:none!important}}
+
+/* One motion rhythm: quiet entrances, paper movement, readable resting states. */
+:root{--motion-soft:cubic-bezier(.2,.72,.24,1);--motion-reveal:cubic-bezier(.16,1,.3,1)}
+.reveal-pending{transition:opacity .85s var(--motion-soft),transform 1.05s var(--motion-reveal);transition-delay:var(--reveal-delay,0ms);transform:translateY(18px)}
+.reveal-pending.is-visible{opacity:1;transform:none}
+.place-gallery .photo-button img{animation:none;transition:transform .32s var(--motion-soft),filter .8s ease}
+.place-gallery.is-visible .photo-button::after{transition-duration:1.05s;transition-timing-function:var(--motion-reveal)}
+.is-visible .gold-thread path,.is-visible .chapter-symbol path{transition-timing-function:var(--motion-soft)}
+.month.is-visible .date-ring path{transition-duration:1.65s;transition-timing-function:var(--motion-soft)}
+.calendar-save,.outline-button,.music-section-toggle,.album-arrow{transition:transform .25s var(--motion-soft),background-color .25s ease,color .25s ease,box-shadow .25s ease}
+.calendar-save:active,.outline-button:active,.music-section-toggle:active,.album-arrow:active{transform:translateY(1px) scale(.98)}
+.image-stage{position:relative;overflow:hidden;isolation:isolate}
+.image-stage>.gallery-departing{position:absolute;inset:0;z-index:2;pointer-events:none}
+.image-dialog .image-load-status{font-size:10px;text-align:center;color:#e6d7b9;min-height:0;margin:8px 0 0}
+.image-dialog .image-load-status:empty{display:none}
+.dialog[open]{animation:dialog-arrival .42s var(--motion-reveal) both}
+@keyframes dialog-arrival{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+.hero-stage:not(.motion-in-view)::before,.hero-stage:not(.motion-in-view)::after,.hero-stage:not(.motion-in-view) .scene::after,.hero-stage:not(.motion-in-view) .seal::after,.message:not(.motion-in-view)::before,.date-section:not(.motion-in-view) .month::after,.date-section:not(.motion-in-view) .countdown-orbit::after,.venue-chapter:not(.motion-in-view)::after,.memory-section:not(.motion-in-view) .memory-emblem,.memory-section:not(.motion-in-view) .memory-emblem::after,.music-section:not(.motion-in-view)::before,.music-section:not(.motion-in-view) .music-disc,.music-section:not(.motion-in-view) .music-disc i,.route-section:not(.motion-in-view) .route-line::after,.faq-section:not(.motion-in-view)::before{animation-play-state:paused}
+.motion-paused *,.motion-paused *::before,.motion-paused *::after{animation-play-state:paused!important}
+@media(prefers-reduced-motion:reduce){.dialog[open]{animation:none!important}.reveal-pending{transition:none!important;opacity:1;transform:none}.place-gallery .photo-button img{transform:none!important;transition:none!important}.calendar-save,.outline-button,.music-section-toggle,.album-arrow{transition:none!important}.calendar-save:active,.outline-button:active,.music-section-toggle:active,.album-arrow:active{transform:none}}
+
+.keepsake.reveal-pending.is-visible{transform:rotate(1.5deg)}
+/* Read the postcard on a flat page; create 3D layers only while turning it. */
+.scene.is-reading{perspective:none;-webkit-perspective:none}
+.letter.is-face-resting{perspective:none;-webkit-perspective:none}
+.letter.is-face-resting .card-tilt,.letter.is-face-resting .card-turn{transform:none!important;transform-style:flat;-webkit-transform-style:flat;will-change:auto}
+.letter.is-face-resting .card-face{transform:none;backface-visibility:visible;-webkit-backface-visibility:visible}
+.card-front{position:relative}
 
 </style>
 </head>
@@ -392,7 +431,7 @@ html.opening-locked{overscroll-behavior:none;scroll-behavior:auto!important}
    <div class="envelope-pocket" aria-hidden="true"><div class="fold fold-left"></div><div class="fold fold-right"></div><div class="fold fold-bottom"></div></div>
    <div class="envelope-light" aria-hidden="true"></div><button class="seal" type="button" aria-label="Abrir o envelope e revelar o cartão" aria-controls="convite" aria-expanded="false"><svg class="af-mark" aria-hidden="true"><use href="#af-mark"/></svg><span class="seal-word">Abrir</span></button><p class="seal-hint">Um toque no selo. Uma pequena surpresa.<span>Também podes deslizar para baixo.</span></p>
   </div>
-  <div class="card-actions"><button class="text-button" id="flip-card" type="button" aria-pressed="false" hidden>Ver o verso <span aria-hidden="true">↻</span></button><a class="text-button" href="#mensagem">Continua a descobrir <span aria-hidden="true">↓</span></a><p class="card-instruction" id="card-instruction">Arrasta para os lados com o rato ou o dedo. Ou toca em «Ver o verso».</p></div><div class="hero-scroll-progress" aria-hidden="true"></div>
+  <div class="card-actions"><button class="text-button" id="flip-card" type="button" aria-pressed="false" hidden>Ver o verso <span aria-hidden="true">↻</span></button><a class="text-button" href="#mensagem">Continua a descobrir <span aria-hidden="true">↓</span></a><a class="envelope-album" id="envelope-album" href="#antes-do-sim" hidden><span class="envelope-miniatures" aria-hidden="true"><span class="envelope-photo"><img alt="" draggable="false" decoding="async" hidden><svg class="af-mark" aria-hidden="true"><use href="#af-wreath"/></svg></span><span class="envelope-photo"><img alt="" draggable="false" decoding="async" hidden><svg class="af-mark" aria-hidden="true"><use href="#af-wreath"/></svg></span><span class="envelope-photo"><img alt="" draggable="false" decoding="async" hidden><svg class="af-mark" aria-hidden="true"><use href="#af-wreath"/></svg></span></span><span class="envelope-album-copy">Um pequeno álbum, só nosso.<small>Folhear as nossas fotografias ↓</small></span></a><p class="card-instruction" id="card-instruction">Arrasta para os lados com o rato ou o dedo. Ou toca em «Ver o verso».</p></div><div class="hero-scroll-progress" aria-hidden="true"></div>
  </div>
 </section>
 <section class="section message" id="mensagem" aria-labelledby="message-title"><div class="wrap">
@@ -403,24 +442,35 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
 </div></section>
 <section class="section couple-album" id="antes-do-sim" aria-labelledby="album-title" hidden>
  <div class="wrap">
-  <div class="album-heading" data-reveal><p class="kicker">Antes do sim</p><h2 class="section-title" id="album-title">A vida já tinha<br><em>as nossas fotografias.</em></h2><p>O grande dia ainda vem aí.<br>Entretanto, ficam estes bocadinhos de nós.</p></div>
-  <div class="album-stage" data-reveal>
-   <p class="album-preview-label" id="album-preview-label" hidden>Pré-visualização · as vossas fotos entram aqui</p>
-   <div class="snapshot-stack">
-    <div class="snapshot-ghost ghost-far" aria-hidden="true"><img alt="" draggable="false" hidden></div>
-    <div class="snapshot-ghost ghost-near" aria-hidden="true"><img alt="" draggable="false" hidden></div>
-    <button class="snapshot" id="album-card" type="button" aria-pressed="false" aria-label="Virar esta memória para ler a legenda" aria-describedby="album-hint">
-     <span class="snapshot-front"><span class="snapshot-window"><img id="album-photo" alt="" decoding="async" draggable="false" hidden><span class="snapshot-placeholder" id="album-placeholder"><svg class="af-mark" aria-hidden="true"><use href="#af-wreath"/></svg><span>É aqui que entra<br><em>um bocadinho de nós.</em></span></span></span><span class="snapshot-caption" id="album-caption">Uma fotografia vossa</span><span class="snapshot-corner" aria-hidden="true">↶</span></span>
-     <span class="snapshot-back" aria-hidden="true"><span class="kicker">Do outro lado da fotografia</span><svg class="af-mark" aria-hidden="true"><use href="#af-mark"/></svg><span class="snapshot-note" id="album-note">Uma frase vossa, uma piada ou uma pequena memória.</span><span class="snapshot-signature">Adriana & Francisco</span><span class="snapshot-back-hint">Toca para voltar à fotografia ↶</span></span>
-    </button>
+  <div class="album-heading" data-reveal><p class="kicker">Um pequeno álbum dentro do convite</p><h2 class="section-title" id="album-title">Há histórias que<br><em>se guardam assim.</em></h2><p>Uma fotografia. Uma pequena história.<br>Um bocadinho de nós, em cada página.</p></div>
+  <div class="album-stage">
+   <p class="album-preview-label" id="album-preview-label" hidden>Pré-visualização · fotografias da quinta</p>
+   <div class="album-book" id="album-card" tabindex="0" role="group" aria-roledescription="álbum de fotografias" aria-label="O nosso álbum" aria-describedby="album-hint">
+    <span class="book-ribbon" aria-hidden="true"></span>
+    <div class="book-pages">
+     <div class="book-leaf book-left">
+      <p class="book-running-title">Adriana <span>&</span> Francisco</p>
+      <button class="book-visual" id="album-photo-turn" type="button" aria-label="Folhear para a fotografia seguinte">
+       <span class="book-mount"><img id="album-photo" alt="" decoding="async" draggable="false"><span class="book-photo-placeholder" id="album-placeholder" hidden>Esta fotografia<br>chega já.</span><i class="photo-corner corner-tl" aria-hidden="true"></i><i class="photo-corner corner-tr" aria-hidden="true"></i><i class="photo-corner corner-bl" aria-hidden="true"></i><i class="photo-corner corner-br" aria-hidden="true"></i></span>
+       <span class="book-photo-action" aria-hidden="true">Mais uma memória <span>↗</span></span>
+      </button>
+      <p class="book-footnote">As coisas bonitas merecem ficar.</p>
+     </div>
+     <div class="book-leaf book-right">
+      <span class="book-number" id="album-page-number" aria-hidden="true">01</span>
+      <div class="book-story"><p class="kicker">Entre as nossas páginas</p><h3 id="album-caption"></h3><div class="book-rule" aria-hidden="true"></div><p id="album-note"></p></div>
+      <div class="book-signoff"><svg class="af-mark" aria-hidden="true"><use href="#af-mark"/></svg><p>Com amor,<br><em>Adriana & Francisco</em></p></div>
+     </div>
+    </div>
+    <span class="book-spine" aria-hidden="true"></span>
    </div>
-   <p class="album-hint" id="album-hint">Toca na fotografia. Há mais do outro lado.</p>
-   <div class="album-navigation" role="group" aria-label="Explorar as nossas fotografias"><button class="album-arrow" id="album-previous" type="button" aria-label="Fotografia anterior">←</button><span class="album-counter" id="album-counter">01 / 03</span><button class="album-arrow" id="album-next" type="button" aria-label="Fotografia seguinte">→</button></div>
-   <div class="album-dots" id="album-dots" role="group" aria-label="Escolher uma fotografia"></div>
-   <p class="album-announcement" id="album-announcement" role="status" aria-live="polite"></p>
+   <div class="album-underbook"><p class="album-hint" id="album-hint">Desliza na fotografia ou usa as setas para folhear.</p><div class="album-navigation" role="group" aria-label="Folhear o álbum"><button class="album-arrow" id="album-previous" type="button" aria-label="Fotografia anterior">←</button><span class="album-counter" id="album-counter">01 / 03</span><button class="album-arrow" id="album-next" type="button" aria-label="Fotografia seguinte">→</button></div></div>
+   <div class="album-bookmarks" id="album-bookmarks" role="group" aria-label="Ir diretamente a uma fotografia"></div>
+   <p class="album-load-status" id="album-announcement" role="status" aria-live="polite"></p>
   </div>
  </div>
 </section>
+
 
 <section class="section memory-section" id="memoria" aria-labelledby="memory-section-title"><svg class="af-mark memory-watermark" aria-hidden="true" focusable="false"><use href="#af-mark"/></svg><div class="wrap"><div class="memory-panel" data-reveal><div class="memory-copy"><p class="kicker">Um bocadinho deste dia</p><h2 class="section-title" id="memory-section-title">Leva contigo<br><em>uma memória.</em></h2><p>Quando quiseres, transforma este convite numa imagem para guardar nas fotografias. Um detalhe pequeno, para voltar a este dia sempre que apetecer.</p><button class="calendar-save memory-cta" id="save-memory" type="button"><svg class="icon" aria-hidden="true"><use href="#icon-download"/></svg>Guardar esta memória <span aria-hidden="true">↓</span></button><p class="memory-note">Uma imagem PNG, preparada neste dispositivo.</p></div><div class="memory-emblem" aria-hidden="true"><svg class="af-mark" aria-hidden="true"><use href="#af-wreath"/></svg><span>06 · 05 · 28</span></div></div></div></section>
 <section class="section date-section" id="data" aria-labelledby="date-title"><div class="wrap">
@@ -478,7 +528,7 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
      O ficheiro preview-social-v2.png é usado por WhatsApp, iMessage, Facebook e outras partilhas.
      Para máxima compatibilidade em produção, quando souberes o URL final do GitHub Pages,
      podes trocar o content de og:image / twitter:image por um URL absoluto. -->
-<script id="wedding-settings" type="application/json">{"date":"2028-05-06","ceremony":"Igreja Nova de São José de Arcozelo","ceremonyDetail":"Rua das Calçadas · Arcozelo · Barcelos","ceremonyMapUrl":"https://www.google.com/maps/search/?api=1&query=41.54277162412671%2C-8.6127274001638","location":"Colina do Romão","locationDetail":"Rua do Moleiro, 266 · 4775-460 Nine · Vila Nova de Famalicão","title":"Casamento da Adriana e do Francisco","message":"Vamos casar a 6 de maio de 2028. Começamos na Igreja Nova de São José de Arcozelo, em Barcelos, e seguimos para a Colina do Romão, em Nine. Guarda este dia para o viver connosco.","timeZone":"Europe/Lisbon","audio":"musica-convite.mp3","couplePhotos":[{"src":"quinta-01.png","label":"Uma fotografia nossa","note":"Uma memória."},{"src":"quinta-02.png","label":"Uma fotografia nossa","note":"Outra memória."},{"src":"quinta-03.png","label":"Mais uma fotografia nossa","note":"Um momento para guardar."}],"caption":"Um dia nosso.\nUma memória de todos.","personalMessage":"Ainda há muito para preparar. Mas há uma coisa que já sabemos: queremos viver este dia com as pessoas de quem gostamos. Com os abraços demorados, as conversas à mesa e aquela vontade de ficar só mais uma dança.","secretMessage":"O dia já está escolhido.\nO abraço fica guardado para ti.","mapUrl":"https://www.google.com/maps/search/?api=1&query=Rua%20do%20Moleiro%20266%204775-460%20Nine%20Vila%20Nova%20de%20Famalic%C3%A3o","postWeddingMessage":"Foi ainda mais bonito porque estiveste connosco. Obrigado por fazeres parte desta memória.","publicUrl":"https://franciscocunha99.github.io/wedding_adriana_and_francisco/"}</script>
+<script id="wedding-settings" type="application/json">{"date":"2028-05-06","ceremony":"Igreja Nova de São José de Arcozelo","ceremonyDetail":"Rua das Calçadas · Arcozelo · Barcelos","ceremonyMapUrl":"https://www.google.com/maps/search/?api=1&query=41.54277162412671%2C-8.6127274001638","location":"Colina do Romão","locationDetail":"Rua do Moleiro, 266 · 4775-460 Nine · Vila Nova de Famalicão","title":"Casamento da Adriana e do Francisco","message":"Vamos casar a 6 de maio de 2028. Começamos na Igreja Nova de São José de Arcozelo, em Barcelos, e seguimos para a Colina do Romão, em Nine. Guarda este dia para o viver connosco.","timeZone":"Europe/Lisbon","audio":"musica-convite.mp3","couplePhotos":[{"src":"quinta-01.png","label":"O lugar dos abraços","note":"Aqui imaginamos os abraços demorados e os primeiros brindes. O resto ganha vida convosco.","alt":"Colina do Romão · exterior e jardins"},{"src":"quinta-02.png","label":"Uma mesa cheia de histórias","note":"Há conversas que pedem mais tempo à mesa. Queremos guardar lugar para as vossas.","alt":"Colina do Romão · salão da celebração"},{"src":"quinta-03.png","label":"Ainda há tempo para mais uma","note":"Mais uma fotografia. Mais um abraço. E, se a música pedir, só mais uma dança.","alt":"Colina do Romão · vista da quinta"}],"caption":"Um dia nosso.\nUma memória de todos.","personalMessage":"Ainda há muito para preparar. Mas há uma coisa que já sabemos: queremos viver este dia com as pessoas de quem gostamos. Com os abraços demorados, as conversas à mesa e aquela vontade de ficar só mais uma dança.","secretMessage":"O dia já está escolhido.\nO abraço fica guardado para ti.","mapUrl":"https://www.google.com/maps/search/?api=1&query=Rua%20do%20Moleiro%20266%204775-460%20Nine%20Vila%20Nova%20de%20Famalic%C3%A3o","postWeddingMessage":"Foi ainda mais bonito porque estiveste connosco. Obrigado por fazeres parte desta memória.","publicUrl":"https://franciscocunha99.github.io/wedding_adriana_and_francisco/"}</script>
 <script>
 (() => {
   'use strict';
@@ -490,13 +540,30 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
   const $$ = (s, root = document) => [...root.querySelectorAll(s)];
   const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
   const mix = (a, b, t) => a + (b - a) * t;
-  const ease = t => t * t * (3 - 2 * t);
+  const ease = t => t * t * t * (t * (t * 6 - 15) + 10);
   const phase = (v, a, b) => ease(clamp((v - a) / (b - a)));
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
   const webURL = value => { try { const u = new URL(value); return /^(https?:)$/.test(u.protocol) ? u.href : ''; } catch { return ''; } };
   const text = (id, value) => { if (typeof value === 'string' && value.trim()) $(id).textContent = value; };
   const listenMedia = (q, fn) => q.addEventListener ? q.addEventListener('change', fn) : q.addListener(fn);
   function module(name, fn) { try { fn(); } catch (e) { if(name === 'envelope'){document.documentElement.classList.remove('motion-ready');$$('.hero [style]').forEach(el=>el.removeAttribute('style'));}if(name === 'revelações')$$('.reveal-pending').forEach(el=>el.classList.remove('reveal-pending'));console.warn('Convite · ' + name, e); } }
+  // Decode external assets before transitions; keep the visible photograph in place.
+  const imageCache=new Map();
+  function prepareImage(src){
+    if(imageCache.has(src))return imageCache.get(src);
+    const pending=new Promise((resolve,reject)=>{
+      const image=new Image();image.decoding='async';let loaded=false;
+      function ready(){if(loaded)return;loaded=true;image.onload=image.onerror=null;
+        if(typeof image.decode==='function')image.decode().catch(()=>{}).then(()=>resolve(image));else resolve(image);
+      }
+      image.onload=ready;image.onerror=()=>{image.onload=image.onerror=null;reject(Error('Image unavailable'));};
+      image.src=src;if(image.complete&&image.naturalWidth)ready();
+    });
+    imageCache.set(src,pending);pending.catch(()=>imageCache.delete(src));
+    if(imageCache.size>14)imageCache.delete(imageCache.keys().next().value);
+    return pending;
+  }
+
   let playTone = () => {};
 
   module('textos', () => {
@@ -624,10 +691,15 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
     const getProgress = () => geo ? clamp(-hero.getBoundingClientRect().top / geo.range) : 0;
     function measure() {
       if (!active) return;
-      const sh = stage.clientHeight, eh = scene.clientHeight, ch = front.offsetHeight;
-      geo = { sh, eh, ch, top: scene.offsetTop - eh / 2, range: Math.max(1, hero.offsetHeight - sh), x: stage.clientWidth / 2 - scene.offsetLeft };
+      const sceneBox=scene.getBoundingClientRect(),stageBox=stage.getBoundingClientRect();
+      const sh = stage.clientHeight, eh = sceneBox.height, ch = front.offsetHeight;
+      // Preserve fractional layout coordinates, then align the final paper to physical pixels.
+      geo = { sh, eh, ch, top: sceneBox.top-stageBox.top, range: Math.max(1, hero.offsetHeight - sh),
+        x: stage.clientWidth/2-(sceneBox.left-stageBox.left+sceneBox.width/2),
+        width: parseFloat(getComputedStyle(card).width)||card.clientWidth, stageWidth:stage.clientWidth };
       geo.small = Math.min(.9, (eh - 20) / ch);
-      geo.full = Math.max(.2, Math.min(1, (sh - 144) / ch));
+      geo.reserve = Math.max(144, actions.offsetHeight + 82);
+      geo.full = Math.max(.2, Math.min(1, (sh - geo.reserve) / ch));
       const sceneStyle=getComputedStyle(scene);
       geo.perspective=parseFloat(sceneStyle.perspective||sceneStyle.webkitPerspective)||2000;
       if(!opening)current = getProgress(); paint(current); requestPaint();
@@ -643,7 +715,7 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
       const unseal = phase(p, 0, .13), flapOpen = phase(p, .13, .38), pull = phase(p, .40, .70), settle = phase(p, .73, .985);
       const sink = eh * .29 * flapOpen, startY = (eh - ch * small) / 2;
       const liftedY = Math.max(82, (sh - ch * small) / 2 - 24) - top;
-      const finalY = 56 + (sh - 144 - ch * full) / 2 - top;
+      const finalY = 56 + (sh - geo.reserve - ch * full) / 2 - top;
       const clearance = liftedY + ch * small + 28;
       const shellY = mix(sink, clearance, pull) + sh * .9 * settle;
       const opacity = 1 - phase(p, .79, .99);
@@ -657,13 +729,21 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
       faces.forEach(el => el.style.opacity = opacity);
       flap.style.visibility = opacity === 0 ? 'hidden' : 'visible';
       const y = mix(mix(startY + sink, liftedY, pull), finalY, settle);
-      card.style.transform = `translate3d(calc(-50% + ${x * settle}px),${y}px,0) scale(${mix(small,full,settle)})`;
+      const scale=mix(small,full,settle),dpr=window.devicePixelRatio||1;
+      const pixel=value=>Math.round(value*dpr)/dpr;
+      const finalLeft=(geo.stageWidth-geo.width*scale)/2;
+      const dx=settle===1?pixel(finalLeft)-finalLeft:0;
+      const dy=settle===1?pixel(top+y)-(top+y):0;
+      // A 2D resting transform lets text rasterise at its displayed size instead of
+      // retaining the texture created when the paper was small inside the envelope.
+      card.style.transform = `translate(calc(-50% + ${x*settle+dx}px),${y+dy}px)`+(scale===1?'':` scale(${scale})`);
       card.style.willChange = p > .03 && p < .975 ? 'transform' : 'auto';
       card.style.visibility = p > 0 ? 'visible' : 'hidden';
       card.style.setProperty('--shine', String(Math.sin(settle * Math.PI) * .8));
       const readable=p>.995&&!opening;
       card.classList.toggle('is-open',readable);card.toggleAttribute('inert',!readable);card.tabIndex=readable?0:-1;
-      actions.toggleAttribute('inert',!readable);$('#flip-card').disabled=!readable;
+      updateCardRendering(p);
+      actions.toggleAttribute('inert',!readable);$('#flip-card').disabled=!readable;actions.classList.toggle('is-revealed',readable);
       seal.classList.toggle('is-releasing',unseal>0);
       seal.style.transform = `translate(-50%,-50%) translateY(${-42 * unseal}px) rotate(${-9 * unseal}deg) scale(${1 + .12 * unseal})`;
       seal.style.opacity = 1 - unseal;
@@ -690,13 +770,13 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
     }
     function requestPaint() { if (active && !opening && !raf) { lastTime = 0; raf = requestAnimationFrame(frame); } }
     function cancelAuto() { if (autoFrame) cancelAnimationFrame(autoFrame); autoFrame = 0; }
-    function moveTo(top, duration) {
+    function moveTo(top, duration, done) {
       cancelAuto();
       const from = scrollY, distance = top - from, start = performance.now();
       function tick(now) {
         const p = clamp((now - start) / duration);
         window.scrollTo({top: from + distance * ease(p), behavior:'auto'});
-        if (p < 1) autoFrame = requestAnimationFrame(tick); else autoFrame = 0;
+        if (p < 1) autoFrame = requestAnimationFrame(tick); else {autoFrame = 0;done?.();}
       }
       autoFrame = requestAnimationFrame(tick);
     }
@@ -714,6 +794,13 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
       if(!opening&&movingDown&&canStart()&&getProgress()>.003)beginOpening();else requestPaint();
     },{passive:true});
     window.addEventListener('resize', measure, {passive:true});
+    window.addEventListener('album:ready',measure);
+    $('#envelope-album').addEventListener('click',event=>{
+      const target=$('#antes-do-sim');if(target.hidden)return;event.preventDefault();
+      const destination=scrollY+target.getBoundingClientRect().top-20;
+      const arrived=()=>{target.dispatchEvent(new Event('album:arrive'));$('#album-card').focus({preventScroll:true});};
+      if(active&&!reduce.matches)moveTo(destination,1500,arrived);else{window.scrollTo({top:destination,behavior:'auto'});arrived();}
+    });
     const continueLink = $('a[href="#mensagem"]');
     continueLink.addEventListener('click', e => {
       e.preventDefault();
@@ -729,12 +816,13 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
       cancelAuto(); active = !reduce.matches;
       document.documentElement.classList.toggle('motion-ready', active);
       if (active) measure();
-      else { cancelAnimationFrame(raf); raf = 0; originalStyles.forEach((value, el) => value === null ? el.removeAttribute('style') : el.setAttribute('style',value)); card.classList.add('is-open');card.removeAttribute('inert');card.tabIndex=0;actions.removeAttribute('inert');$('#flip-card').disabled=false; }
+      else { cancelAnimationFrame(raf); raf = 0; originalStyles.forEach((value, el) => value === null ? el.removeAttribute('style') : el.setAttribute('style',value)); card.classList.add('is-open');card.removeAttribute('inert');card.tabIndex=0;actions.removeAttribute('inert');actions.classList.add('is-revealed');$('#flip-card').disabled=false; }
+      updateCardRendering(current);
     }
     const turn=$('.card-turn'),back=$('.card-back'),flip=$('#flip-card'),tilt=$('.card-tilt');
     const surprise=$('#back-surprise'),secret=$('#back-secret');
     flip.hidden=false;
-    let isBack=false,drag=null,angle=0,spinFrame=0,surpriseOpen=false,suppressClickUntil=0,monogramTimer=0;
+    let isBack=false,drag=null,angle=0,spinFrame=0,turning=false,surpriseOpen=false,suppressClickUntil=0,monogramTimer=0;
     const normalize=v=>((v%360)+360)%360;
     function stopMonogram(){
       clearTimeout(monogramTimer);monogramTimer=0;
@@ -779,26 +867,34 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
       flip.innerHTML=(isBack?'Ver a frente ':'Ver o verso ')+'<span aria-hidden="true">↻</span>';
       if(isBack)revealSurprise();else if(monogramTimer)stopMonogram();
     }
+    function updateCardRendering(p=current){
+      const resting=!turning&&!drag?.active&&Math.abs(angle-Math.round(angle/180)*180)<.000001;
+      card.classList.toggle('is-face-resting',resting);
+      scene.classList.toggle('is-reading',resting&&(!active||p>=1));
+      // The visible face is already selected by aria-hidden. Flatten both faces
+      // at rest, including the back, so neither text nor the logo stays mirrored.
+      turn.style.transform=resting?'none':`rotateY(${angle}deg)`;
+    }
     function renderAngle(){
       if(dateGlintTimer&&Math.abs(angle%360)>.1)stopDateGlint();
-      turn.style.transform=`rotateY(${angle}deg)`;
       tilt.style.setProperty('--tx','0deg');
       tilt.style.setProperty('--ty','0deg');
-      card.style.setProperty('--shine',String(.12+Math.abs(Math.sin(angle*Math.PI/180))*.5));
-      accessibleFace();
+      card.style.setProperty('--shine',String(Math.abs(Math.sin(angle*Math.PI/180))*.5));
+      accessibleFace();updateCardRendering();
     }
-    function stopSpin(){cancelAnimationFrame(spinFrame);spinFrame=0;}
+    function stopSpin(){cancelAnimationFrame(spinFrame);spinFrame=0;turning=false;}
     function settle(target){
       stopSpin();
       turn.classList.add('dragging');
       tilt.classList.add('is-dragging');
       const from=angle,start=performance.now(),duration=reduce.matches?0:720;
+      turning=duration>0;
       function tick(now){
         const progress=duration?clamp((now-start)/duration):1;
         const eased=1-Math.pow(1-progress,3);
         angle=mix(from,target,eased);renderAngle();
         if(progress<1)spinFrame=requestAnimationFrame(tick);
-        else{angle=normalize(angle);renderAngle();turn.classList.remove('dragging');tilt.classList.remove('is-dragging');spinFrame=0;}
+        else{angle=normalize(angle);turning=false;spinFrame=0;turn.classList.remove('dragging');tilt.classList.remove('is-dragging');renderAngle();}
       }
       tick(start);
     }
@@ -859,7 +955,7 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
       const previous=drag;drag=null;
       try{if(card.hasPointerCapture?.(previous.id))card.releasePointerCapture(previous.id);}catch(_){}
       card.classList.remove('rotating');
-      if(!previous.active){if(Math.abs(angle-previous.face)>.001)settle(previous.face);return;}
+      if(!previous.active){if(Math.abs(angle-previous.face)>.001)settle(previous.face);else{turn.classList.remove('dragging');tilt.classList.remove('is-dragging');renderAngle();}return;}
       suppressClickUntil=performance.now()+400;
       const distance=Math.abs(previous.dx);
       const threshold=Math.max(24,Math.min(56,previous.width*.14));
@@ -917,7 +1013,7 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
     listenMedia(reduce, mode); mode();
 
 
-    if (window.ResizeObserver) { const ro = new ResizeObserver(measure); ro.observe(front); ro.observe(stage); }
+    if (window.ResizeObserver) { const ro = new ResizeObserver(measure); ro.observe(front); ro.observe(stage); ro.observe(actions); }
     if (document.fonts) document.fonts.ready.then(measure);
   });
 
@@ -1002,68 +1098,224 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
   });
 
   module('galerias', () => {
-    const dialog=$('.image-dialog'),image=$('#large-photo'),caption=$('#image-caption');let group=[],index=0,start;
-    function show(i){index=(i+group.length)%group.length;const item=group[index],img=$('img',item);image.src=img.src;image.alt=img.alt;caption.textContent=img.alt;const count=document.createElement('small');count.textContent=String(index+1).padStart(2,'0')+' / '+String(group.length).padStart(2,'0');caption.appendChild(count);if(!reduce.matches&&image.animate)image.animate([{opacity:.3,transform:'scale(.98)'},{opacity:1,transform:'scale(1)'}],{duration:500,easing:'ease-out'});}
-    $$('[data-gallery]').forEach(b=>b.addEventListener('click',()=>{group=$$('[data-gallery="'+b.dataset.gallery+'"]');show(group.indexOf(b));openDialog(dialog);}));
+    const dialog=$('.image-dialog'),image=$('#large-photo'),caption=$('#image-caption'),surface=$('.image-stage');
+    const status=document.createElement('p');status.className='image-load-status';status.setAttribute('role','status');dialog.append(status);
+    let group=[],index=0,request=0,start=null,entrance=null,exit=null,previous=null;
+    function clearMotion(){entrance?.cancel();exit?.cancel();entrance=null;exit=null;previous?.remove();previous=null;}
+    async function show(i){
+      if(!group.length)return;
+      const direction=i<index?-1:1;index=(i+group.length)%group.length;
+      const version=++request,target=index,thumb=$('img',group[target]);
+      surface.setAttribute('aria-busy','true');status.textContent='';
+      try{await prepareImage(thumb.src);}catch(_){if(version===request){surface.removeAttribute('aria-busy');status.textContent='Não foi possível abrir esta fotografia. Tenta novamente.';}return;}
+      if(version!==request)return;
+      clearMotion();const animate=!reduce.matches&&typeof image.animate==='function';
+      if(animate&&image.hasAttribute('src')){previous=image.cloneNode(false);previous.removeAttribute('id');previous.alt='';previous.setAttribute('aria-hidden','true');previous.className='gallery-departing';surface.append(previous);}
+      image.src=thumb.src;image.alt=thumb.alt;caption.textContent=thumb.alt;
+      const count=document.createElement('small');count.textContent=String(target+1).padStart(2,'0')+' / '+String(group.length).padStart(2,'0');caption.append(count);
+      surface.removeAttribute('aria-busy');
+      if(animate){
+        entrance=image.animate([{opacity:.35,transform:`translateX(${direction*12}px) scale(1.025)`},{opacity:1,transform:'translateX(0) scale(1)'}],{duration:620,easing:'cubic-bezier(.2,.7,.25,1)'});
+        if(previous){const departing=previous;exit=departing.animate([{opacity:1},{opacity:0}],{duration:360,easing:'ease-out',fill:'forwards'});const clean=()=>{departing.remove();if(previous===departing)previous=null;};exit.finished.then(clean,clean);}
+      }
+    }
+    $$('[data-gallery]').forEach(button=>button.addEventListener('click',()=>{++request;clearMotion();image.removeAttribute('src');image.alt='';caption.textContent='';group=$$('[data-gallery="'+button.dataset.gallery+'"]');index=group.indexOf(button);openDialog(dialog);show(index);}));
     $('#photo-previous').addEventListener('click',()=>show(index-1));$('#photo-next').addEventListener('click',()=>show(index+1));
-    dialog.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){e.preventDefault();show(index-1);}if(e.key==='ArrowRight'){e.preventDefault();show(index+1);}});
-    const surface=$('.image-stage');surface.addEventListener('pointerdown',e=>{start={x:e.clientX,y:e.clientY};});
-    surface.addEventListener('pointerup',e=>{if(start&&Math.abs(e.clientX-start.x)>45&&Math.abs(e.clientX-start.x)>Math.abs(e.clientY-start.y))show(index+(e.clientX<start.x?1:-1));start=null;});surface.addEventListener('pointercancel',()=>start=null);
+    dialog.addEventListener('keydown',event=>{if(event.key==='ArrowLeft'){event.preventDefault();show(index-1);}if(event.key==='ArrowRight'){event.preventDefault();show(index+1);}});
+    surface.addEventListener('pointerdown',event=>{if(event.isPrimary!==false)start={id:event.pointerId,x:event.clientX,y:event.clientY};});
+    surface.addEventListener('pointerup',event=>{if(start?.id===event.pointerId&&Math.abs(event.clientX-start.x)>45&&Math.abs(event.clientX-start.x)>Math.abs(event.clientY-start.y))show(index+(event.clientX<start.x?1:-1));start=null;});
+    surface.addEventListener('pointercancel',()=>start=null);
+    function close(){++request;start=null;clearMotion();surface.removeAttribute('aria-busy');status.textContent='';}
+    dialog.addEventListener('close',close);$('.dialog-close',dialog).addEventListener('click',close);listenMedia(reduce,clearMotion);
   });
+
 
   module('o nosso álbum', () => {
-    const section=$('#antes-do-sim'),card=$('#album-card');
-    // Fotografias do álbum: ficheiros na mesma pasta. Ex.: casal-01.png
-    const validPhoto=p=>p&&typeof p.src==='string'&&p.src.trim()&&!/^data:/i.test(p.src.trim());
-    const photos=(Array.isArray(W.couplePhotos)?W.couplePhotos:[]).filter(validPhoto).slice(0,6).map(p=>({
-      src:p.src.trim(),label:String(p.label||'Um bocadinho de nós').slice(0,70),note:String(p.note||'').slice(0,260)
-    }));
+    const section=$('#antes-do-sim'),book=$('#album-card'),surface=$('#album-photo-turn');
+    const validPhoto=p=>{
+      if(!p||typeof p.src!=='string'||!p.src.trim())return false;
+      try{return /^(https?:|file:)$/.test(new URL(p.src.trim(),location.href).protocol);}catch(_){return false;}
+    };
+    // Keep the same external repository paths and the same editable configuration.
+    const photos=(Array.isArray(W.couplePhotos)?W.couplePhotos:[]).filter(validPhoto).slice(0,6).map(p=>({src:p.src.trim(),label:String(p.label||'Um bocadinho de nós').slice(0,70),note:String(p.note||'').slice(0,260),alt:String(p.alt||p.label||'Adriana e Francisco').slice(0,160)}));
     if(!photos.length)return;
     section.hidden=false;
-    const image=$('#album-photo'),placeholder=$('#album-placeholder'),caption=$('#album-caption'),note=$('#album-note');
-    const front=$('.snapshot-front',card),back=$('.snapshot-back',card),dots=$('#album-dots');
-    let index=0,turned=false,drag=null,suppressUntil=0,entrance=null;
-    function putImage(img,entry){img.src=entry.src;img.hidden=false;}
-    function setTurn(value){
-      turned=value;card.classList.toggle('is-turned',value);card.setAttribute('aria-pressed',String(value));
-      card.setAttribute('aria-label',value?'Voltar à fotografia: '+photos[index].label:'Virar esta memória para ler a legenda: '+photos[index].label);
-      front.setAttribute('aria-hidden',String(value));back.setAttribute('aria-hidden',String(!value));
+    const image=$('#album-photo'),mount=$('.book-mount'),story=$('.book-story'),placeholder=$('#album-placeholder');
+    const bookmarks=$('#album-bookmarks'),status=$('#album-announcement'),previous=$('#album-previous'),next=$('#album-next');
+    let index=0,requestedIndex=0,ticket=0,drag=null,suppressUntil=0,animations=[],sheet=null,lastArrival=-Infinity;
+    const canAnimate=()=>!reduce.matches&&!document.hidden&&typeof book.animate==='function';
+    function stopMotion(){animations.forEach(a=>a.cancel());animations=[];sheet?.remove();sheet=null;}
+    function motion(element,frames,options){
+      if(!canAnimate())return null;
+      const animation=element.animate(frames,options);animations.push(animation);
+      if(animation.finished)animation.finished.then(()=>{animations=animations.filter(a=>a!==animation);},()=>{animations=animations.filter(a=>a!==animation);});
+      return animation;
     }
-    function render(direction=0,announce=false){
-      const entry=photos[index=(index+photos.length)%photos.length];entrance?.cancel();entrance=null;setTurn(false);
-      putImage(image,entry);image.alt=entry.label+' · Adriana e Francisco';placeholder.hidden=true;caption.textContent=entry.label;note.textContent=entry.note||'O melhor desta fotografia é quem está nela.';
-      $$('.snapshot-ghost').forEach((ghost,i)=>{ghost.hidden=photos.length<=i+1;if(!ghost.hidden)putImage($('img',ghost),photos[(index+i+1)%photos.length]);});
+    function resetPose(){mount.style.removeProperty('--page-peek');}
+    function cancelRequest(){++ticket;requestedIndex=index;book.removeAttribute('aria-busy');resetPose();}
+    function announce(message,error=false){status.textContent=message;status.classList.toggle('has-error',error);}
+    function showPhoto(entry){image.src=entry.src;image.alt=entry.alt;placeholder.hidden=true;}
+    function render(announceChange=false){
+      const photo=photos[index];showPhoto(photo);
+      $('#album-caption').textContent=photo.label;
+      $('#album-note').textContent=photo.note||'Há fotografias que dizem o que as palavras não conseguem.';
+      $('#album-page-number').textContent=String(index+1).padStart(2,'0');
       $('#album-counter').textContent=String(index+1).padStart(2,'0')+' / '+String(photos.length).padStart(2,'0');
-      $('#album-previous').disabled=$('#album-next').disabled=photos.length<2;$('#album-hint').textContent=photos.length>1?'Desliza para outra memória. Toca para descobrir o verso.':'Toca na fotografia. Há mais do outro lado.';$('#album-preview-label').hidden=true;
-      if(dots.children.length!==photos.length){dots.replaceChildren();photos.forEach((_,i)=>{const button=document.createElement('button');button.type='button';button.className='album-dot';button.addEventListener('click',()=>go(i-index));dots.append(button);});}
-      [...dots.children].forEach((button,i)=>{button.setAttribute('aria-current',String(i===index));button.setAttribute('aria-label','Ver fotografia '+(i+1)+': '+photos[i].label);});dots.hidden=photos.length<2;
-      if(direction&&!reduce.matches&&typeof card.animate==='function')entrance=card.animate([{opacity:0,transform:`translateX(${direction*24}px) rotate(${direction*4}deg)`},{opacity:1,transform:'translateX(0) rotate(-2deg)'}],{duration:480,easing:'cubic-bezier(.22,.61,.36,1)'});
-      if(announce)$('#album-announcement').textContent='Fotografia '+(index+1)+' de '+photos.length+'. '+entry.label;
+      surface.setAttribute('aria-label',photos.length>1?'Folhear para a fotografia seguinte. Agora: '+photo.label:photo.alt);
+      [...bookmarks.children].forEach((button,i)=>button.setAttribute('aria-current',String(index===i)));
+      if(announceChange)announce('Fotografia '+(index+1)+' de '+photos.length+'. '+photo.label);
     }
-    function go(step){if(!step||photos.length<2)return;index=(index+step+photos.length)%photos.length;render(Math.sign(step),true);}
-    $('#album-previous').addEventListener('click',()=>go(-1));$('#album-next').addEventListener('click',()=>go(1));
-    card.addEventListener('click',event=>{if(performance.now()<suppressUntil){event.preventDefault();return;}setTurn(!turned);});
-    card.addEventListener('keydown',event=>{if(event.key==='ArrowLeft'||event.key==='ArrowRight'){event.preventDefault();go(event.key==='ArrowRight'?1:-1);}if(event.key==='Escape'){event.preventDefault();setTurn(false);}});
-    card.addEventListener('pointerdown',e=>{if(photos.length<2||e.button!==0)return;drag={id:e.pointerId,x:e.clientX,y:e.clientY,active:false};});
-    card.addEventListener('pointermove',e=>{if(!drag||drag.id!==e.pointerId)return;const dx=e.clientX-drag.x,dy=e.clientY-drag.y;if(!drag.active&&Math.max(Math.abs(dx),Math.abs(dy))>9&&Math.abs(dx)>Math.abs(dy)){drag.active=true;card.setPointerCapture?.(e.pointerId);}if(drag.active)e.preventDefault();});
-    function endDrag(e){if(!drag||e.pointerId!==drag.id)return;const dx=e.clientX-drag.x,active=drag.active;drag=null;if(active){suppressUntil=performance.now()+350;if(Math.abs(dx)>42)go(dx<0?1:-1);}};
-    card.addEventListener('pointerup',endDrag);card.addEventListener('pointercancel',e=>{if(drag?.id===e.pointerId)drag=null;});
-    render();
+    function returnPage(){
+      const pose=getComputedStyle(mount).transform;resetPose();
+      motion(mount,[{transform:pose==='none'?'translateX(0)':pose},{transform:'translateX(0)'}],{duration:420,easing:'cubic-bezier(.16,1,.3,1)'});
+    }
+    async function go(step){
+      if(!step||photos.length<2)return;
+      const destination=(requestedIndex+step+photos.length)%photos.length,request=++ticket;
+      requestedIndex=destination;book.setAttribute('aria-busy','true');
+      try{await prepareImage(photos[destination].src);}catch(_){
+        if(request===ticket){requestedIndex=index;book.removeAttribute('aria-busy');returnPage();announce('Não foi possível carregar esta fotografia. Tenta novamente.',true);}return;
+      }
+      if(request!==ticket)return;
+      book.removeAttribute('aria-busy');
+      if(destination===index){resetPose();return;}
+      const direction=Math.sign(step),pose=getComputedStyle(mount).transform;
+      stopMotion();
+      const oldPage=canAnimate()?mount.cloneNode(true):null;
+      if(oldPage){
+        oldPage.removeAttribute('id');$$('[id]',oldPage).forEach(el=>el.removeAttribute('id'));
+        oldPage.classList.add('book-turning-sheet');oldPage.setAttribute('aria-hidden','true');oldPage.setAttribute('inert','');
+        oldPage.style.removeProperty('--page-peek');oldPage.style.transformOrigin=direction>0?'left center':'right center';
+      }
+      index=destination;resetPose();render(true);
+      if(oldPage){
+        sheet=oldPage;surface.append(oldPage);
+        const animation=motion(oldPage,[
+          {transform:pose==='none'?'translateX(0) scaleX(1)':pose,opacity:1},
+          {transform:`translateX(${-direction*5}px) skewY(${direction*2.4}deg) scaleX(.5)`,opacity:1,offset:.55},
+          {transform:`translateX(${-direction*9}px) skewY(${direction*4}deg) scaleX(.015)`,opacity:0}
+        ],{duration:780,easing:'cubic-bezier(.4,0,.18,1)',fill:'forwards'});
+        const clean=()=>{oldPage.remove();if(sheet===oldPage)sheet=null;};
+        if(animation?.finished)animation.finished.then(clean,clean);else clean();
+        motion(mount,[{opacity:.45,transform:`translateX(${direction*12}px)`},{opacity:1,transform:'none'}],{duration:850,easing:'cubic-bezier(.16,1,.3,1)'});
+        motion(story,[{opacity:0,transform:'translateY(10px)'},{opacity:1,transform:'none'}],{duration:650,delay:90,easing:'cubic-bezier(.16,1,.3,1)',fill:'backwards'});
+      }
+    }
+    previous.addEventListener('click',()=>go(-1));next.addEventListener('click',()=>go(1));
+    surface.addEventListener('click',event=>{if(performance.now()<suppressUntil){event.preventDefault();return;}go(1);});
+    book.addEventListener('keydown',event=>{
+      if(event.key==='ArrowLeft'||event.key==='ArrowRight'){event.preventDefault();go(event.key==='ArrowRight'?1:-1);}
+      if(event.key==='Home'||event.key==='End'){event.preventDefault();go((event.key==='Home'?0:photos.length-1)-requestedIndex);}
+    });
+    surface.addEventListener('dragstart',event=>event.preventDefault());
+    function startDrag(id,x,y,event){
+      if(drag||photos.length<2)return;
+      cancelRequest();stopMotion();drag={id,x,y,dx:0,active:false,lastX:x,lastTime:performance.now(),velocity:0};
+      if(event.type==='mousedown'||event.pointerType==='mouse'){event.preventDefault();surface.focus({preventScroll:true});}
+    }
+    function moveDrag(id,x,y,event){
+      if(!drag||drag.id!==id)return;
+      const dx=x-drag.x,dy=y-drag.y;
+      if(!drag.active){
+        if(Math.max(Math.abs(dx),Math.abs(dy))<9)return;
+        if(Math.abs(dy)>Math.abs(dx)*1.1){endDrag(true);return;}
+        if(Math.abs(dx)<Math.abs(dy)*1.1)return;
+        drag.active=true;surface.classList.add('is-dragging');
+        if(event.pointerId!==undefined)try{surface.setPointerCapture(id);}catch(_){}
+      }
+      if(event.cancelable)event.preventDefault();drag.dx=dx;
+      const now=performance.now();drag.velocity=(x-drag.lastX)/Math.max(1,now-drag.lastTime);drag.lastX=x;drag.lastTime=now;
+      if(!reduce.matches)mount.style.setProperty('--page-peek',clamp(dx*.14,-19,19)+'px');
+    }
+    function endDrag(cancelled=false){
+      if(!drag)return;const former=drag;drag=null;
+      try{if(surface.hasPointerCapture?.(former.id))surface.releasePointerCapture(former.id);}catch(_){}
+      surface.classList.remove('is-dragging');
+      const flick=Math.abs(former.dx)>18&&performance.now()-former.lastTime<100&&Math.abs(former.velocity)>.5;
+      if(former.active){suppressUntil=performance.now()+400;if(!cancelled&&(Math.abs(former.dx)>42||flick))go(former.dx<0?1:-1);else returnPage();}else resetPose();
+    }
+    if(window.PointerEvent){
+      surface.addEventListener('pointerdown',event=>{if(event.isPrimary===false){endDrag(true);return;}if(event.button===0)startDrag(event.pointerId,event.clientX,event.clientY,event);});
+      window.addEventListener('pointermove',event=>{if(event.pointerType==='mouse'&&event.buttons===0){endDrag(true);return;}moveDrag(event.pointerId,event.clientX,event.clientY,event);},{passive:false});
+      window.addEventListener('pointerup',event=>{if(drag?.id===event.pointerId)endDrag();});
+      window.addEventListener('pointercancel',event=>{if(drag?.id===event.pointerId)endDrag(true);});
+      surface.addEventListener('lostpointercapture',event=>{if(drag?.id===event.pointerId)endDrag(true);});
+    }else{
+      let lastTouch=-Infinity;
+      surface.addEventListener('mousedown',event=>{if(event.button===0&&performance.now()-lastTouch>800)startDrag('mouse',event.clientX,event.clientY,event);});
+      window.addEventListener('mousemove',event=>{if(event.buttons===0){endDrag(true);return;}moveDrag('mouse',event.clientX,event.clientY,event);});
+      window.addEventListener('mouseup',()=>{if(drag?.id==='mouse')endDrag();});
+      surface.addEventListener('touchstart',event=>{lastTouch=performance.now();if(event.touches.length!==1){endDrag(true);return;}const point=event.touches[0];startDrag(point.identifier,point.clientX,point.clientY,event);},{passive:true});
+      window.addEventListener('touchmove',event=>{if(!drag)return;if(event.touches.length!==1){endDrag(true);return;}const point=Array.from(event.touches).find(t=>t.identifier===drag.id);if(point)moveDrag(point.identifier,point.clientX,point.clientY,event);},{passive:false});
+      ['touchend','touchcancel'].forEach(type=>window.addEventListener(type,event=>{lastTouch=performance.now();if(drag&&Array.from(event.changedTouches).some(t=>t.identifier===drag.id))endDrag(type==='touchcancel');},{passive:true}));
+    }
+    function clearInteraction(){endDrag(true);cancelRequest();stopMotion();}
+    window.addEventListener('blur',clearInteraction);
+    window.addEventListener('resize',clearInteraction,{passive:true});
+    document.addEventListener('visibilitychange',()=>{if(document.hidden)clearInteraction();});
+    listenMedia(reduce,clearInteraction);
+    function arrive(){
+      const now=performance.now();if(now-lastArrival<1700)return;lastArrival=now;
+      clearInteraction();
+      motion(book,[{opacity:.2,transform:'translateY(23px)'},{opacity:1,transform:'none'}],{duration:1100,easing:'cubic-bezier(.16,1,.3,1)'});
+      motion($('.book-left'),[{opacity:.5,transform:'translateX(10px)'},{opacity:1,transform:'none'}],{duration:1100,easing:'cubic-bezier(.16,1,.3,1)'});
+      motion($('.book-right'),[{opacity:0,transform:'translateX(-18px)'},{opacity:1,transform:'none'}],{duration:1050,delay:130,easing:'cubic-bezier(.16,1,.3,1)',fill:'backwards'});
+    }
+    section.addEventListener('album:arrive',arrive);
+    if(window.IntersectionObserver){const observer=new IntersectionObserver(items=>{if(items.some(item=>item.isIntersecting)){arrive();observer.disconnect();}},{threshold:.12,rootMargin:'0px 0px -20px 0px'});observer.observe(book);}
+    photos.forEach((photo,i)=>{
+      const button=document.createElement('button');button.type='button';button.className='album-bookmark';button.setAttribute('aria-label','Ver fotografia '+(i+1)+': '+photo.label);
+      const img=document.createElement('img');img.src=photo.src;img.alt='';img.loading='lazy';img.decoding='async';img.draggable=false;
+      const number=document.createElement('span');number.textContent=String(i+1).padStart(2,'0');button.append(img,number);button.addEventListener('click',()=>go(i-requestedIndex));bookmarks.append(button);
+    });
+    const envelopeLink=$('#envelope-album');envelopeLink.hidden=false;$('.card-actions').classList.add('has-envelope-album');
+    $$('.envelope-photo',envelopeLink).forEach((frame,i)=>{frame.hidden=i>=photos.length;const img=$('img',frame);if(photos[i]){img.src=photos[i].src;img.hidden=false;$('svg',frame).setAttribute('hidden','');}});
+    const preview=photos.every(photo=>/^quinta-0[123]\.png$/i.test(photo.src));$('#album-preview-label').hidden=!preview;
+    previous.disabled=next.disabled=surface.disabled=photos.length<2;bookmarks.hidden=photos.length<2;
+    $('.book-photo-action').hidden=photos.length<2;
+    if(photos.length<2){$('#album-hint').textContent='Uma fotografia. Tanta coisa para guardar.';surface.setAttribute('aria-label',photos[0].alt);}
+    image.addEventListener('error',()=>{placeholder.hidden=false;placeholder.textContent='Não foi possível carregar esta fotografia.';});
+    image.addEventListener('load',()=>{placeholder.hidden=true;});
+    render();window.dispatchEvent(new Event('album:ready'));if(!window.IntersectionObserver)arrive();
   });
+
 
   module('revelações', () => {
-    const items=$$('[data-reveal]'); let observer;
-    function setup(){observer?.disconnect();items.forEach(el=>el.classList.remove('reveal-pending'));if(reduce.matches||!window.IntersectionObserver)return;
-      observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');observer.unobserve(e.target);}}),{threshold:.09,rootMargin:'0px 0px -24px 0px'});
-      items.forEach(el=>{if(!el.classList.contains('is-visible')){el.classList.add('reveal-pending');observer.observe(el);}});
+    const items=$$('[data-reveal]');let revealObserver,visibilityObserver,frame=0,last=0;
+    const ambience=$$('.hero-stage,.message,.date-section,.venue-chapter,.memory-section,.music-section,.route-section,.faq-section');
+    const pictures=$$('.gallery-main img').map(image=>({image,surface:image.parentElement,current:0}));
+    function setup(){
+      revealObserver?.disconnect();visibilityObserver?.disconnect();cancelAnimationFrame(frame);frame=0;
+      const order=new Map();
+      items.forEach(el=>{const parent=el.closest('.venue-chapter,.section')||el.parentElement,n=order.get(parent)||0;order.set(parent,n+1);el.style.setProperty('--reveal-delay',Math.min(n,2)*85+'ms');el.classList.remove('reveal-pending');});
+      if(reduce.matches||!window.IntersectionObserver){
+        items.forEach(el=>el.classList.add('is-visible'));ambience.forEach(el=>el.classList.add('motion-in-view'));
+        pictures.forEach(p=>{p.current=0;p.image.style.setProperty('--photo-y','0px');});return;
+      }
+      revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');revealObserver.unobserve(entry.target);}}),{threshold:.07,rootMargin:'0px 0px -18px 0px'});
+      items.forEach(el=>{if(!el.classList.contains('is-visible')){el.classList.add('reveal-pending');revealObserver.observe(el);}});
+      visibilityObserver=new IntersectionObserver(entries=>entries.forEach(entry=>entry.target.classList.toggle('motion-in-view',entry.isIntersecting)),{rootMargin:'80px 0px'});
+      ambience.forEach(el=>visibilityObserver.observe(el));schedule();
     }
+    function paint(now){
+      frame=0;if(reduce.matches||document.hidden)return;
+      const dt=Math.min(48,now-(last||now-16));last=now;let moving=false;
+      pictures.forEach(p=>{
+        const rect=p.surface.getBoundingClientRect();if(rect.bottom<0||rect.top>innerHeight)return;
+        const target=clamp((rect.top+rect.height/2-innerHeight/2)/innerHeight,-.6,.6)*15;
+        p.current+=(target-p.current)*(1-Math.exp(-dt/95));
+        if(Math.abs(target-p.current)<.025)p.current=target;else moving=true;
+        p.image.style.setProperty('--photo-y',p.current.toFixed(3)+'px');
+      });
+      if(moving)frame=requestAnimationFrame(paint);
+    }
+    function schedule(){if(!frame&&!reduce.matches&&!document.hidden){last=0;frame=requestAnimationFrame(paint);}}
+    addEventListener('scroll',schedule,{passive:true});addEventListener('resize',schedule,{passive:true});
+    document.addEventListener('visibilitychange',()=>{document.documentElement.classList.toggle('motion-paused',document.hidden);if(document.hidden){cancelAnimationFrame(frame);frame=0;}else schedule();});
     setup();listenMedia(reduce,setup);
-    let pending=false;const photos=$$('.gallery-main img');
-    function parallax(){pending=false;if(reduce.matches)return;photos.forEach(img=>{const r=img.parentElement.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight){const offset=clamp((r.top+r.height/2-innerHeight/2)/innerHeight,-.6,.6)*15;img.style.setProperty('--photo-y',offset+'px');}});}
-    addEventListener('scroll',()=>{if(!pending){pending=true;requestAnimationFrame(parallax);}},{passive:true});
   });
 
-  // Gold foil: horizontal rubbing reveals a note; vertical gestures keep scrolling.
+
   module('dourado', () => {
     const canvas=$('.foil-canvas'),ctx=canvas.getContext('2d'),shell=$('.foil-shell'),keep=$('.keepsake'),button=$('#reveal-secret'),hint=$('#foil-hint'),secret=$('#secret-message');
     if(!ctx)return;let w=0,h=0,strokes=[],visited=new Set(),pointer=null,revealed=false;
@@ -1110,6 +1362,8 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
 
   module('brinde', () => {
     const canvas=$('.confetti'),ctx=canvas.getContext('2d'),button=$('#celebrate');if(!ctx)return;let animation=0;
+    function stop(){cancelAnimationFrame(animation);animation=0;canvas.hidden=true;ctx.clearRect(0,0,canvas.width,canvas.height);}
+    document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});listenMedia(reduce,()=>{if(reduce.matches)stop();});
     button.addEventListener('click',()=>{
       playTone('open');if(reduce.matches){text('#share-status','Aos encontros, aos abraços e às memórias que vamos criar. Até 6 de maio!');return;}
       cancelAnimationFrame(animation);const dpr=Math.min(devicePixelRatio||1,2),w=innerWidth,h=innerHeight;canvas.width=w*dpr;canvas.height=h*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);canvas.hidden=false;
@@ -1141,7 +1395,7 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
       const r=main.getBoundingClientRect(),width=main.clientWidth||innerWidth,height=main.scrollHeight;
       svg.setAttribute('viewBox',`0 0 ${width} ${height}`);
       const x=Math.max(10,($('.wrap').getBoundingClientRect().left||22)-21);
-      const points=['#mensagem','#memoria','#data','#linha-do-tempo','#igreja','#quinta','#trajeto','#musica','#perguntas'].map(s=>{const b=$(s).getBoundingClientRect();return b.top-r.top+32;});
+      const points=['#mensagem','#antes-do-sim','#memoria','#data','#linha-do-tempo','#igreja','#quinta','#trajeto','#musica','#perguntas'].filter(s=>!$(s).hidden).map(s=>{const b=$(s).getBoundingClientRect();return b.top-r.top+32;});
       let d=`M${x} ${points[0]}`;
       points.slice(1).forEach(y=>{d+=` L${x} ${y-18} C${x+18} ${y-18} ${x+18} ${y+18} ${x} ${y+18}`;});
       path.setAttribute('d',d);total=Math.max(1,points.at(-1)-points[0]);update();
@@ -1161,19 +1415,21 @@ O abraço fica guardado para ti.</p></div><canvas class="foil-canvas" aria-hidde
 
   module('perguntas animadas', () => {
     $$('.questions details').forEach(detail=>{
-      const summary=$('summary',detail);let animation=null,wanted=detail.open;
-      summary.addEventListener('click',e=>{
+      const summary=$('summary',detail);let animation=null,wanted=detail.open,version=0;
+      function finish(){++version;animation?.cancel();animation=null;detail.open=wanted;detail.style.height='';detail.style.overflow='';}
+      summary.addEventListener('click',event=>{
         if(reduce.matches||!detail.animate)return;
-        e.preventDefault();const start=detail.getBoundingClientRect().height;
-        wanted=!wanted;animation?.cancel();detail.style.height='';detail.style.overflow='hidden';
-        if(wanted)detail.open=true;
-        const end=wanted?detail.getBoundingClientRect().height:summary.getBoundingClientRect().height;
-        animation=detail.animate([{height:start+'px'},{height:end+'px'}],{duration:440,easing:'cubic-bezier(.2,.7,.2,1)'});
-        animation.onfinish=()=>{detail.open=wanted;detail.style.height='';detail.style.overflow='';animation=null;};
+        event.preventDefault();const from=detail.getBoundingClientRect().height,ticket=++version;
+        wanted=!wanted;animation?.cancel();detail.style.height='';detail.style.overflow='hidden';if(wanted)detail.open=true;
+        const to=wanted?detail.getBoundingClientRect().height:summary.getBoundingClientRect().height;
+        animation=detail.animate([{height:from+'px'},{height:to+'px'}],{duration:Math.min(480,280+Math.abs(to-from)*.35),easing:'cubic-bezier(.2,.72,.24,1)'});
+        animation.onfinish=()=>{if(ticket!==version)return;animation=null;detail.open=wanted;detail.style.height='';detail.style.overflow='';};
       });
       detail.addEventListener('toggle',()=>{if(!animation)wanted=detail.open;});
+      listenMedia(reduce,()=>{if(reduce.matches)finish();});addEventListener('resize',()=>{if(animation)finish();},{passive:true});
     });
   });
+
 
   module('recordação', () => {
     async function drawLogo(ctx,id,x,y,width,height,tint){
