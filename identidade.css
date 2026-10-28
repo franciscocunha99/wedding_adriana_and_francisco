@@ -1,0 +1,132 @@
+/* Adriana & Francisco · identidade revista, 06.05.2028.
+   Mantém o comportamento do convite; concentra aqui as decisões visuais. */
+:root{--navy:#102637;--navy-light:#203D51;--gold:#B7975E;--gold-light:#DDC799;--cream:#F7F4ED;--paper:#FFFCF5;--fog:#E9EFF0;--sage:#E8ECE4;--ink:#233C49;--muted:#606D6B;--line:#b7975e45}
+.brand.brand-names{width:auto;height:auto;border:0;border-radius:0;font:italic 23px/1.2 var(--serif);text-decoration:none;letter-spacing:-.02em;color:var(--paper)}
+.brand-names span{color:var(--gold-light);padding-inline:3px}
+.hero-stage{background:var(--navy)}
+.hero-stage::before,.hero-stage::after,.scene::after,.message::before,.venue-chapter::after,.final-letter::before,.date-section .month::after,.envelope-pocket::after,.route-section::after{display:none!important}
+.ambient-lines{opacity:.085}.story-thread path{opacity:.2}.gold-thread{opacity:.5}
+.envelope-back{background:linear-gradient(140deg,var(--navy-light),var(--navy));border-color:#b7975e66;box-shadow:0 24px 50px #07172366}
+.envelope-back::before{background:none;border-color:#ddc79933;box-shadow:none}
+.envelope-back::after{display:none}.envelope-ribbon{display:none!important}
+.fold-left{background:linear-gradient(130deg,#29475b,var(--navy-light))}.fold-right{background:linear-gradient(230deg,#29475b,var(--navy-light))}.fold-bottom{background:linear-gradient(170deg,#314f61,var(--navy-light))}
+.flap-face{background:linear-gradient(160deg,#355267,var(--navy-light))}.flap-inside{background:var(--navy-light)}
+.seal{background:radial-gradient(ellipse at 30% 25%,var(--gold-light),var(--gold));box-shadow:0 5px 12px #020d2033,inset 0 0 0 5px #b7975e,inset 0 0 0 6px #ddc799;gap:0}
+.seal::after{animation:none;border-color:#ddc79944}.seal-word{font-size:9px;letter-spacing:.2em;color:var(--navy)}
+.card-front{background:var(--paper);padding:30px 34px 25px}
+.card-front::before{border-color:#b7975e70;inset:12px}.card-front::after{display:none}
+.card-front .card-monogram{width:110px;height:83px;margin:0 auto 15px;filter:none}
+.card-front h1.card-wordmark{width:320px;max-width:100%;height:59px;margin:13px auto 18px;line-height:1}
+.card-announcement{font-size:18px;color:var(--muted)}.card-date{margin:18px auto 15px;padding:13px 0}.card-date .day{color:var(--gold)}.card-date small{color:var(--muted)}
+.card-signature{letter-spacing:.15em;color:#816a3e}.card-itinerary{font-size:14px}
+.back-photo{border-radius:2px;background:var(--navy)}.back-monogram .af-mark{width:80px;height:170px;filter:none!important}.back-monogram:hover .af-mark{filter:none!important}.back-monogram .monogram-aura{background:radial-gradient(circle,#ddc79922,transparent 70%)}
+.memory-section{background:var(--paper)}.memory-panel{gap:70px}.memory-emblem{width:310px;height:330px;border:0;border-radius:0;background:none;box-shadow:none;animation:none;transform:none}
+.memory-emblem::before,.memory-emblem::after{display:none}.memory-emblem .af-mark{width:100%;height:100%;margin:0;filter:none}
+.memory-copy>p:not(.kicker){color:var(--muted);font-size:14px;line-height:1.9}
+.memory-note{font-size:10px!important}.memory-cta{border-radius:2px;background:var(--gold-light);color:var(--navy)}
+.couple-album{background:radial-gradient(ellipse at 50% 38%,#f7f7f0,#e8efeb 70%,#e2ebe8)}.album-book{background:var(--navy);box-shadow:0 24px 50px #10263720}
+.book-mount{box-shadow:none;border:0;padding:9px}.photo-corner{display:none}.book-number{color:#b7975e70}.book-signoff{margin-top:24px}.book-signoff p{font-size:13px}.book-ribbon{background:var(--gold)}
+.venue-chapter.celebration{background:var(--sage)}.place-gallery .photo-button{box-shadow:0 10px 24px #1026370d}.place-gallery .photo-button::before{display:none}.place-gallery .photo-button img{filter:none}
+.route-section{background:var(--sage)}.faq-section{background:#fff}.music-section{background:var(--navy)}
+.music-disc{background:var(--navy-light);color:var(--gold-light);box-shadow:0 0 0 12px #ddc79907,inset 0 0 0 7px #ddc79910;border-color:#ddc79970}.music-disc span{color:var(--gold-light)}
+.closing-emblem{border:0;border-radius:0;width:118px;height:118px}.closing-emblem>.af-mark{width:100%;height:100%;filter:url(#af-navy)}
+
+@media(max-width:760px){.memory-panel{gap:30px}.memory-emblem{width:265px;height:283px}.memory-emblem .af-mark{width:100%;height:100%;margin:0}.brand.brand-names{font-size:20px}.book-signoff{margin-top:18px}}
+@media(max-width:600px){.card-front{padding:25px 26px 23px}.card-front .card-monogram{width:99px;height:75px;margin-bottom:12px}.card-front h1.card-wordmark{width:290px;height:54px;margin:12px auto 15px}.card-announcement{font-size:17px}.card-date{margin:16px auto 13px;padding:12px 0}.card-signature{font-size:7px;margin-top:17px}.brand.brand-names{font-size:19px}.site-header{gap:14px}.header-link{font-size:8px;letter-spacing:.06em}.back-monogram .af-mark{width:72px;height:150px}}
+@media(prefers-reduced-motion:reduce){.memory-emblem,.music-disc,.music-disc::before,.music-disc::after{animation:none!important}.hero-stage::before,.hero-stage::after{animation:none!important}}
+@media print{.couple-album,.memory-section{display:none!important}}
+/* Cartão ampliado e verso com contraste e espaço reservados. */
+.letter{width:min(560px,100%)}
+.motion-ready .letter{width:min(560px,96%)}
+.card-front{min-height:680px;padding:42px 42px 38px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.card-front .card-monogram{width:138px;height:104px;margin-bottom:18px}
+.card-front h1.card-wordmark{width:390px;height:70px;margin:15px auto 20px}
+.card-front .card-date{width:100%;margin:20px 0 18px}
+.card-front .card-announcement{font-size:22px}
+.card-front .card-itinerary{font-size:16px;gap:20px}
+.card-front .card-itinerary span{max-width:160px}
+.card-front .card-signature{margin-top:24px}
+.card-back{padding:30px 34px 28px;gap:18px;display:grid;grid-template-rows:auto minmax(190px,1fr) auto 62px auto}
+.card-back .back-photo{min-height:190px;flex:initial;border:1px solid #ddc79940;border-radius:2px}
+.card-back .back-monogram{padding:0;display:grid;place-items:center}
+.card-back .back-monogram .af-mark{width:210px;height:158px;max-width:78%;filter:none!important;stroke:none}
+.card-back .back-monogram>.monogram-hint{bottom:14px;font-size:8px;letter-spacing:.11em;opacity:1;color:var(--gold-light)}
+.card-back .back-copy{font-size:27px;line-height:1.18}
+.card-back .back-secret{grid-row:4;margin:0;font-size:24px;line-height:1.2;align-self:center}
+.card-back>.kicker:last-child{grid-row:5}
+.closing-emblem{width:min(310px,80vw);height:auto;aspect-ratio:600/640;border:0;border-radius:0}
+.closing-emblem>.af-mark{width:100%;height:100%;filter:none;stroke:none}
+@media(max-width:600px){
+ .card-front{min-height:620px;padding:34px 25px 30px}
+ .card-front .card-monogram{width:124px;height:94px;margin-bottom:16px}
+ .card-front h1.card-wordmark{width:100%;height:58px;margin:15px auto 18px}
+ .card-front .card-announcement{font-size:20px}
+ .card-front .card-itinerary{font-size:14px;gap:12px}
+ .card-back{padding:25px 24px;gap:16px;grid-template-rows:auto minmax(175px,1fr) auto 58px auto}
+ .card-back .back-photo{min-height:175px}
+ .card-back .back-monogram .af-mark{width:184px;height:138px}
+ .card-back .back-copy{font-size:25px}
+ .card-back .back-secret{font-size:23px}
+ .closing-emblem{width:min(270px,78vw)}
+}
+@media(max-width:359px){.card-front{padding-inline:20px}.card-back{padding-inline:20px}.card-front .card-itinerary{font-size:13px}}
+
+/* Centro do símbolo independente da legenda e dos efeitos de luz. */
+.card-back .back-monogram .af-mark{align-self:center;justify-self:center;margin:0}
+.card-back .back-monogram>.monogram-aura,
+.card-back .back-monogram>.monogram-trails{top:50%}
+.card-back .back-monogram:focus-visible{outline:2px solid var(--gold-light);outline-offset:-7px}
+/* Tons próximos do convite original; mudanças suaves entre capítulos. */
+.message{background:var(--cream)}
+.couple-album{background:radial-gradient(ellipse at 50% 38%,#f7f7f0,#e8efeb 70%,#e2ebe8)}
+.memory-section{background:linear-gradient(180deg,#FFFCF5 0%,#eef0ea 100%)}
+.date-section{background:var(--navy)}
+.timeline-section{background:var(--paper)}
+.places{background:var(--cream);color:var(--ink);padding-block:65px 55px}
+.places .kicker,.places .section-title em{color:#92723e}
+.places .section-heading>p:last-child:not(.kicker){color:var(--muted)}
+.places .section-heading{margin-bottom:0}
+.venue-chapter.ceremony{background:var(--paper)}
+.venue-chapter.celebration{background:var(--sage)}
+.route-section{background:#F4F3EB}
+.music-section{background:var(--navy)}
+.faq-section{background:#fff}
+.closing-section{background:var(--cream)}
+/* Pormenores discretos: filetes, imagens emolduradas e estados de interação. */
+.memory-copy .kicker::before,.music-copy .kicker::before{content:'';display:block;width:38px;height:1px;background:var(--gold);margin-bottom:20px}
+.place-gallery .photo-button{border:1px solid #b7975e55;box-shadow:0 12px 28px #1026370d}
+.faq-section .questions{margin-bottom:24px}
+.faq-section .questions details{padding-inline:18px;transition:background-color .25s ease}
+.faq-section .questions details,.faq-section .questions details[open],.faq-section .questions summary{background:transparent}
+.faq-section .questions summary{gap:24px}
+.final-letter::after{content:'';display:block;width:48px;height:1px;background:var(--gold);margin:30px auto 0}
+.calendar-save:focus-visible,.outline-button:focus-visible,.text-button:focus-visible{outline:2px solid var(--gold);outline-offset:5px}
+@media(max-width:600px){.places{padding-block:48px 40px}.faq-section .questions details{padding-inline:12px}.memory-copy .kicker::before,.music-copy .kicker::before{margin-bottom:16px}}
+@media(prefers-reduced-motion:reduce){.faq-section .questions details{transition:none}}
+@media print{.places,.date-section,.music-section{background:white;color:var(--ink)}.places .kicker,.places .section-title em,.places .section-heading>p:last-child:not(.kicker){color:var(--ink)}}
+
+/* O centro do desenho não depende do botão, da legenda nem da transformação animada. */
+.card-back .back-monogram{display:block;padding:0}
+.card-back .back-logo-center{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;z-index:2}
+.card-back .back-logo-center .af-mark{display:block;width:230px;height:172.5px;max-width:78%;margin:0;align-self:center;justify-self:center}
+.card-front .card-monogram{margin-bottom:26px}
+.card-front h1.card-wordmark{margin-block:21px 26px}
+.card-front .card-date{margin-block:28px 25px;padding-block:18px}
+.card-front .card-signature{margin-top:30px}
+.card-back{padding-block:34px;gap:22px;grid-template-rows:auto minmax(250px,1fr) auto 68px auto}
+.card-back .back-photo{min-height:250px;box-shadow:inset 0 0 0 8px #ddc79908}
+.card-back .back-monogram>.monogram-hint{bottom:18px;letter-spacing:.14em}
+.card-face::before{inset:12px;border-color:#b7975e55}
+.places{border-block:1px solid #b7975e20}
+.memory-emblem{filter:drop-shadow(0 8px 18px #10263708)}
+.venue-chapter .place-description{max-width:48ch}
+@media(max-width:600px){
+ .card-back{padding-block:28px;gap:19px;grid-template-rows:auto minmax(230px,1fr) auto 62px auto}
+ .card-back .back-photo{min-height:230px}
+ .card-back .back-logo-center .af-mark{width:204px;height:153px}
+ .card-front .card-monogram{margin-bottom:22px}
+ .card-front h1.card-wordmark{margin-block:18px 22px}
+ .card-front .card-date{margin-block:24px 21px;padding-block:16px}
+ .card-front .card-signature{margin-top:26px}
+}
+@media print{.card-front{min-height:0}.card-front .card-date{margin-block:18px}}

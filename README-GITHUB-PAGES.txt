@@ -1,9 +1,12 @@
-CONFIGURAÇÃO GITHUB PAGES
+ATUALIZAR NO GITHUB PAGES
 
-Este pacote está preparado para:
-Settings > Pages > Build and deployment > Deploy from a branch
-Branch: main (ou master)
-Folder: /docs
+1. Coloca TODO o conteúdo desta pasta na raiz do repositório, incluindo
+   index.html, identidade.css, imagens, áudio, fontes e .nojekyll.
+   Não coloques apenas o ZIP nem cries uma pasta extra em volta dos ficheiros.
+2. Settings > Pages > Build and deployment > Deploy from a branch.
+3. Branch: main (ou a branch que utilizas). Folder: / (root).
+4. Guarda e aguarda a publicação automática do GitHub.
+5. Abre o site no telemóvel e computador e testa as interações.
 
-Todos os ficheiros do site estão dentro da pasta docs/.
-O ficheiro docs/.nojekyll impede o GitHub Pages de tentar processar o convite com Jekyll.
+Este pacote usa a raiz do repositório, não uma pasta docs/.
+Nenhuma publicação foi realizada durante esta revisão.

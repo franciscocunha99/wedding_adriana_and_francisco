@@ -1,12 +1,41 @@
-CONVITE ADRIANA & FRANCISCO
+ADRIANA & FRANCISCO — CONVITE REVISTO
+6 de maio de 2028
 
-Todos os ficheiros estão na mesma pasta.
-Para usar no GitHub Pages, coloca o conteúdo desta pasta no repositório e mantém o nome index.html.
+COMO ABRIR
+Extrai o ZIP inteiro. Abre index.html na pasta extraída.
+Mantém o HTML, identidade.css, imagens, fontes e áudio juntos.
+Para partilha, calendário, áudio e download funcionarem no contexto previsto,
+coloca o conjunto num alojamento estático HTTPS (por exemplo GitHub Pages).
 
-Ficheiros principais:
-- index.html
-- musica-convite.mp3
-- imagens .png
-- fontes .woff
+O QUE MUDOU
+- Fundos revistos com base no original: marfim, papel e verdes suaves.
+- Cartão mais alto (680 px em computador, 620 px em telemóvel, ajustado ao ecrã).
+- Monograma do verso num contentor próprio centrado, independente da animação.
+- Logótipo do verso centrado sem depender da legenda, com efeitos alinhados.
+- Fundos alternados em todas as secções consecutivas.
+- Pormenores de molduras, filetes e estados de interação refinados.
+- Paleta marinho, dourado, marfim, azul névoa e verde suave.
+- Monogramas vetoriais atualizados, com F legível e oliveiras leves.
+- Um monograma por elemento; envelope e elementos de apoio mais discretos.
+- Nova imagem de partilha e favicon vetorial.
+- Recordação descarregável com assinatura completa e data.
+- Cartão ampliado, verso com monograma dourado legível e logo completo no fecho.
+- Secção dos brindes removida.
+- Fotografias reais da igreja e quinta em WebP; originais PNG conservados.
+- Tipografia, espaçamentos, fundos e ornamentos mais leves.
 
-Não alteres os nomes dos ficheiros sem atualizar as referências no index.html.
+IMAGENS
+As fotografias dos locais mantêm as fontes e créditos do site.
+As assinaturas SVG e PNG estão disponíveis nesta pasta.
+
+CONTEÚDO A CONFIRMAR
+Horários e ligação de confirmação de presença não foram inventados.
+Revê as definições no index.html quando estes dados estiverem fechados.
+A imagem de partilha usa o endereço público já presente no ficheiro original;
+se mudares o domínio, atualiza canonical, og:url e as URLs de imagem.
+
+VERIFICAÇÃO
+JavaScript validado sintaticamente; referências locais e SVG verificados.
+A pré-visualização no navegador estava indisponível neste ambiente.
+Antes de publicar, confirma em telemóvel e computador: abertura do envelope,
+virar o postal, música, galerias, calendário e download da recordação.
